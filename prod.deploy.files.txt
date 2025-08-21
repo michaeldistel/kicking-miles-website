@@ -1,0 +1,3 @@
+build/***
+prod.compose.yml
+/nginx/***
