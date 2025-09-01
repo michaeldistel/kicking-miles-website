@@ -2,31 +2,35 @@
 
 ## Project Overview
 
-SvelteKit-based personal website with static site generation, Docker containerization, and remote deployment pipeline. Built for simplicity with comprehensive privacy/cookie consent management and production-ready infrastructure.
+SvelteKit-based personal travel website documenting kickboard adventures across countries. Features static site generation, Docker containerization, and remote deployment pipeline. Built for simplicity and production-ready infrastructure.
 
 ## Architecture & Stack
 
 - **Framework**: SvelteKit with `@sveltejs/adapter-static` for static site generation
-- **Styling**: Tailwind CSS with dark theme (`bg-slate-900 text-gray-100`)
+- **Styling**: Tailwind CSS with custom light theme and flat design aesthetic
+- **Colors**: Custom palette - #7EB300 (green), #C5007C (magenta), #636363 (dark gray), #7E797C (light gray)
 - **Build**: Vite, TypeScript, pnpm package manager
 - **Deployment**: Docker + nginx, deployed to homelab via rsync + Docker Compose
-- **Analytics**: Google Tag Manager with GDPR-compliant consent management
 
 ## Key Development Patterns
 
 ### Routing & Page Structure
 
 - Uses SvelteKit file-based routing in `src/routes/`
-- Global layout in `+layout.svelte` includes Footer, CookieBanner, and canonical URLs
+- Multi-adventure structure: `/trips/japan-2017/`, `/trips/korea-2025/`, etc.
+- Daily journal posts: `/trips/[adventure]/day-XX-[location]/`
+- Global layout in `+layout.svelte` includes Footer and canonical URLs
 - All pages prerendered via `export const prerender = true` in `+layout.ts`
 - Error pages: `404/+page.svelte` and `50x/+page.svelte` for custom error handling
 
 ### Styling Conventions
 
-- Consistent container pattern: `<div class="container mx-auto px-4 py-8 max-w-4xl">`
-- Typography hierarchy: `text-3xl sm:text-4xl font-bold` for h1, `text-xl sm:text-2xl font-semibold` for h2
-- Link styling: `font-medium text-blue-600 dark:text-blue-500 hover:underline` with `target="_blank" rel="noopener noreferrer"`
-- Responsive text: `md:text-xl sm:text-base` pattern throughout
+- **Flat design**: No gradients, shadows, or depth effects
+- **Container pattern**: `<div class="container mx-auto px-4 py-16 max-w-4xl">`
+- **Typography**: Light font weights (`font-light`), generous spacing (`tracking-wide`)
+- **Colors**: Inline styles using custom palette, avoid Tailwind color classes
+- **Images**: WebP format, organized by adventure and day in `/static/images/`
+- **Navigation**: Breadcrumb patterns with `←` arrows and hover effects
 
 ### Privacy & Consent Management
 
@@ -81,9 +85,8 @@ pnpm prod:deploy     # Full deployment pipeline:
 
 ### Shared Components (`src/lib/components/`)
 
-- `Footer.svelte`: Displays build commit hash, copyright, privacy links
-- `CookieBanner.svelte`: Complex consent management with gtag integration
-- `Toast.svelte`: User notifications (referenced but check if used)
+- `Footer.svelte`: Displays build commit hash and copyright
+- Components are minimal and focused on content presentation
 
 ### Page Content Patterns
 
@@ -91,12 +94,13 @@ pnpm prod:deploy     # Full deployment pipeline:
 - Section comments: `<!-- Section: Name -->`
 - External links always include security attributes
 - Contact sections with consistent email/social link styling
+- Daily posts include stats boxes, image galleries, and day-to-day navigation
+- Image organization: `/static/images/[adventure]/day-XX/` structure
 
 ## Key Files to Reference
 
 - `package.json`: Scripts show deployment pipeline and build process
 - `src/routes/+layout.svelte`: Global layout patterns and canonical URL handling
-- `src/lib/gtm.ts`: Analytics and consent management integration
 - `nginx/default.conf`: Production server configuration and security setup
 - `prod.compose.yml`: Containerization and deployment configuration
 
@@ -104,11 +108,10 @@ pnpm prod:deploy     # Full deployment pipeline:
 
 - All external links use `target="_blank" rel="noopener noreferrer"`
 - Build commit tracking via auto-generated `build-info.ts`
-- Consistent dark theme color palette throughout
-- Privacy-first approach with granular consent controls
+- Consistent light theme color palette throughout
 - Mobile-responsive design with consistent breakpoint usage
 
-When making changes, ensure they align with the existing dark theme, maintain the privacy-compliant analytics setup, and follow the established Tailwind class patterns for consistency.
+When making changes, ensure they align with the existing light theme and follow the established Tailwind class patterns for consistency.
 
 ## Writing and Content
 
@@ -119,7 +122,7 @@ Tone
 - Personal and reflective. First-person notes to self.
 - Humble and non-prescriptive. Do not tell readers what to do.
 - Curious and grounded. Practical over hype.
-- Calm and understated. Light humour is fine (“hi Mum”).
+- Calm and understated. Light humour is fine.
 
 Style
 
@@ -129,13 +132,6 @@ Style
 - Do not use em dashes; use commas or full stops.
 - Prefer specifics over abstractions: dates, numbers, concrete examples.
 - Keep paragraphs short and grouped by topic. Clear headings are fine if helpful.
-
-Content focus
-
-- VC and investment topics at the early stage: timing, founder–market fit, capital efficiency, signals vs story.
-- Web3 with emphasis on testing and stablecoins as practical rails.
-- Industrial automation and my VS Code extension at controlforge.dev (workflows, small utilities, testing, handover).
-- Travel and slow adventures, including Kicking Miles (1,800 kilometres, 35 cities, 40 days). Rockets and the physics that make them fly. Motorbike and occasional games.
 
 Principles
 

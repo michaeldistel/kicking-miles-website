@@ -5,8 +5,8 @@
     <!-- Header -->
     <div class="mb-16 text-center">
       <div class="mb-4">
-        <a href="/trips" class="text-sm font-medium tracking-wide uppercase hover:underline" style="color: #7E797C;">
-          ← All Adventures
+        <a href="/" class="text-sm font-medium tracking-wide uppercase hover:underline" style="color: #7E797C;">
+          ← Adventures
         </a>
       </div>
       <h1 class="text-4xl md:text-5xl font-light mb-4 tracking-wide" style="color: #636363;">

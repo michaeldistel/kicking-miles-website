@@ -104,34 +104,34 @@
           <!-- Photo gallery from the road -->
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             <img src="/images/japan-2017/day-01/day01-photo-01.webp" 
-                 alt="Day 1 journey photo 1" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-02.webp" 
-                 alt="Day 1 journey photo 2" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-03.webp" 
-                 alt="Day 1 journey photo 3" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-04.webp" 
-                 alt="Day 1 journey photo 4" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-05.webp" 
-                 alt="Day 1 journey photo 5" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-06.webp" 
-                 alt="Day 1 journey photo 6" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-07.webp" 
-                 alt="Day 1 journey photo 7" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-08.webp" 
-                 alt="Day 1 journey photo 8" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-09.webp" 
-                 alt="Day 1 journey photo 9" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
             <img src="/images/japan-2017/day-01/day01-photo-10.webp" 
-                 alt="Day 1 journey photo 10" 
+                 alt="" 
                  class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
           </div>
         </div>
@@ -148,9 +148,9 @@
         <div class="text-center">
           <div class="text-sm" style="color: #7E797C;">Day 1 of 40</div>
         </div>
-        <a href="/trips/japan-2017/day-02-kyushu-to-honshu" class="font-medium transition-colors duration-200" style="color: #C5007C;">
-          Day 2 →
-        </a>
+        <div class="font-medium text-sm" style="color: #7E797C;">
+          Day 2 coming soon
+        </div>
       </div>
     </div>
 

@@ -94,9 +94,9 @@
         <div class="text-center">
           <div class="text-sm" style="color: #7E797C;">Day 1 of 40</div>
         </div>
-        <a href="/blog/day-02-kyushu-to-honshu" class="font-medium transition-colors duration-200" style="color: #C5007C;">
-          Day 2 →
-        </a>
+        <div class="font-medium text-sm" style="color: #7E797C;">
+          Day 2 coming soon
+        </div>
       </div>
     </div>
 

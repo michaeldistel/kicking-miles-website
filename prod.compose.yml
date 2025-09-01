@@ -1,12 +1,12 @@
-name: michael-website
+name: kickingmiles-website
 
 networks:
   proxy:
     external: true
 
 services:
-  michael-website:
-    container_name: michael-website
+  kickingmiles-website:
+    container_name: kickingmiles-website
     image: nginx:alpine
     build: .
     restart: always
@@ -32,8 +32,8 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.docker.network=proxy'
-      - 'traefik.http.routers.michael-website.rule=Host(`michael.antonshubin.com`) || Host(`michaeldistel.com`)|| Host(`distel.me`)'
-      - 'traefik.http.routers.michael-website.entrypoints=websecure'
-      - 'traefik.http.routers.michael-website.tls=true'
-      - 'traefik.http.routers.michael-website.tls.certresolver=myresolver'
-      - 'traefik.http.services.michael-website.loadbalancer.server.port=80'
+      - 'traefik.http.routers.kickingmiles-website.rule=Host(`kickingmiles.com`)'
+      - 'traefik.http.routers.kickingmiles-website.entrypoints=websecure'
+      - 'traefik.http.routers.kickingmiles-website.tls=true'
+      - 'traefik.http.routers.kickingmiles-website.tls.certresolver=myresolver'
+      - 'traefik.http.services.kickingmiles-website.loadbalancer.server.port=80'
