@@ -1,158 +1,136 @@
+<script>
+  import TripHeader from '$lib/components/TripHeader.svelte';
+  import StatsBox from '$lib/components/StatsBox.svelte';
+  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import WeatherBox from '$lib/components/WeatherBox.svelte';
+  import ContentBox from '$lib/components/ContentBox.svelte';
+
+  const stats = [
+    { value: '70km', label: 'Distance' },
+    { value: '10hrs', label: 'Total time' },
+    { value: '8°C', label: 'Low temp' },
+    { value: '6,000', label: 'Calories burnt' }
+  ];
+
+  const routeImages = [
+    { src: '/images/japan-2017/day-01/day01-route-map.webp', alt: 'Route map showing the path from Fukuoka to Kitakyushu' },
+    { src: '/images/japan-2017/day-01/day01-updates.webp', alt: 'Journey updates and progress notes from Fukuoka to Kitakyushu' }
+  ];
+
+  const photoImages = [
+    { src: '/images/japan-2017/day-01/day01-photo-01.webp', alt: 'Final preparations and gear check at the starting point in Fukuoka' },
+    { src: '/images/japan-2017/day-01/day01-photo-02.webp', alt: 'First moments on the kickboards beginning the Japan adventure' },
+    { src: '/images/japan-2017/day-01/day01-photo-03.webp', alt: 'Caught in a severe storm with heavy rain and strong winds' },
+    { src: '/images/japan-2017/day-01/day01-photo-04.webp', alt: 'Seeking shelter from rain and hail under cover' },
+    { src: '/images/japan-2017/day-01/day01-photo-05.webp', alt: 'Finding refuge and warmth inside McDonald\'s during the storm' },
+    { src: '/images/japan-2017/day-01/day01-photo-06.webp', alt: 'Wet and cold but determined to continue the journey' },
+    { src: '/images/japan-2017/day-01/day01-photo-07.webp', alt: 'Beautiful rainbow appearing after the storm passes' },
+    { src: '/images/japan-2017/day-01/day01-photo-08.webp', alt: 'Arriving in Kitakyushu tired but successful at midnight' },
+    { src: '/images/japan-2017/day-01/day01-photo-09.webp', alt: 'Exhausted but celebrating a successful completion of the challenging first day' },
+    { src: '/images/japan-2017/day-01/day01-photo-10.webp', alt: 'Hotel arrival and rest after 10-hour adventure' }
+  ];
+
+  const weather = {
+    title: 'Weather Report',
+    description: 'Expected rains turned into a proper storm with hail. Temperature dropped from 12°C to 8°C. Welcome to Japan, indeed.'
+  };
+</script>
+
+<svelte:head>
+  <title>Day 01 - Fukuoka to Kitakyushu | Japan 2017 | Kicking Miles</title>
+  <meta name="description" content="Day 01 of our Japan kickboard adventure: The journey begins with rain, hail, and our first 70 kilometres from Fukuoka to Kitakyushu." />
+</svelte:head>
+
 <!-- Day 01: Fukuoka to Kitakyushu -->
 <div class="min-h-screen py-16 px-4">
   <div class="container mx-auto max-w-4xl">
     
-    <!-- Header -->
-    <div class="mb-12 text-center">
-      <div class="mb-4">
-        <a href="/trips/japan-2017" class="text-sm font-medium tracking-wide uppercase hover:underline" style="color: #7E797C;">
-          ← Japan 2017 Daily Journal
-        </a>
-      </div>
-      <div class="mb-4">
-        <span class="text-sm font-medium tracking-wide uppercase" style="color: #7E797C;">
-          Day 01 • 26 March 2017
-        </span>
-      </div>
-      <h1 class="text-4xl md:text-5xl font-light mb-4 tracking-wide" style="color: #636363;">
-        Fukuoka to Kitakyushu
-      </h1>
-      <div class="w-24 h-px mx-auto mb-6" style="background-color: #7E797C;"></div>
-      <div class="space-y-2" style="color: #636363;">
-        <p class="text-lg">70 kilometres of 1,800</p>
-        <p class="text-base" style="color: #7E797C;">The journey begins</p>
-      </div>
+    <TripHeader 
+      backUrl="/trips/japan-2017"
+      backText="Japan 2017 Daily Journal"
+      dayNumber="Day 01"
+      date="26 March 2017"
+      title="Fukuoka to Kitakyushu"
+      subtitle="The journey begins"
+      progress="70 kilometres of 1,800"
+    />
+
+    <StatsBox {stats} columns={2} />
+
+    <!-- Weather -->
+    <div class="mb-12">
+      <WeatherBox {weather} />
     </div>
 
-    <!-- Stats box -->
-    <div class="mb-12 p-6 rounded-lg border" style="border-color: #7E797C; background-color: #f8f9fa;">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-        <div>
-          <div class="text-2xl font-semibold" style="color: #7EB300;">70km</div>
-          <div class="text-sm" style="color: #7E797C;">Distance</div>
-        </div>
-        <div>
-          <div class="text-2xl font-semibold" style="color: #7EB300;">10hrs</div>
-          <div class="text-sm" style="color: #7E797C;">Total time</div>
-        </div>
-        <div>
-          <div class="text-2xl font-semibold" style="color: #7EB300;">8°C</div>
-          <div class="text-sm" style="color: #7E797C;">Low temp</div>
-        </div>
-        <div>
-          <div class="text-2xl font-semibold" style="color: #7EB300;">6,000</div>
-          <div class="text-sm" style="color: #7E797C;">Calories burnt</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Content -->
-    <div class="prose max-w-none">
-      <div class="space-y-6" style="color: #636363;">
-        
-        <p class="text-lg md:text-xl leading-relaxed">
-          DAY ONE of our scooting adventures! Extremely nervous on our first day, with expected rains and a bundle of nervous energy keeping us restless the night before.
+    <!-- Main content -->
+    <div class="space-y-8 mb-8">
+      <section>
+        <!-- Section: The beginning -->
+        <h3 class="text-xl font-light mb-4 text-km-primary">DAY ONE - The adventure begins</h3>
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
+          Extremely nervous on our first day, with expected rains and a bundle of nervous energy keeping us restless the night before. This is it - the moment we've been preparing for. Four friends, four kickboards, and 1,800 kilometres of Japan ahead of us.
         </p>
-
-        <p class="leading-relaxed">
+        
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
           We finally made it to Kitakyushu in one piece after about 10 hours on the road and were greeted by the sight of a beautiful rainbow. Shortly after we hit the main town, it started pouring.
         </p>
 
-        <p class="leading-relaxed">
-          We took cover in McDonald's for about 2 hours when we finally decided to brave the rain and complete the last 15 kilometres to the hotel... when it started to hail! After more taking shelter, we got to our hotel at 12am.
-        </p>
-
-        <div class="p-4 border-l-4 my-8" style="border-color: #C5007C; background-color: #fdf2f8;">
-          <p class="italic leading-relaxed" style="color: #636363;">
+        <ContentBox type="quote">
+          <p class="font-light">
             Temperature was cool. We started at 12 degrees but at one stage it dropped to 8. It was hard when we stopped scooting, for example to take a drink. Had to keep going.
           </p>
-        </div>
+        </ContentBox>
+      </section>
 
-        <p class="leading-relaxed">
+      <section>
+        <!-- Section: The storm -->
+        <h3 class="text-xl font-light mb-4 text-km-primary">Baptism by hail</h3>
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
+          We took cover in McDonald's for about 2 hours when we finally decided to brave the rain and complete the last 15 kilometres to the hotel... when it started to hail! After more taking shelter, we got to our hotel at 12am.
+        </p>
+        
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
           We subsisted on convenience food the whole day and did not manage to have time for a full meal. Whatever, we have enough fats on us to last 😂
         </p>
 
-        <p class="leading-relaxed">
-          By the time we went to bed it was 2am. So tomorrow will be a shorter day. Calves aching, feeling exhausted but otherwise doing okay!
+        <ContentBox type="mood">
+          <p class="font-light">
+            Japan's welcome: a rainbow, followed by rain, followed by hail. If this is Day One, what will Day Forty bring?
+          </p>
+        </ContentBox>
+      </section>
+
+      <section>
+        <!-- Section: First night -->
+        <h3 class="text-xl font-light mb-4 text-km-primary">First night reflections</h3>
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
+          By the time we went to bed it was 2am. So tomorrow will be a shorter day. Calves aching, feeling exhausted but otherwise doing okay! We've survived Day One - only 39 more to go.
         </p>
 
-        <!-- Weather note -->
-        <div class="mt-8 p-4 rounded-lg" style="background-color: #f0f9ff; border: 1px solid #7E797C;">
-          <div class="flex items-center mb-2">
-            <span class="text-sm font-medium" style="color: #636363;">Weather Report</span>
-          </div>
-          <p class="text-sm" style="color: #7E797C;">
-            Expected rains turned into a proper storm with hail. Temperature dropped from 12°C to 8°C. 
-            Welcome to Japan, indeed.
+        <ContentBox type="highlight">
+          <p class="font-light">
+            70 kilometres down, 1,730 to go. The adventure has truly begun.
           </p>
-        </div>
+        </ContentBox>
+      </section>
 
-        <!-- Featured images from Day 1 -->
-        <div class="mt-12">
-          <h3 class="text-lg font-medium mb-6" style="color: #636363;">Day One Journey</h3>
-          
-          <!-- Main route images -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <img src="/images/japan-2017/day-01/day01-route-map.webp" 
-                 alt="Day 1 route from Fukuoka to Kitakyushu" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-updates.webp" 
-                 alt="Day 1 updates and progress from Fukuoka to Kitakyushu" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-          </div>
+      <div>
+        <ImageGallery title="Route Map" routeImages={routeImages} />
+      </div>
 
-          <!-- Photo gallery from the road -->
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            <img src="/images/japan-2017/day-01/day01-photo-01.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-02.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-03.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-04.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-05.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-06.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-07.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-08.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-09.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-            <img src="/images/japan-2017/day-01/day01-photo-10.webp" 
-                 alt="" 
-                 class="w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity">
-          </div>
-        </div>
-
+      <div>
+        <ImageGallery title="Journey Photos" photoImages={photoImages} />
       </div>
     </div>
 
-    <!-- Navigation -->
-    <div class="mt-16 pt-8 border-t" style="border-color: #7E797C;">
-      <div class="flex justify-between items-center">
-        <a href="/trips/japan-2017/day-00-before-the-adventure" class="font-medium transition-colors duration-200" style="color: #C5007C;">
-          ← Day 0
-        </a>
-        <div class="text-center">
-          <div class="text-sm" style="color: #7E797C;">Day 1 of 40</div>
-        </div>
-        <div class="font-medium text-sm" style="color: #7E797C;">
-          Day 2 coming soon
-        </div>
-      </div>
-    </div>
+  <!-- Day navigation -->
+  <DayNavigation 
+    currentDay={1}
+    totalDays={40}
+    previousDay={{ url: "/trips/japan-2017/day-00-before-the-adventure", label: "Day 0" }}
+    nextDay={{ url: "/trips/japan-2017/day-02-kyushu-to-honshu", label: "Day 2" }}
+  />
 
   </div>
 </div>

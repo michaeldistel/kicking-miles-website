@@ -16,7 +16,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.10'
+          cpus: "0.10"
           memory: 100M
     security_opt:
       - no-new-privileges:true
@@ -25,15 +25,15 @@ services:
       - ./nginx:/etc/nginx/conf.d:ro
     command: /bin/sh -c "nginx -t && nginx -g 'daemon off;'"
     healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost/nginx-health']
+      test: ["CMD", "curl", "-f", "http://localhost/nginx-health"]
       interval: 30s
       timeout: 10s
       retries: 3
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.docker.network=proxy'
-      - 'traefik.http.routers.kickingmiles-website.rule=Host(`kickingmiles.com`)'
-      - 'traefik.http.routers.kickingmiles-website.entrypoints=websecure'
-      - 'traefik.http.routers.kickingmiles-website.tls=true'
-      - 'traefik.http.routers.kickingmiles-website.tls.certresolver=myresolver'
-      - 'traefik.http.services.kickingmiles-website.loadbalancer.server.port=80'
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.kickingmiles-website.rule=Host(`kickingmiles.com`)"
+      - "traefik.http.routers.kickingmiles-website.entrypoints=websecure"
+      - "traefik.http.routers.kickingmiles-website.tls=true"
+      - "traefik.http.routers.kickingmiles-website.tls.certresolver=myresolver"
+      - "traefik.http.services.kickingmiles-website.loadbalancer.server.port=80"

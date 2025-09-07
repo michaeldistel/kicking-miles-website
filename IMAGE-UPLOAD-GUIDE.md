@@ -53,9 +53,9 @@ For consistency, rename your images when uploading:
 3. **Create WebP versions** for better performance: `convert optimized.jpg optimized.webp`
 4. **Upload** to the appropriate day folder in `/static/images/japan-2017/day-XX/`
 
-## Updating the Blog Posts
+## Updating the Trip Daily Posts
 
-Once images are uploaded, update the blog post files to replace the placeholders:
+Once images are uploaded, update the daily trip post files to replace the placeholders:
 
 **Example for Day 01 route map:**
 

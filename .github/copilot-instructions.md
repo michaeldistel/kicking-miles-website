@@ -32,13 +32,6 @@ SvelteKit-based personal travel website documenting kickboard adventures across 
 - **Images**: WebP format, organized by adventure and day in `/static/images/`
 - **Navigation**: Breadcrumb patterns with `←` arrows and hover effects
 
-### Privacy & Consent Management
-
-- Sophisticated GDPR consent system in `src/lib/components/CookieBanner.svelte`
-- GTM integration with consent mode v2 in `src/lib/gtm.ts`
-- Consent state managed via localStorage and dataLayer events
-- Privacy settings page at `/privacy-settings` for user control
-
 ## Critical Workflows
 
 ### Local Development
@@ -86,7 +79,23 @@ pnpm prod:deploy     # Full deployment pipeline:
 ### Shared Components (`src/lib/components/`)
 
 - `Footer.svelte`: Displays build commit hash and copyright
+- `TripHeader.svelte`: Standardized page headers with breadcrumbs and day information
+- `StatsBox.svelte`: Day statistics in consistent grid layout
+- `ContentBox.svelte`: Highlighted quotes and important content with type variants
+- `WeatherBox.svelte`: Weather information with consistent styling
+- `ImageGallery.svelte`: Photo galleries with responsive layouts
+- `DayNavigation.svelte`: Consistent day-to-day navigation with arrow indicators
 - Components are minimal and focused on content presentation
+
+### Component Architecture Principles
+
+- **Consistency**: All galleries use the same component = consistent behavior across pages
+- **Maintainability**: Change layout logic in one place, affects all pages automatically
+- **Reusability**: Easy to add galleries to new pages with proper TypeScript interfaces
+- **Type Safety**: TypeScript ensures proper image arrays and component props
+- **DRY Principle**: No repeated code across pages, shared logic in components
+- **CSS Design System**: Components use utility classes (`text-km-primary`, `bg-km-subtle`) from centralized design system
+- **Responsive Design**: All components handle mobile/desktop breakpoints consistently
 
 ### Page Content Patterns
 
