@@ -7,9 +7,9 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '0km', label: 'Distance' },
-    { value: 'Rest', label: 'Activity' },
-    { value: '412km', label: 'Progress' },
+    { value: 'DAY EIGHT', label: 'Scooting Adventures' },
+    { value: '412 / 1800km', label: 'Okayama' },
+    { value: 'Rest day today', label: 'Estimated scooting time' },
     { value: 'Recovery', label: 'Focus' }
   ];
 
@@ -25,7 +25,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: 'Good weather. Perfect for a rest day and exploring Okayama culture.'
+    description: 'Good weather. A little tired, day of recuperation.'
   };
 </script>
 
@@ -41,11 +41,11 @@
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY 08"
+      dayNumber="DAY EIGHT"
       date="2 April 2017"
-      title="Okayama"
+      title="Momotaro the peach boy"
       progress="412 kilometres of 1,800"
-      subtitle="Momotaro the peach boy"
+      subtitle="Day eight"
     />
 
     <StatsBox {stats} columns={2} />
@@ -58,62 +58,36 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Rest and recovery -->
-        <ContentBox type="highlight">
-          A little tired, day of recuperation. Sometimes kindness and compassion at the right time 
-          is what is needed to bring balance and success to our goals.
-        </ContentBox>
-
         <p class="km-body-text">
-          DAY EIGHT of our scooting adventures! Okayama - 412km of our 1,800km journey.
-        </p>
-
-        <p class="km-body-text">
-          Today is a rest day for our muscles. We finally arrived at 11pm+ to our accommodation last 
-          night after knocking on many hotel doors! By the time we knocked out, it was 1am+. For the 
-          first time since we started, exhaustion hit us and we overslept past checkout time, haha!
-        </p>
-
-        <p class="km-body-text">
-          There was a strong desire to reprimand ourselves and push forwards to our goal but a bit of 
-          kindness and compassion at the right time is what is sometimes needed to bring balance and 
-          success to our goals. Resting today and updating our website. Early start tomorrow for Himeji!
+          <strong>DAY EIGHT of our scooting adventures!</strong><br>
+          Okayama - 412 / 1800km<br>
+          Estimated scooting time: Rest day today<br>
+          Weather: Good weather<br>
+          Mood: A little tired, day of recuperation
         </p>
       </section>
 
       <section>
-        <!-- Section: Okayama overview -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The city of Okayama</h3>
-        
         <p class="km-body-text">
-          An overview of the city of Okayama from our hotel. Aside from the famous Korakuen gardens, 
-          Okayama castle, Okayama is also believed to be the birthplace of the folklore Momotaro.
+          Today is a rest day for our muscles. We finally arrived at 11pm+ to our accommodation last night after knocking on many hotel doors! By the time we knocked out, it was 1am+. For the first time since we started, exhaustion hit us and we overslept pass checkout time, haha! There was a strong desire to reprimand ourselves and push forwards to our goal but abit of kindness and compassion at the right time is what is sometimes needed to bring balance and success to our goals. Resting today and updating our website. Early start tomorrow for Himeji!
         </p>
 
         <p class="km-body-text">
-          Momo, meaning peach and Taro, a boy's name, is a common folklore in Japan that represents 
-          kindness, bravery, courage and care of the family. While both English and Japanese have 
-          many similarities, there is a difference.
+          An overview of the city of Okayama from our hotel. Aside from the famous Korakuen gardens, Okayama castle, Okayama is also believed to be the birth place of the folklore Momotaro.
+        </p>
+
+        <p class="km-body-text">
+          Momo, meaning peach and Taro, a boy's name, is a common folklore in Japan that represents kindness, bravery, courage and care of the family. While both English and Japanese have many similarities, there is a difference.
+        </p>
+
+        <p class="km-body-text">
+          Japanese and indeed many Asian folklore feature filial piety as a theme. If folklores are simply a reflection of a culture and cultures are a reflection of history, then my question is, what in social history necessitated the need for filial piety?
         </p>
       </section>
 
       <section>
-        <!-- Section: Cultural reflection -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Folklore and culture</h3>
-        
-        <p class="km-body-text">
-          Japanese and indeed many Asian folklore feature filial piety as a theme. If folklores are 
-          simply a reflection of a culture and cultures are a reflection of history, then my question is:
-        </p>
-
-        <ContentBox type="quote">
-          What in social history necessitated the need for filial piety?
-        </ContentBox>
-
-        <p class="km-body-text">
-          It is fascinating to consider how stories passed down through generations reveal the values 
-          and challenges of the societies that created them. Perhaps the emphasis on family loyalty 
-          and respect arose from times when community bonds were essential for survival.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
       </section>
     </div>

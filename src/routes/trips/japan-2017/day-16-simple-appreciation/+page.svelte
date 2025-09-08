@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '40km', label: 'Distance' },
-    { value: '8 hours', label: 'Scooting time' },
-    { value: '754km', label: 'Progress' },
-    { value: '13°C', label: 'Temperature' }
+    { value: '754km', label: 'Distance' },
+    { value: '1800km', label: 'Total' },
+    { value: '8 hours', label: 'Scooting' },
+    { value: 'Boys slightly unwell', label: 'Mood' }
   ];
 
   const photos = [
@@ -25,7 +25,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '13 degrees Celsius with grey weather holding. Elevation in our favour for easier travel.'
+    description: '13 degrees c'
   };
 </script>
 
@@ -43,9 +43,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="DAY 16"
       date="10 April 2017"
-      title="Yokkaichi to Nagoya"
+      title="Simple appreciation, simple joys"
       progress="754 kilometres of 1,800"
-      subtitle="Simple appreciation, simple joys"
+      subtitle="Day 16"
     />
 
     <StatsBox {stats} columns={2} />
@@ -58,81 +58,40 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Recovery day -->
-        <ContentBox type="highlight">
-          The boys are still slightly unwell, so we took it easy today. We had a very friendly 
-          send off by the hotel staff!
-        </ContentBox>
-
         <p class="km-body-text">
-          DAY 16 of our scooting adventures! Yokkaichi to Nagoya - 754km of our 1,800km journey.
+          <strong>DAY 16 of our scooting adventures!</strong><br><br>
+
+          Yokkaichi to Nagoya - 754km / 1800km<br><br>
+
+          Estimated scooting time: 8 hours<br><br>
+
+          Weather: 13 degrees c<br><br>
+
+          Mood: The boys are still slightly unwell, so we took it easy today.
         </p>
 
         <p class="km-body-text">
-          The boys were still down with mild diarrhoea so we took it easy and went at a slow pace 
-          to Nagoya today. The elevation was in our favour and the grey weather held!
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Gender role reversal -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Assumptions and expectations</h3>
-        
-        <p class="km-body-text">
-          During lunch at Sukiya, a type of beef bowl, and also for the last two days, the girls 
-          were ordering twice as much as the boys. It was funny because almost all the waitresses 
-          wanted to serve the bigger orders to the boys before we tell them its ours.
+          We had a very friendly send off by the hotel staff! The boys were still down with mild diarrhoea so we took it easy and went at a slow pace to Nagoya today. The elevation was in our favour and the grey weather held!
         </p>
 
         <p class="km-body-text">
-          Small moments like these reveal how deeply embedded our assumptions about gender and 
-          appetite can be, even in something as simple as serving food.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Convenience store appreciation -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The unsung heroes of our journey</h3>
-        
-        <p class="km-body-text">
-          One of the things that we have come to appreciate this trip are the convenience stores 
-          along the way. These common, unremarkable shops have supported us in more ways than one.
+          During lunch at Sukiya, a type of beef bowl, and also for the last two days, the girls were ordering twice as much as the boys. It was funny because almost all the waitresses wanted to serve the bigger orders to the boys before we tell them its ours,
         </p>
 
         <p class="km-body-text">
-          They serve as a rest stop for replenishment and refuelling, they allow us a place to rest 
-          and use the washroom and they are also a distance marker that when passed, tells us that 
-          we have moved forwards from our last spot.
+          One of the things that we have come to appreciate this trip are the convenience stores along the way. These common, unremarkable shops have supported us in more ways than one. They serve as a rest stop for replenishment and refuelling, they allow us a place to rest and use the washroom and they are also a distance marker that when passed, tells us that we have moved forwards from our last spot.
         </p>
 
         <p class="km-body-text">
-          Without them, our trip would be twice as gruelling and three times more difficult to complete.
+          Without them, our trip would be twice as gruelling and three times more difficult to complete. Perhaps, these common and apparently insignificant things, serve society in more ways than they are given credit for. Many things we take for granted are simply because they are just there. And in taking things for granted, perhaps we lose sight of the small ways that we can live happily. Expectation is always the nemesis to joy.
         </p>
-      </section>
-
-      <section>
-        <!-- Section: Philosophy of gratitude -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Taking things for granted</h3>
-        
-        <p class="km-body-text">
-          Perhaps, these common and apparently insignificant things, serve society in more ways than 
-          they are given credit for. Many things we take for granted are simply because they are 
-          just there.
-        </p>
-
-        <ContentBox type="quote">
-          And in taking things for granted, perhaps we lose sight of the small ways that we can 
-          live happily. Expectation is always the nemesis to joy.
-        </ContentBox>
 
         <p class="km-body-text">
           Perhaps a simple appreciation is all that is required to spark joy in our daily life.
         </p>
 
-        <p class="km-body-text">
-          This journey is teaching us to notice the infrastructure of kindness that surrounds us 
-          everywhere - the small businesses, helpful people, and simple services that make life 
-          possible. When we stop expecting and start appreciating, everything becomes a gift.
+        <p class="km-body-text font-medium mt-8">
+          Michelle Yang
         </p>
       </section>
     </div>

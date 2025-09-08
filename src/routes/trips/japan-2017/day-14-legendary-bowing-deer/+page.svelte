@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '40km', label: 'Distance' },
-    { value: '7 hours', label: 'Scooting time' },
-    { value: '655km', label: 'Progress' },
-    { value: '17°C', label: 'Temperature' }
+    { value: 'DAY 14', label: 'Scooting Adventures' },
+    { value: '655km / 1800km', label: 'Nara to Iga' },
+    { value: '7 hours', label: 'Estimated scooting time' },
+    { value: 'Wet & muggy', label: 'Weather' }
   ];
 
   const photos = [
@@ -29,7 +29,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '17 degrees Celsius, wet and muggy conditions. Mountain terrain making progress challenging.'
+    description: '17 degrees c. Wet and muggy today.'
   };
 </script>
 
@@ -47,9 +47,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="DAY 14"
       date="8 April 2017"
-      title="Nara to Iga"
+      title="The legendary bowing deer"
       progress="655 kilometres of 1,800"
-      subtitle="The legendary bowing deer"
+      subtitle="Day 14 updates!"
     />
 
     <StatsBox {stats} columns={2} />
@@ -62,63 +62,32 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Mountain challenge -->
-        <ContentBox type="highlight">
-          Wet and muggy today. We made our way past Nara park and through the mountainous regions 
-          of Mie to head to Iga.
-        </ContentBox>
-
         <p class="km-body-text">
-          DAY 14 of our scooting adventures! Nara to Iga - 655km of our 1,800km journey.
-        </p>
-
-        <p class="km-body-text">
-          From Nara where the legendary bowing deer reside, to the land of ninjas in Iga, we passed 
-          through so many slopes our quads and calves were aching badly by the time we got to our hotel. 
-          It was only when we hit Iga that we realised this town is known for its ninja history.
+          <strong>DAY 14 of our scooting adventures!</strong>Nara to Iga - 655km / 1800kmEstimated scooting time: 7 hoursWeather: 17 degrees cMood: Wet and muggy today
         </p>
       </section>
 
       <section>
-        <!-- Section: Ninja territory -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Land of the ninjas</h3>
-        
         <p class="km-body-text">
-          According to Wikipedia, "The remoteness and inaccessibility of the surrounding mountains 
-          may have had a role in the ninja's secretive development. Historical documents regarding 
-          the ninja's origins in these mountainous regions are considered generally correct."
+          We made our way pass Nara park and through the mountainous regions of Mie to head to Iga. From Nara where the legendary bowing deer reside, to the land of ninjas in Iga, we passed through so many slopes our quads and calves were aching badly by the time we got to our hotel. It was only when we hit Iga that we realised this town is known for its ninja history.
         </p>
 
         <p class="km-body-text">
-          And no wonder we took so many hours for such a short distance. The roads were on an incline 
-          and we were constantly going through the mountains. We made it anyway!
+          According to wikipedia, "The remoteness and inaccessibility of the surrounding mountains may have had a role in the ninja's secretive development. Historical documents regarding the ninja's origins in these mountainous regions are considered generally correct."
         </p>
 
         <p class="km-body-text">
-          Now we understand why ninjas chose this terrain for their training. The mountains that 
-          challenged us today have been testing travellers for centuries.
+          And no wonder we took so many hours for such a short distance. The roads were on an incline and we were constantly going through the mountains. We made it anyway!
+        </p>
+
+        <p class="km-body-text">
+          But today can't be completed without talking about the bowing deer at Nara. We thought we were the only foolish tourists bowing to random herbivores but we found out we had to fight for the deers attention from other throngs of fellow foolish tourists, so we could get our moment of bowing glory on the camera. The lengths humans would go for anthropomorphism!
         </p>
       </section>
 
       <section>
-        <!-- Section: Bowing deer -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Anthropomorphism at its finest</h3>
-        
-        <p class="km-body-text">
-          But today cannot be completed without talking about the bowing deer at Nara. We thought we 
-          were the only foolish tourists bowing to random herbivores but we found out we had to fight 
-          for the deer's attention from other throngs of fellow foolish tourists, so we could get our 
-          moment of bowing glory on the camera.
-        </p>
-
-        <ContentBox type="quote">
-          The lengths humans would go for anthropomorphism!
-        </ContentBox>
-
-        <p class="km-body-text">
-          There is something delightfully absurd about queuing up to bow to deer, yet also something 
-          deeply human about our desire to connect with other creatures through familiar gestures. 
-          Perhaps the deer understand more than we give them credit for.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
       </section>
     </div>

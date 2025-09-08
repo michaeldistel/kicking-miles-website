@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '90km', label: 'Distance' },
-    { value: '3hrs', label: 'Scooting time' },
-    { value: '8°C', label: 'Temperature' },
-    { value: 'Rain', label: 'Weather' }
+    { value: 'DAY TWO', label: 'Scooting Adventures' },
+    { value: '90kms / 1800kms', label: 'Kitakyushu to Shimonoseki' },
+    { value: '3 hours', label: 'Estimated scooting time' },
+    { value: '8 degrees c', label: 'Weather: expected rains' }
   ];
 
   const photos = [
@@ -18,7 +18,6 @@
     { src: '/images/japan-2017/day-02/day02-photo-02.webp', alt: 'Sore but determined after Day 1' },
     { src: '/images/japan-2017/day-02/day02-photo-03.webp', alt: 'Approaching the Kyushu-Honshu crossing' },
     { src: '/images/japan-2017/day-02/day02-photo-04.webp', alt: 'Bridge crossing between the islands of Kyushu and Honshu' },
-    { src: '/images/japan-2017/day-02/day02-photo-05.webp', alt: 'Milestone moment - leaving Kyushu island behind' },
     { src: '/images/japan-2017/day-02/day02-photo-06.webp', alt: 'First views and arrival onto Honshu island' },
     { src: '/images/japan-2017/day-02/day02-photo-07.webp', alt: 'Celebrating the successful crossing between islands' },
     { src: '/images/japan-2017/day-02/day02-photo-08.webp', alt: 'Taking a more relaxed approach after yesterday\'s challenging storm' },
@@ -33,14 +32,14 @@
   ];
 
   const weather = {
-    title: 'Weather Report',
-    description: '8°C with light rain. Much better conditions than yesterday\'s hailstorm, allowing for steady progress.'
+    title: 'Weather',
+    description: '8 degrees c, expected rains. Mood: A little sore and tired but otherwise okay!'
   };
 </script>
 
 <svelte:head>
-  <title>Day 02 - Kyushu to Honshu | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 02 of our Japan kickboard adventure: A significant milestone as we cross from Kyushu to Honshu island." />
+  <title>Day 02 - From Kyushu to Honshu | Japan 2017 | Kicking Miles</title>
+  <meta name="description" content="Day 02 of our Japan kickboard adventure: From Kyushu to Honshu - crossing islands and beginning the main leg of our journey through this curious and fabulous country." />
 </svelte:head>
 
 <!-- Day 02: Kyushu to Honshu -->
@@ -52,9 +51,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="Day 02"
       date="27 March 2017"
-      title="Kyushu to Honshu"
+      title="From Kyushu to Honshu"
       progress="90 kilometres of 1,800"
-      subtitle="Crossing islands"
+      subtitle="Day two"
     />
 
     <StatsBox {stats} columns={2} />
@@ -67,49 +66,33 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Recovery morning -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Recovering from the storm</h3>
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          DAY TWO of our scooting adventures! Kitakyushu to Shimonoseki - a little sore and tired but otherwise okay. We woke up extremely exhausted, having gone to bed at 2am last night because we were waiting out the rain and hailstorm.
+        <p class="km-body-text">
+          <strong>DAY TWO of our scooting adventures!</strong><br>
+          Kitakyushu to Shimonoseki - 90kms / 1800kms<br>
+          Estimated scooting time: 3 hours<br>
+          Weather: 8 degrees c, expected rains<br>
+          Mood: A little sore and tired but otherwise okay!
         </p>
-        
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          Surprisingly, our bodies held up fine, not too much tiredness today either. We decided to take it easy today, and spend time repacking and readjusting our pack.
-        </p>
-
-        <ContentBox type="mood">
-          <p class="font-light">
-            Sometimes the best strategy is to listen to your body. After yesterday's baptism by hail, taking it easy feels like wisdom.
-          </p>
-        </ContentBox>
       </section>
 
       <section>
-        <!-- Section: The crossing -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Crossing to Honshu</h3>
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          Today we officially crossed from the island of Kyushu into Honshu! So begins the main leg of our journey in this curious and fabulous country. This feels like a significant milestone - we have left the starting island behind and entered Japan's main island.
+        <p class="km-body-text">
+          We woke up extremely exhausted, having gone to bed at 2am last night because we were waiting out the rain and hailstorm. Surprisingly, our bodies held up fine, not too much tiredness today either.
         </p>
 
-        <ContentBox type="quote">
-          <p class="font-light">
-            Today marks a significant milestone - we have left Kyushu behind and entered Honshu, Japan's main island. The adventure truly begins now.
-          </p>
-        </ContentBox>
+        <p class="km-body-text">
+          We decided to take it easy today, and spend time repacking and readjusting our pack. Today we officially crossed from the island of Kyushu into Honshu!!!! So begins the main leg of our journey in this curious and fabulous country!
+        </p>
+
+        <p class="km-body-text">
+          70kms tomorrow!
+        </p>
       </section>
 
       <section>
-        <!-- Section: Looking ahead -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Preparing for tomorrow</h3>
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          70 kilometres tomorrow! We're building our confidence and rhythm. The gear is adjusting to our needs, our bodies are adapting to the demands, and Japan is starting to reveal itself to us.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
-
-        <ContentBox type="highlight">
-          <p class="font-light">
-            160 kilometres down, 1,640 to go. From island to island, step by step.
-          </p>
-        </ContentBox>
       </section>
 
       <div>

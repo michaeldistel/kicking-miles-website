@@ -7,10 +7,10 @@
   import ContentBox from '$lib/components/ContentBox.svelte';
 
   const stats = [
-    { value: '70km', label: 'Distance' },
-    { value: '10hrs', label: 'Total time' },
-    { value: '8°C', label: 'Low temp' },
-    { value: '6,000', label: 'Calories burnt' }
+    { value: 'DAY ONE', label: 'Scooting Adventures' },
+    { value: '70kms / 1800kms', label: 'Fukuoka to Kitakyushu' },
+    { value: '8 hours', label: 'Estimated scooting time' },
+    { value: '~6000 kcal', label: 'Calories burnt' }
   ];
 
   const routeImages = [
@@ -19,7 +19,6 @@
   ];
 
   const photoImages = [
-    { src: '/images/japan-2017/day-01/day01-photo-01.webp', alt: 'Final preparations and gear check at the starting point in Fukuoka' },
     { src: '/images/japan-2017/day-01/day01-photo-02.webp', alt: 'First moments on the kickboards beginning the Japan adventure' },
     { src: '/images/japan-2017/day-01/day01-photo-03.webp', alt: 'Caught in a severe storm with heavy rain and strong winds' },
     { src: '/images/japan-2017/day-01/day01-photo-04.webp', alt: 'Seeking shelter from rain and hail under cover' },
@@ -32,14 +31,14 @@
   ];
 
   const weather = {
-    title: 'Weather Report',
-    description: 'Expected rains turned into a proper storm with hail. Temperature dropped from 12°C to 8°C. Welcome to Japan, indeed.'
+    title: 'Weather',
+    description: 'Expected rains. Temperature was cooool. We started at 12 degrees c but one stage it dropped to 8.'
   };
 </script>
 
 <svelte:head>
-  <title>Day 01 - Fukuoka to Kitakyushu | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 01 of our Japan kickboard adventure: The journey begins with rain, hail, and our first 70 kilometres from Fukuoka to Kitakyushu." />
+  <title>Day 01 - A beautiful start to our trip! | Japan 2017 | Kicking Miles</title>
+  <meta name="description" content="Day 01 of our Japan kickboard adventure: A beautiful start with 70km from Fukuoka to Kitakyushu, complete with rain, hail, and our first taste of the journey ahead." />
 </svelte:head>
 
 <!-- Day 01: Fukuoka to Kitakyushu -->
@@ -51,8 +50,8 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="Day 01"
       date="26 March 2017"
-      title="Fukuoka to Kitakyushu"
-      subtitle="The journey begins"
+      title="A beautiful start to our trip!"
+      subtitle="Day one"
       progress="70 kilometres of 1,800"
     />
 
@@ -66,53 +65,41 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: The beginning -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">DAY ONE - The adventure begins</h3>
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          Extremely nervous on our first day, with expected rains and a bundle of nervous energy keeping us restless the night before. This is it - the moment we've been preparing for. Four friends, four kickboards, and 1,800 kilometres of Japan ahead of us.
+        <p class="km-body-text">
+          <strong>DAY ONE of our scooting adventures!</strong><br>
+          Fukuoka to Kitakyushu - 70kms / 1800kms<br>
+          Estimated scooting time: 8 hours<br>
+          Weather: Expected rains<br>
+          Mood: Extremely nervous on our first day!
         </p>
-        
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          We finally made it to Kitakyushu in one piece after about 10 hours on the road and were greeted by the sight of a beautiful rainbow. Shortly after we hit the main town, it started pouring.
-        </p>
-
-        <ContentBox type="quote">
-          <p class="font-light">
-            Temperature was cool. We started at 12 degrees but at one stage it dropped to 8. It was hard when we stopped scooting, for example to take a drink. Had to keep going.
-          </p>
-        </ContentBox>
       </section>
 
       <section>
-        <!-- Section: The storm -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Baptism by hail</h3>
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          We took cover in McDonald's for about 2 hours when we finally decided to brave the rain and complete the last 15 kilometres to the hotel... when it started to hail! After more taking shelter, we got to our hotel at 12am.
-        </p>
-        
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          We subsisted on convenience food the whole day and did not manage to have time for a full meal. Whatever, we have enough fats on us to last 😂
+        <p class="km-body-text">
+          We finally made it to Kitakyushu in one piece after about 10 hours on the road and were greeted by the sight of a beautiful rainbow. Shortly after we hit the main town, it started pouring. We took cover in Macdonalds for about 2 hours when we finally decided to brave the rain and complete the last 15 kms to the hotel.... when... it started to hail! After more taking shelter, we got to our hotel at 12am.
         </p>
 
-        <ContentBox type="mood">
-          <p class="font-light">
-            Japan's welcome: a rainbow, followed by rain, followed by hail. If this is Day One, what will Day Forty bring?
-          </p>
-        </ContentBox>
+        <p class="km-body-text">
+          Temperature was cooool. We started at 12 degrees c but one stage it dropped to 8. It was hard when we stopped scooting, for example to take a drink. Had to keep going.
+        </p>
+
+        <p class="km-body-text">
+          Calories burnt: ~6000 kcal
+        </p>
+
+        <p class="km-body-text">
+          We subsisted on convenience food the whole day and didnt manage to have time for a full meal. Whatevs we have enough fats on us to last 😂
+        </p>
+
+        <p class="km-body-text">
+          By the time we went to bed it was 2am. So tmr will be a shorter day. Calves aching, feeling exhausted but otherwise doing okay!
+        </p>
       </section>
 
       <section>
-        <!-- Section: First night -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">First night reflections</h3>
-        <p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-          By the time we went to bed it was 2am. So tomorrow will be a shorter day. Calves aching, feeling exhausted but otherwise doing okay! We've survived Day One - only 39 more to go.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
-
-        <ContentBox type="highlight">
-          <p class="font-light">
-            70 kilometres down, 1,730 to go. The adventure has truly begun.
-          </p>
-        </ContentBox>
       </section>
 
       <div>

@@ -303,11 +303,11 @@
 
   /* Footer Styles */
   .km-footer {
-    @apply container mx-auto px-4 py-8 max-w-4xl text-center mt-6;
+    @apply container mx-auto px-4 py-4 max-w-4xl text-center mt-4;
   }
 
   .km-footer-content {
-    @apply container mx-auto px-4 text-center;
+    @apply text-center;
   }
 
   .km-build-info {

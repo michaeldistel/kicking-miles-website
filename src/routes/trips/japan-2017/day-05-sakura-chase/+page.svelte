@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '0km', label: 'Distance' },
-    { value: 'Rest', label: 'Activity' },
-    { value: '274km', label: 'Progress' },
-    { value: 'Sakura!', label: 'Discovery' }
+    { value: 'DAY FIVE', label: 'Scooting Adventures' },
+    { value: '274 / 1800km', label: 'Hiroshima' },
+    { value: 'Rest day today', label: 'Estimated scooting time' },
+    { value: 'Sakura spotted!', label: 'Discovery' }
   ];
 
   const photos = [
@@ -30,7 +30,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: 'Beautiful cool weather! Perfect conditions for a rest day and exploring Hiroshima.'
+    description: 'Beautiful cool weather! A little tired, day of recuperation, enjoying the sakura.'
   };
 </script>
 
@@ -46,11 +46,11 @@
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY 05"
+      dayNumber="DAY FIVE"
       date="30 March 2017"
-      title="Hiroshima"
+      title="The sakura chase has begun!"
       progress="274 kilometres of 1,800"
-      subtitle="The sakura chase has begun!"
+      subtitle="Day five"
     />
 
     <StatsBox {stats} columns={2} />
@@ -63,76 +63,45 @@
     <!-- Main content -->
     <div class="space-y-8 mb-12">
       <section>
-        <!-- Section: The discovery -->
-        <ContentBox type="highlight">
+        <p class="km-body-text">
+          <strong>DAY FIVE of our scooting adventures!</strong><br>
+          Hiroshima - 274 / 1800km<br>
+          Estimated scooting time: Rest day today<br>
+          Weather: Beautiful cool weather!<br>
+          Mood: A little tired, day of recuperation, enjoying the sakura
+        </p>
+      </section>
+
+      <section>
+        <p class="km-body-text">
           It has officially begun!!! First blooms spotted! Chasing the cherry blossoms across Japan on scooter!
-        </ContentBox>
-
-        <p class="km-body-text">
-          DAY FIVE of our scooting adventures! Hiroshima - 274km of our 1,800km journey.
         </p>
 
         <p class="km-body-text">
-          We spent today loading up on calories, repairing and maintaining our scooters and having 
-          a few quiet moments at the Hiroshima Peace Memorial Park.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Rest and maintenance -->
-        <p class="km-body-text">
-          Today is a rest day for our muscles and maintenance day for our scooters. Scooting past 
-          a Pepper Lunch wannabe place, we hopped in and ordered a 300g sirloin steak (and steak 
-          only LOL) for much needed replenishment!
+          We spent today loading up on calories, repairing and maintaining our scooters and having a few quiet moments at the Hiroshima Peace Memorial Park.
         </p>
 
         <p class="km-body-text">
-          We devoured the medium-rare sirloin steak to make up for the three days of convenience 
-          store food! (For those who do not know, Pepper Lunch is one of those delicious hot plate 
-          food where the food is cooked on the plate that they serve you.)
+          Today is a rest day for our muscles and maintenance day for our scooters. Scooting pass a Pepper Lunch wannabe place, we hopped in and ordered a 300g sirloin steak (and steak only LOL) for a much needed replenishment! We devoured the medium-rare sirloin steak to make up for the three days of convenience store food! (For those who don't know, Pepper Lunch is one of those delicious hot plate food where the food is cooked on the plate that they serve you)
         </p>
 
         <p class="km-body-text">
-          A trip to Don Quijote and Daiso also got us some supplies! We had a generally lazy day, 
-          updating our website, looking for tools, restocking our supplies... and enjoying the 
-          wonderful weather at the park.
+          A trip to Don Quijote and Daiso also got us some supplies! We had a generally lazy day, updating our website, looking for tools, restocking our supplies... and enjoying the wonderful weather at the park.
+        </p>
+
+        <p class="km-body-text">
+          Guess what we saw while chatting on the bench across from the Atomic Bomb Dome?!? The very first blooms of the sakura flowers above us!!! The first flowers spotted on this trip!!! It has officially begun! Chasing the cherry blossom front across Japan, from Kyushu to Hokkaido, north to south of Japan!!! Within each city, the cherry blossoms stay in bloom for perhaps one week of the entire year. They travel from south to north of Japan over the course of a month as they bloom in response to the increasing weather changes in altitude, ushering spring. Can we make it to Hokkaido in time before they wilt?
+        </p>
+
+        <p class="km-body-text">
+          With that beautiful thought comes other things to ponder. Perhaps we'll spend an evening appreciating how far life has come since the atomic bomb. We'll sit under the first blooms of the sakura tonight and say a silent appreciation in our hearts for the rebirth and acknowledgement of the transience of life. Thank you.
         </p>
       </section>
 
       <section>
-        <!-- Section: Sakura discovery -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The sakura chase begins</h3>
-        
-        <p class="km-body-text">
-          Guess what we saw while chatting on the bench across from the Atomic Bomb Dome?!? The 
-          very first blooms of the sakura flowers above us!!! The first flowers spotted on this trip!!!
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
-
-        <ContentBox type="quote">
-          It has officially begun! Chasing the cherry blossom front across Japan, from Kyushu to 
-          Hokkaido, south to north of Japan!!!
-        </ContentBox>
-
-        <p class="km-body-text">
-          Within each city, the cherry blossoms stay in bloom for perhaps one week of the entire year. 
-          They travel from south to north of Japan over the course of a month as they bloom in response 
-          to the increasing weather changes in altitude, ushering spring. Can we make it to Hokkaido 
-          in time before they wilt?
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Reflection -->
-        <p class="km-body-text">
-          With that beautiful thought comes other things to ponder. Perhaps we will spend an evening 
-          appreciating how far life has come since the atomic bomb. We will sit under the first blooms 
-          of the sakura tonight and say a silent appreciation in our hearts for the rebirth and 
-          acknowledgement of the transience of life.
-        </p>
-
-        <ContentBox type="quote">
-          Thank you.
-        </ContentBox>
       </section>
     </div>
 

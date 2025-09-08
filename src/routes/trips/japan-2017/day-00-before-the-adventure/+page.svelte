@@ -5,15 +5,15 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const preparationImages = [
-    { src: '/images/japan-2017/day-00/before-adventure-01.webp', alt: 'Preparing for the journey - evening before departure' },
-    { src: '/images/japan-2017/day-00/before-adventure-02.webp', alt: 'Final preparations and nervous energy' },
-    { src: '/images/japan-2017/day-00/before-adventure-03.webp', alt: 'The night before the adventure begins' }
+    { src: '/images/japan-2017/day-00/day00-photo-01.webp', alt: 'Before the main event - the night before departure' },
+    { src: '/images/japan-2017/day-00/day00-photo-02.webp', alt: 'Nervous energy and final preparations' },
+    { src: '/images/japan-2017/day-00/day00-photo-03.webp', alt: 'Ready for tomorrow\'s adventure to begin' }
   ];
 </script>
 
 <svelte:head>
-  <title>Day 00 - Before the Adventure | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 00 of our Japan kickboard adventure: The night before departure with restless energy, sukiyaki dinner, and final preparations for the journey ahead." />
+  <title>Day 00 - Before the Main Event | Japan 2017 | Kicking Miles</title>
+  <meta name="description" content="Day 00 of our Japan kickboard adventure: The night before departure with nervous energy, butterflies, and memories of yesterday's sukiyaki meal." />
 </svelte:head>
 
 <!-- Day 00: Before the Adventure -->
@@ -25,9 +25,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="Day 00"
       date="25 March 2017"
-      title="Before the Adventure"
+      title="Before the Main Event"
       progress="The night before departure"
-      subtitle="Restless energy and sukiyaki"
+      subtitle="Nervous energy and sukiyaki"
     />
 
     <!-- Mood indicator -->
@@ -44,41 +44,16 @@
       <div class="space-y-6 text-km-primary">
         
         <p class="text-lg md:text-xl leading-relaxed">
-          As the hours tick by and we are supposed to be sleeping, some of us are restless 
-          with a bundle of nervous energy.
+          As the hours tick by and we're supposed to be sleeping, some of us are restless with a bundle of nervous energy... Half feels like butterflies in our stomach, the other half, a hearty sukiyaki meal the day before 🤤😂
         </p>
 
-        <p class="leading-relaxed">
-          Half feels like butterflies in our stomach, the other half, a hearty sukiyaki meal 
-          from the day before 🤤😂
-        </p>
+        <section>
+          <p class="km-body-text font-medium mt-8">
+            - Michelle Yang
+          </p>
+        </section>
 
-        <ContentBox type="highlight">
-          Tomorrow we begin. 1,800 kilometres ahead of us. Four kickboards. 
-          One impossible dream that somehow feels within reach.
-        </ContentBox>
-
-        <p class="leading-relaxed">
-          Final preparations complete. Route mapped. Kickboards ready. 
-          The only question now is whether we can actually sleep before the alarm goes off 
-          at dawn.
-        </p>
-
-        <!-- Preparation notes -->
-        <div class="mt-8 p-4 rounded-lg bg-km-accent border border-km">
-          <div class="flex items-center mb-2">
-            <span class="text-sm font-medium text-km-primary">Final Checklist</span>
-          </div>
-          <ul class="text-sm space-y-1 text-km-secondary">
-            <li>✓ Kickboards serviced and ready</li>
-            <li>✓ Route planned from Fukuoka to Kitakyushu</li>
-            <li>✓ Weather forecast checked (rain expected)</li>
-            <li>✓ Gear packed and repacked</li>
-            <li>⏳ Sleep (still working on this one)</li>
-          </ul>
-        </div>
-
-        <ImageGallery title="Before the Adventure" photoImages={preparationImages} galleryType="grid" />
+        <ImageGallery title="Before the Main Event" photoImages={preparationImages} galleryType="grid" />
 
       </div>
     </div>

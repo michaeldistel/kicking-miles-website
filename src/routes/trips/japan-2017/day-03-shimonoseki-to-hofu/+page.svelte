@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '75km', label: 'Distance' },
-    { value: '12hrs', label: 'Total time' },
-    { value: '12°C', label: 'Temperature' },
-    { value: '165km', label: 'Progress' }
+    { value: 'DAY THREE', label: 'Scooting Adventures' },
+    { value: '75km', label: 'Total distance travelled' },
+    { value: '12 hours', label: 'Total time including stops' },
+    { value: '165km / 1800km', label: 'Shimonoseki to Hofu' }
   ];
 
   const photos = [
@@ -33,8 +33,8 @@
   ];
 
   const weather = {
-    title: 'Weather Report',
-    description: '12 degrees celsius, glorious weather! Perfect conditions for our longest stretch yet.'
+    title: 'Weather',
+    description: '12 degrees c, glorious weather. Mood: Had a hearty breakfast at Starbucks and a wonderful send off by the staff there!'
   };
 </script>
 
@@ -52,9 +52,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="DAY 03"
       date="28 March 2017"
-      title="Shimonoseki to Hofu"
+      title="Our first long stretch!"
       progress="165 kilometres of 1,800"
-      subtitle="Our first long stretch!"
+      subtitle="Day three"
     />
 
     <StatsBox {stats} columns={2} />
@@ -67,51 +67,42 @@
     <!-- Main content -->
     <div class="space-y-8 mb-12">
       <section>
-        <!-- Section: Journey begins -->
         <p class="km-body-text">
-          DAY THREE of our scooting adventures! Shimonoseki to Hofu - 165km of our 1,800km journey.
-        </p>
-
-        <p class="km-body-text">
-          We started off with a wonderful sendoff from the staff at Starbucks! Our tummies full of 
-          nourishment and caffeine, we set off along the coast to beautiful seaside scenery. 
-          The weather was glorious!
+          <strong>DAY THREE of our scooting adventures!</strong><br>
+          Shimonoseki to Hofu - 165km / 1800km<br>
+          Estimated scooting time: 10 hours<br>
+          Weather: 12 degrees c, glorious weather<br>
+          Mood: Had a hearty breakfast at Starbucks and a wonderful send off by the staff there!
         </p>
       </section>
 
       <section>
-        <!-- Section: The challenge -->
         <p class="km-body-text">
-          This 75km stretch marked the beginning of a steep ascent into the mountains. We made 
-          awesome time in the first half only to slow down considerably. About 50km in, we got 
-          hopelessly lost and were so tired Michelle fell asleep beside the cemetery.
+          We started off with a wonderful sendoff from the staff at Starbucks! Our tummies full of nourishment and caffeine, we set off along the coast to a beautiful seaside scenery. The weather was glorious!
         </p>
 
-        <ContentBox type="highlight">
-          We navigated treacherous mountain passes that had nary a sidewalk and many oncoming trucks. 
-          Felt like our lives flashed before our eyes twice today.
-        </ContentBox>
+        <p class="km-body-text">
+          This 75km stretch is the beginning of a steep ascent into the mountains. We made awesome time in the first half only to slow down, lol. About 50kms in, we got hopelessly lost and were so tired Michelle fell asleep beside the cemetary. We also navigated the treacherous mountain passes that had nary a sidewalk and many oncoming trucks. Felt like our lives flashed before our eyes twice today.
+        </p>
+
+        <p class="km-body-text">
+          Today's trip can't be completed without talking about the two wonderful groups of people we met along the way. We get a lot of people asking us what we're doing and where we're going. Curious stares are common. Sometimes we come across special people who are genuinely interested in sharing our dream. In their small ways, they show their support with a thoughtful gift here, encouraging words there and warm smiles everywhere.
+        </p>
+
+        <p class="km-body-text">
+          This time we had two special send offs in one day - the group at Starbucks in Shimonoseki and another at the 7-11 in Asa! With their words, "ganbatte", trailing behind us, we headed further into the mountains with our trusty scooters!
+        </p>
+
+        <p class="km-body-text">
+          Total distance travelled: 75km<br>
+          Total time including stops: 12 hours
+        </p>
       </section>
 
       <section>
-        <!-- Section: Special encounters -->
-        <p class="km-body-text">
-          Today's trip cannot be completed without talking about the two wonderful groups of people 
-          we met along the way. We get a lot of people asking us what we are doing and where we 
-          are going. Curious stares are common.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
-
-        <p class="km-body-text">
-          Sometimes we come across special people who are genuinely interested in sharing our dream. 
-          In their small ways, they show their support with a thoughtful gift here, encouraging 
-          words there and warm smiles everywhere.
-        </p>
-
-        <ContentBox type="quote">
-          This time we had two special sendoffs in one day - the group at Starbucks in Shimonoseki 
-          and another at the 7-11 in Asa! With their words, "ganbatte", trailing behind us, we 
-          headed further into the mountains with our trusty scooters!
-        </ContentBox>
       </section>
     </div>
 

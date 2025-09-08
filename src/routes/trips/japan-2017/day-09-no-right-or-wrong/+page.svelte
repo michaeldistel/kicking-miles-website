@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '80km', label: 'Distance' },
-    { value: '12 hours', label: 'Scooting time' },
-    { value: '492km', label: 'Progress' },
-    { value: '17°C', label: 'Temperature' }
+    { value: 'DAY NINE', label: 'Scooting Adventures' },
+    { value: '492km / 1800km', label: 'Okayama to Himeji' },
+    { value: '12 hours', label: 'Estimated scooting time' },
+    { value: 'Clear skies!', label: 'Weather' }
   ];
 
   const photos = [
@@ -26,7 +26,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '17 degrees Celsius with beautiful clear skies. Perfect conditions for a long day of scooting.'
+    description: '17 degrees c, beautiful clear skies. Raring to go!'
   };
 </script>
 
@@ -42,11 +42,11 @@
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY 09"
+      dayNumber="DAY NINE"
       date="3 April 2017"
-      title="Okayama to Himeji"
+      title="There is no right or wrong!"
       progress="492 kilometres of 1,800"
-      subtitle="There is no right or wrong!"
+      subtitle="Day nine"
     />
 
     <StatsBox {stats} columns={2} />
@@ -59,59 +59,32 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Physical adaptation -->
-        <ContentBox type="highlight">
-          Raring to go! Nine days in and we're feeling more adjusted to the daily physical punishment.
-        </ContentBox>
-
         <p class="km-body-text">
-          DAY NINE of our scooting adventures! Okayama to Himeji - 492km of our 1,800km journey.
-        </p>
-
-        <p class="km-body-text">
-          One of the biggest challenges in doing a trip like this, would really be the ability to 
-          lean into discomfort and hanging on through it to give the body time to adjust. Physically, 
-          it might sound really difficult but anyone with a slightly above average fitness level will 
-          find this pace easy to conquer. It is not so much strenuous as it is tiring.
+          <strong>DAY NINE of our scooting adventures!</strong><br>
+          Okayama to Himeji - 492km / 1800km<br>
+          Estimated scooting time: 12 hours<br>
+          Weather: 17 degrees c, beautiful clear skies<br>
+          Mood: Raring to go!
         </p>
       </section>
 
       <section>
-        <!-- Section: Mental challenges -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The real challenge</h3>
-        
         <p class="km-body-text">
-          For the most part, the real challenge is more emotional and mental. Sometimes those take up 
-          more of our energy than the actual physical task itself.
+          Nine days in and we're feeling more adjusted to the daily physical punishment. One of the biggest challenge in doing a trip like this, would really be the ability to lean into discomfort and hanging on through it to give the body time to adjust. Physically, it might sound really difficult but anyone with a slightly above average fitness level will find this pace easy to conquer. It's not so much strenuous as it is tiring.
         </p>
 
         <p class="km-body-text">
-          Some of the questions we had to face were... what do we do when the uphill climb becomes 
-          exhausting on the quads we feel like stopping, when the rain chills us to the bone and we 
-          are shivering or when we get lost and do not know how to navigate out of the maze of streets? 
-          A simple question, do we quit or go on?
+          For the most part, the real challenge is more emotional and mental. Sometimes those take up more of our energy than the actual physical task itself. Some of the questions we had to face were... what do we do when the uphill climb becomes exhausting on the quads we feel like stopping, when the rain chills us to the bone and we're shivering or when we get lost and don't know how to navigate out of the maze of streets? A simple question, do we quit or go on?
+        </p>
+
+        <p class="km-body-text">
+          The idealist will tell you that the decision is clear. You either do or don't. But the realist knows that life is not so simple. There is no black and white. Everything exists in greys. And because it exists in greys, there is no right or wrong... good or bad. Life just is and we just live the present moment the best we can.
         </p>
       </section>
 
       <section>
-        <!-- Section: Philosophy of grey areas -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Life in the grey areas</h3>
-        
-        <p class="km-body-text">
-          The idealist will tell you that the decision is clear. You either do or do not. But the 
-          realist knows that life is not so simple. There is no black and white. Everything exists 
-          in greys.
-        </p>
-
-        <ContentBox type="quote">
-          And because it exists in greys, there is no right or wrong... good or bad. Life just is 
-          and we just live the present moment the best we can.
-        </ContentBox>
-
-        <p class="km-body-text">
-          This journey is teaching us about acceptance and presence. Perhaps the answer is not about 
-          finding the "right" choice, but about embracing the uncertainty and responding with 
-          compassion for ourselves and our circumstances.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
       </section>
     </div>

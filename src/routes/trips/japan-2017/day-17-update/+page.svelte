@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '0km', label: 'Distance' },
-    { value: 'Rest', label: 'Activity' },
-    { value: '754km', label: 'Progress' },
-    { value: '8°C', label: 'Temperature' }
+    { value: '754', label: 'Distance' },
+    { value: '1800km', label: 'Total' },
+    { value: '8 degrees c', label: 'Temperature' },
+    { value: 'Rest day', label: 'Activity' }
   ];
 
   const featuredImages = [
@@ -19,7 +19,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '8 degrees Celsius with rain all day. Decision made to stay an extra day in Nagoya. Tomorrow forecast: sunny 18°C!'
+    description: 'It was raining the whole day today and temperature was about 8 degrees c'
   };
 </script>
 
@@ -52,56 +52,18 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Weather delay -->
-        <ContentBox type="highlight">
-          It was raining the whole day today and temperature was about 8 degrees Celsius, so we 
-          decided to stay in Nagoya for an extra day.
-        </ContentBox>
-
         <p class="km-body-text">
-          DAY 17 of our scooting adventures! Nagoya - 754km of our 1,800km journey.
+          <strong>DAY 17 of our scooting adventures!</strong><br><br>
+
+          Nagoya - 754 / 1800km
         </p>
 
         <p class="km-body-text">
-          Sometimes the weather makes decisions for you, and today was one of those days. With rain 
-          throughout the day and cold temperatures, the sensible choice was to take shelter and wait 
-          for better conditions.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Team activities -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Different ways to spend a rest day</h3>
-        
-        <p class="km-body-text">
-          The girls went out shopping while the boys lazed in the hotel room, lol. Everyone has their 
-          own way of recharging and making the most of unexpected downtime.
+          It was raining the whole day today and temperature was about 8 degrees c, so we decided to stay in Nagoya for an extra day. The girls went out shopping while the boys lazed in the hotel room, lol. Tomorrow is gonna be a sunny day at 18 degrees c! Onwards to Gamagori!
         </p>
 
-        <p class="km-body-text">
-          These unplanned pauses in the journey often become as memorable as the days on the road. 
-          They give us time to process experiences, rest our bodies, and appreciate simple comforts 
-          like a warm, dry room when it is cold and wet outside.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Looking forward -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Onwards to Gamagori</h3>
-        
-        <ContentBox type="quote">
-          Tomorrow is gonna be a sunny day at 18 degrees Celsius! Onwards to Gamagori!
-        </ContentBox>
-
-        <p class="km-body-text">
-          The forecast brings optimism and renewed energy. After a day of rest and recovery, we are 
-          ready to get back on the road with much better weather conditions ahead.
-        </p>
-
-        <p class="km-body-text">
-          These contrasts - between challenging weather and sunshine, between rest and activity, 
-          between indoor comfort and outdoor adventure - make the journey richer and help us 
-          appreciate each different phase.
+        <p class="km-body-text font-medium mt-8">
+          Michelle Yang
         </p>
       </section>
     </div>

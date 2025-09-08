@@ -8,9 +8,9 @@
 
 	const stats = [
 		{ value: '948km', label: 'Distance' },
-		{ value: '1,800km', label: 'Journey Total' },
-		{ value: '12 hours', label: 'Estimated Time' },
-		{ value: '20°C', label: 'Temperature' }
+		{ value: '1800km', label: 'Total' },
+		{ value: '12 hours', label: 'Scooting' },
+		{ value: 'Exhausted after 3 days', label: 'Mood' }
 	];
 
 	const routeMapImages = [
@@ -78,7 +78,7 @@
 
 	const weather = {
 		title: 'Weather Report',
-		description: '20 degrees Celsius with good conditions. Starting to feel exhausted after 3 consecutive days of scooting.'
+		description: '20 degrees c'
 	};
 </script>
 
@@ -96,9 +96,9 @@
 			backText="Japan 2017 Daily Journal"
 			dayNumber="DAY 20"
 			date="14 April 2017"
-			title="Hamamatsu to Shizuoka"
+			title="Our first serious casualty!"
 			progress="948 kilometres of 1,800"
-			subtitle="Our first serious casualty!"
+			subtitle="Day 20"
 		/>
 
 		<StatsBox {stats} columns={2} />
@@ -110,116 +110,58 @@
 
 		<!-- Main content -->
 		<div class="space-y-8 mb-8">
-			<div>
-				<ImageGallery title="Route Map" routeImages={routeMapImages} />
-			</div>
-
-			<div>
-				<ImageGallery title="Farewell from Hamamatsu" photoImages={hamamatsuImages} />
-			</div>
-
 			<section>
-				<!-- Section: Hamamatsu hospitality -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">Something about Hamamatsu</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					After a fond farewell from the staff at our hotel, we made our way through Hamamatsu town. There is something about Hamamatsu... everyone was really spontaneous and friendly here for some reason! Aside from Yoneko-san we met yesterday, we came across three more wonderful groups of people on the way out.
-				</p>
-				
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					During travels like these, we sometimes get horrible experiences but more often than not, the wonderful experiences outweigh the bad and Hamamatsu was a good example. We left in happy spirits!
-				</p>
+				<p class="km-body-text">
+					<strong>DAY 20 of our scooting adventures!</strong><br><br>
 
-				<ContentBox type="quote">
-					<p class="font-light">
-						The balance of travel: sometimes horrible experiences, but more often than not, the wonderful ones outweigh the bad.
-					</p>
-				</ContentBox>
-			</section>
+					Hammamatsu to Shizuoka - 948km / 1800km<br><br>
 
-			<section>
-				<!-- Section: The kind safety volunteer -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">Kiotsukete - be careful</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					About three-quarters of the way along, we went past a jolly old man ushering children along the road, one of those school safety volunteers. He smiled and waved happily to each of us as we passed him and wished us safe travels or "kiotsukete" in a very earnest voice.
-				</p>
-				
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					At the next traffic light stop, we all spoke about how friendly but also how cautious he was and we attributed it to his age. Who knew that soon after this, we would have our very first serious casualty!
+					Estimated scooting time: 12 hours<br><br>
+
+					Weather: 20 degrees c<br><br>
+
+					Mood: Starting to feel exhausted again after 3 consecutive days of scooting.
 				</p>
 
-				<div class="mt-6">
-					<ImageGallery title="Journey Moments" photoImages={journeyImages} />
-				</div>
-			</section>
-
-			<section>
-				<!-- Section: The accident -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">A loud thud and crash</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					Along one of the farm roads going downslope 90 degrees around the bend, we went one by one like gregarious racers, turning lower to the ground to take the corner sharply. First, second, third person passes and suddenly we heard a loud thud and crash.
-				</p>
-				
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					We immediately jammed our brakes, flipped our heads around and saw Tresha face plant into the asphalt road, her scooter flung away from her. We threw our scooters off and sprinted to her rescue, no idea why we did not scoot instead, and found her lying dazed on the ground.
+				<p class="km-body-text">
+					After a fond farewell from the staff at our hotel, we made our way through Hamamatsu town. There's something about Hamamatsu... everyone was really spontaneous and friendly here for some reason! Aside from Yoneko san we met yesterday, we came across 3 more wonderful groups of people on the way out. During travels like these, we sometimes get horrible experiences but more often than not, the wonderful experiences outweigh the bad and Hamamatsu was a good example. We left in happy spirits!
 				</p>
 
-				<ContentBox type="highlight">
-					<p class="font-light">
-						She managed to sit herself up in the time we got to her. All of us on this trip have had the luck to be privy to such an experience. I could see the look on her face, trying to process what had happened.
-					</p>
-				</ContentBox>
+				<p class="km-body-text">
+					About 3/4 of the way along, we went pass a jolly old man ushering children along the road, one of those school safety volunteers. He smiled and waved happily to each of us as we passed him and wished us safe travels or "kiotsukete" in a very earnest voice. At the next traffic light stop, we all spoke about how friendly but also how cautious he was and we attributed it to his age.
+				</p>
 
-				<div class="mt-6">
-					<ImageGallery title="Emergency Response" photoImages={accidentImages} />
-				</div>
-			</section>
+				<p class="km-body-text">
+					Who knew that soon after this, we'd have our very first serious casualty! Along one of the farm roads going downslope 90 degrees around the bend, we went one by one like gregarious racers, turning lower to the ground to take the corner sharply. 1st, 2nd, 3rd person passes and suddenly we heard a loud thud and crash. We immediately jammed our breaks, flipped out heads around and saw Tresha face plant into the asphalt road, her scooter flung away from her.
+				</p>
 
-			<section>
-				<!-- Section: Assessment and recovery -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">First aid and decisions</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
+				<p class="km-body-text">
+					We threw our scooters off and sprinted to her rescue, no idea why we didn't scoot instead, and found her lying dazed on the ground. She managed to sit herself up in the time we got to her. All of us on this trip have had the luck to be privy to such an experience. I could see the look on her face, trying to process what had happened.
+				</p>
+
+				<p class="km-body-text">
 					After some inspection, it turned out that she hit herself on the chin, rolled off to her right and landed face down. There were wounds in four spots, the deepest one being on her right hip. Her palms took the second brunt and she had deep asphalt chafing on the other spots.
 				</p>
-				
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
+
+				<p class="km-body-text">
 					After some first aid administration and intense squirming, we were eventually good to go again. We all made an executive decision to take the train to Shizuoka so she could rest her wounds. Tresha was saying, "if only I wore my tights higher, I would have less of a wound" and she was right.
 				</p>
 
-				<div class="mt-6">
-					<ImageGallery title="Recovery and Reflection" photoImages={recoveryImages} />
-				</div>
-			</section>
-
-			<section>
-				<!-- Section: Philosophy of adventure -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">What adventure really means</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					But at the same time that is what an adventure is, a risk taken for a gain in spirit. The words "if only", or "we should have", do not exist on an adventure because there is no space for them.
-				</p>
-				
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					Adventures breathe and flow along, happening in split second blocks, the concept of safety flashing by, the risk taken, a deep reminder of what we are sacrificing and the beautiful moments passing by, a wonderful reward for our sacrifice.
+				<p class="km-body-text">
+					But at the same time that's what an adventure is, a risk taken for a gain in spirit. The words, "if only", or "we should have", doesn't exist on an adventure because there is no space for them. Adventures breathe and flow along, happening in spilt second blocks, the concept of safety flashing by, the risk taken, a deep reminder of what we're sacrificing and the beautiful moments passing by, a wonderful reward for our sacrifice.
 				</p>
 
-				<ContentBox type="quote">
-					<p class="font-light italic">
-						"And the only way to really know if we are truly living life, is when you shed the cloak of safety to ride the wave of the bold, to go where we've never been before."
-					</p>
-				</ContentBox>
-			</section>
-
-			<section>
-				<!-- Section: Final reflection -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">The courage to live</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					And that place is different for each and every one of us. In the end, every day is simply another opportunity and a reminder to be brave and courageous. No more, no less.
+				<p class="km-body-text">
+					And the only way to really know if we are truly living life, is when you shed the cloak of safety to ride the wave of the bold, to go where we've never been to before. And that place is different for each and everyone of us.
 				</p>
 
-				<ContentBox type="highlight">
-					<p class="font-light">
-						Every day: another opportunity and reminder to be brave and courageous. The essence of what it means to truly live.
-					</p>
-				</ContentBox>
+				<p class="km-body-text">
+					In the end, everyday is simply another opportunity and a reminder to be brave and courageous. No more, no less.
+				</p>
+
+				<p class="km-body-text font-medium mt-8">
+					Michelle Yang
+				</p>
 			</section>
 		</div>
 
@@ -228,6 +170,7 @@
     currentDay={20}
     totalDays={40}
     previousDay={{ url: "/trips/japan-2017/day-19-7-eleven-is-not-just-for-refuelling", label: "Day 19" }}
+    nextDay={{ url: "/trips/japan-2017/day-21-we-have-officially-hit-our-1000km-mark", label: "Day 21" }}
   />
 
 	</div>

@@ -3,7 +3,7 @@
 </script>
 
 <footer class="km-footer">
-  <div class="km-divider-horizontal"></div>
+  <div class="w-full h-px bg-km-secondary mb-4"></div>
   <div class="km-footer-content">
     <div class="km-build-info">
       Build: {BUILD_COMMIT}

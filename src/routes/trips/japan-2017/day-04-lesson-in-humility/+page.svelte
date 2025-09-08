@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '99km', label: 'Distance' },
-    { value: '9hrs', label: 'Estimated time' },
-    { value: '274km', label: 'Progress' },
-    { value: 'Train', label: 'Mode change' }
+    { value: 'DAY FOUR', label: 'Scooting Adventures' },
+    { value: '274 / 1800km', label: 'Hofu to Hiroshima' },
+    { value: '9 hours', label: 'Estimated scooting time' },
+    { value: 'Train', label: 'Final transport mode' }
   ];
 
   const photos = [
@@ -27,7 +27,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: 'Didn\'t take note! Too focused on the challenges of the day to record weather conditions.'
+    description: 'Didn\'t take note! A little nervous after the close escape.'
   };
 </script>
 
@@ -43,11 +43,11 @@
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY 04"
+      dayNumber="DAY FOUR"
       date="29 March 2017"
-      title="Hofu to Hiroshima"
+      title="A lesson in humility"
       progress="274 kilometres of 1,800"
-      subtitle="A lesson in humility"
+      subtitle="Day four"
     />
 
     <StatsBox {stats} columns={2} />
@@ -60,56 +60,37 @@
     <!-- Main content -->
     <div class="space-y-8 mb-12">
       <section>
-        <!-- Section: The start -->
         <p class="km-body-text">
-          DAY FOUR of our scooting adventures! Hofu to Hiroshima - 274km of our 1,800km journey.
-        </p>
-
-        <p class="km-body-text">
-          We set off into the chilly morning with tired and aching bodies to head up into the 
-          mountain passes of Hofu. It was not long into the morning that Michelle's brakes were 
-          busted.
+          <strong>DAY FOUR of our scooting adventures</strong><br>
+          Hofu to Hiroshima - 274 / 1800km<br>
+          Estimated scooting time: 9 hours<br>
+          Weather: Didn't take note!<br>
+          Mood: A little nervous after the close escape
         </p>
       </section>
 
       <section>
-        <!-- Section: The incident -->
         <p class="km-body-text">
-          Cruising down one of the gentle slopes, she could not brake properly and had to slide 
-          to a stop, throwing herself off the scooter. All the flipping and parkour training we 
-          did paid off because she landed safely on her feet!
-        </p>
-
-        <ContentBox type="highlight">
-          There was a moment of alarming fear, when the reality hit that the fall could have 
-          happened down a mountain pass, but also a sigh of blessing to know that nothing 
-          serious actually happened.
-        </ContentBox>
-
-        <p class="km-body-text">
-          With sombre thoughts, we decided to walk down to the nearest station and take the train 
-          to Hiroshima instead of pushing through or walking.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: The lesson -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">A lesson in humility</h3>
-        
-        <p class="km-body-text">
-          We set off from Fukuoka with brash confidence, boldness enveloping our every step, 
-          certainty that our bodies could hold up to the gruelling task and our goals easily met.
+          We set off into the chilly morning with a tired and aching body to head up into the mountain passes of Hofu. It wasn't long into the morning that Michelle's breaks were busted. Cruising down one of the gentle slopes, she couldn't break properly and had to slide to a stop, throwing herself off the scooter. All the flipping and parkour training we did paid off because she landed safely on her feet!
         </p>
 
         <p class="km-body-text">
-          Having what we would refer to as a tiny setback has become a stark reminder that perhaps 
-          arrogance is only for the fool-hearted and that to truly succeed in a great challenge 
-          requires both humility and confidence.
+          There was a moment of alarmingly fear, when the reality that the fall could have happened down a mountain pass, but also a sigh of blessing to know that nothing serious actually happened. With sombre thoughts, we decided to walk down to the nearest station and take the train to Hiroshima instead of pushing through or walking.
         </p>
 
-        <ContentBox type="quote">
+        <p class="km-body-text">
+          A lesson in humility. We set off from Fukuoka with brash confidence, boldness enveloping our every step, certainty that our bodies can hold up to the gruelling task and our goals easily met. Having what we'd refer to as a tiny setback, has become a stark reminder that perhaps, arrogance is only for the fool-hearted and that to truly succeed in a great challenge, requires both humility and confidence.
+        </p>
+
+        <p class="km-body-text">
           Thanking the mountain gods for a lesson learnt!
-        </ContentBox>
+        </p>
+      </section>
+
+      <section>
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
+        </p>
       </section>
     </div>
 

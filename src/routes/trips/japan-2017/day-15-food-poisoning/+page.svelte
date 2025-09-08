@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '0km', label: 'Distance' },
-    { value: 'Train', label: 'Transport' },
-    { value: '714km', label: 'Progress' },
-    { value: '16°C', label: 'Temperature' }
+    { value: '714km', label: 'Distance' },
+    { value: '1800km', label: 'Total' },
+    { value: '0 hours', label: 'Scooting' },
+    { value: 'Two teammates down', label: 'Mood' }
   ];
 
   const photos = [
@@ -40,7 +40,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '16 degrees Celsius. Travel plans changed due to team food poisoning - taking the train instead.'
+    description: '16 degrees c'
   };
 </script>
 
@@ -58,9 +58,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="DAY 15"
       date="9 April 2017"
-      title="Iga to Yokkaichi"
+      title="Oh no the boys have food poisoning!"
       progress="714 kilometres of 1,800"
-      subtitle="Oh no the boys have food poisoning!"
+      subtitle="Day 15 updates"
     />
 
     <StatsBox {stats} columns={2} />
@@ -80,64 +80,39 @@
         </ContentBox>
 
         <p class="km-body-text">
-          DAY 15 of our scooting adventures! Iga to Yokkaichi - 714km of our 1,800km journey.
+          <strong>DAY 15 of our scooting adventures!</strong><br><br>
+
+          Iga to Yokkaichi - 714km / 1800km<br><br>
+
+          Estimated scooting time: 0 hours<br><br>
+
+          Weather: 16 degrees c<br><br>
+
+          Mood: Two of our team mates are down with food poisoning and diarrhoea. We're taking it easy and hopping on a train to the next town.
         </p>
 
         <p class="km-body-text">
-          When in Iga do as the ninjas do! It was an unexpected stop over and an even more unexpected 
-          city fare! When we were about to leave Iga, we found out that there was a ninja festival 
-          of sorts!
+          When in Iga do as the ninjas do! It was an unexpected stop over and an even more unexpected city fare! When we were about to leave Iga, we found out that there was a ninja festival of sorts!
         </p>
 
         <p class="km-body-text">
-          Having decided to take the train to Yokkaichi because both the boys were down with food 
-          poisoning and diarrhoea, we took a detour and joined the local throng at the Iga castle.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Festival discovery -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">An unexpected festival</h3>
-        
-        <p class="km-body-text">
-          It was a pleasant surprise to see the whole town out in the field; many lovers having a 
-          picnic under the blooming sakura trees, families going for the ninja performances at the 
-          museum and even the shiba-ken dogs dressing as ninjas and posing for the crowds!
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Ninja education -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">More than secret agents</h3>
-        
-        <p class="km-body-text">
-          We learnt that aside from political espionage and being body guards of the lords, they 
-          were also secret messenger carriers who protected important information with their lives. 
-          Highly sensitive documents were to be committed to memory and even carved on their skin 
-          if needed.
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Historical perspective -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The privilege of modern life</h3>
-        
-        <p class="km-body-text">
-          At that moment it occurred to us that here we are easily communicating with each other 
-          over technology - WhatsApp, email, social media platforms - while it took them the risk 
-          of a human life for a simple message.
+          Having decided to take the train to Yokkaichi because both the boys were down with food poisoning and diarrhoea, we took a detour and joined the local throng at the Iga castle. It was a pleasant surprise to see the whole town out in the field; many lovers having a picnic under the blooming sakura trees, families going for the ninja performances at the museum and even the shiba-ken dogs dressing as ninjas and posing for the crowds!
         </p>
 
-        <ContentBox type="quote">
-          Life has changed over the centuries and for better. We might be commoners but the 
-          commoners of today live a better life than the kings and lords of yesterday.
-        </ContentBox>
+        <p class="km-body-text">
+          We learnt that aside from political espionage and being body guards of the lords, they were also secret messenger carriers who protected important information with their lives. Highly sensitive documents were to be committed to memory and even carved on their skin if needed.
+        </p>
 
         <p class="km-body-text">
-          Puts our modern advancement in perspective. Sometimes it takes stepping into history to 
-          fully appreciate the extraordinary ordinariness of our daily lives. What we consider 
-          mundane - instant communication, safe travel, accessible information - would have been 
-          miraculous to previous generations.
+          At that moment it occurred to us that here we are easily communicating with each other over technology - Whatsapp, email, social media platforms - while it took them the risk of a human life for a simple message. Life has changed over the centuries and for better. We might be commoners but the commoners of today live a better life than than the kings and lords of yesterday.
+        </p>
+
+        <p class="km-body-text">
+          Puts our modern advancement in perspective.
+        </p>
+
+        <p class="km-body-text font-medium mt-8">
+          Michelle Yang
         </p>
       </section>
     </div>

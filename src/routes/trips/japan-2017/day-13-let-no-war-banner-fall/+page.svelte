@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '24km', label: 'Distance' },
-    { value: '6 hours', label: 'Scooting time' },
-    { value: '615km', label: 'Progress' },
-    { value: '20°C', label: 'Temperature' }
+    { value: 'DAY 13', label: 'Scooting Adventures' },
+    { value: '615km / 1800km', label: 'Osaka to Nara' },
+    { value: '6 hours', label: 'Estimated scooting time' },
+    { value: 'Kuidaore!', label: 'Mood' }
   ];
 
   const photos = [
@@ -27,7 +27,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '20 degrees Celsius but feeling warm from the food. Rain getting steadily heavier as we left Osaka.'
+    description: '20 degrees c, feeljng warm. 食い倒れ kuidaore or bursting with food.'
   };
 </script>
 
@@ -45,9 +45,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="DAY 13"
       date="7 April 2017"
-      title="Osaka to Nara"
+      title="Let no war banner fall!"
       progress="615 kilometres of 1,800"
-      subtitle="Let no war banner fall!"
+      subtitle="Day 13"
     />
 
     <StatsBox {stats} columns={2} />
@@ -60,56 +60,36 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: High spirits departure -->
-        <ContentBox type="highlight">
-          食い倒れ kuidaore or bursting with food! We left Osaka in high spirits with our newly 
-          constructed 'sengoku' war banners!
-        </ContentBox>
-
         <p class="km-body-text">
-          DAY 13 of our scooting adventures! Osaka to Nara - 615km of our 1,800km journey.
-        </p>
-
-        <p class="km-body-text">
-          Stuck into our backpacks, we scooted on like proud soldiers ready to proclaim our 
-          ascendancy over the challenging journey. We have 2/3 more to go or roughly 1,200km.
+          <strong>DAY 13 of our scooting adventures!</strong><br>
+          Osaka to Nara - 615km / 1800km<br>
+          Estimated scooting time: 6 hours<br>
+          Weather: 20 degrees c, feeljng warm<br>
+          Mood: 食い倒れ kuidaore or bursting with food
         </p>
       </section>
 
       <section>
-        <!-- Section: Rain battle -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The rain offensive</h3>
-        
         <p class="km-body-text">
-          The rain got steadily heavy as we marched through the streets of Osaka. Out came all our 
-          defences against the rain; waterproof jackets, backpack covers, gardening gloves and 
-          plastic bags over our backpack. We looked like a mismatched bunch of homeless wannabes.
+          We left Osaka in high spirits with our newly constructed 'sengoku' war banners! Stuck into our backpacks, we scooted on like proud soldiers ready to proclaim our ascendency over the challenging journey. We have 2/3 more to go or roughly 1,200km.
         </p>
 
         <p class="km-body-text">
-          The only things left uncovered were our war banners. We had no more plastic bags left and 
-          there was no way to slot them in our bags. Major dilemma!
+          The rain got steadily heavy as we marched through the streets of Osaka. Out came all our defenses against the rain; waterproof jackets, backpack covers, gardening gloves and plastic bags over our backpack. We looked like a mismatched bunch of homeless wannabes.
+        </p>
+
+        <p class="km-body-text">
+          The only things left uncovered were our war banners. We had no more plastic bags left and there was no way to slot them in our bags. Major dilemma! Eventually we decided that our war banners had to be protected at all costs. So Michael sacrificed his raincoat to scoot in the rain, so our war banners had a protected place to ride.
+        </p>
+
+        <p class="km-body-text">
+          PS: In the end, the marker ink ran down the cloth anyway but the platoon made it to Nara! Zero casualties reported!
         </p>
       </section>
 
       <section>
-        <!-- Section: The sacrifice -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Protecting the colours</h3>
-        
-        <ContentBox type="quote">
-          Eventually we decided that our war banners had to be protected at all costs. So Michael 
-          sacrificed his raincoat to scoot in the rain, so our war banners had a protected place to ride.
-        </ContentBox>
-
-        <p class="km-body-text">
-          PS: In the end, the marker ink ran down the cloth anyway but the platoon made it to Nara! 
-          Zero casualties reported!
-        </p>
-
-        <p class="km-body-text">
-          Sometimes the most important battles are not about winning, but about the commitment to 
-          protect what matters to you. Our war banners may have been damaged, but our spirits and 
-          our solidarity remained intact.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
       </section>
     </div>

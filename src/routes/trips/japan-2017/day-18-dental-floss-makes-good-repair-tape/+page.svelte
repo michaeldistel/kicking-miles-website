@@ -8,9 +8,9 @@
 
 	const stats = [
 		{ value: '817km', label: 'Distance' },
-		{ value: '1,800km', label: 'Journey Total' },
-		{ value: '10 hours', label: 'Estimated Time' },
-		{ value: '16°C', label: 'Temperature' }
+		{ value: '1800km', label: 'Total' },
+		{ value: '10 hours', label: 'Scooting' },
+		{ value: 'Bright and sunny', label: 'Mood' }
 	];
 
 	const heroImages = [
@@ -79,7 +79,7 @@
 
 	const weather = {
 		title: 'Weather Report',
-		description: '16 degrees Celsius with bright sunny conditions. Perfect weather for tackling mechanical challenges!'
+		description: '16 degrees c'
 	};
 </script>
 
@@ -97,9 +97,9 @@
 			backText="Japan 2017 Daily Journal"
 			dayNumber="DAY 18"
 			date="12 April 2017"
-			title="Nagoya to Gamagori"
+			title="Dental floss makes good repair tape"
 			progress="817 kilometres of 1,800"
-			subtitle="Dental floss makes good repair tape"
+			subtitle="Day 18"
 		/>
 
 		<StatsBox {stats} columns={2} />
@@ -111,82 +111,42 @@
 
 		<!-- Main content -->
 		<div class="space-y-8 mb-8">
-			<div>
-				<ImageGallery title="Morning Departure" routeImages={heroImages} />
-			</div>
-
 			<section>
-				<!-- Section: Sunny departure -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">Sunny spirits and perfect weather</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					We left Nagoya in sunny spirits today. The weather was a perfect 18 degrees and the sun was glorious! Today was destined to be a day of stopping for repairs, but we could not have asked for better conditions to tackle the challenges ahead.
-				</p>
-			</section>
+				<p class="km-body-text">
+					<strong>DAY 18 of our scooting adventures!</strong><br><br>
 
-			<section>
-				<!-- Section: First repair -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">Early troubles</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					Halfway in we had to stop for repairs. Michael's bolts came loose barely after 10 kilometres. 45 minutes later, some handiwork and hyper restlessness, we were off again!
-				</p>
-				
-				<ContentBox type="highlight">
-					<p class="font-light">
-						Sometimes the journey teaches you patience whether you want to learn it or not. Roadside repairs are becoming part of our daily rhythm.
-					</p>
-				</ContentBox>
+					Nagoya to Gamagori - 817km / 1800km<br><br>
 
-				<div class="mt-6">
-					<ImageGallery title="Emergency Repairs" photoImages={repairImages} />
-				</div>
-			</section>
+					Estimated scooting time: 10 hours<br><br>
 
-			<section>
-				<!-- Section: Girl's cafe discovery -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">An inviting discovery</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					On the way we saw an inviting cafe and hopped in for lunch. Turns out it was a cafe designed for women, everything thoughtfully set up: music at the right noise level, lights not too glaring. The toilets even had pretty paper and sanitary napkins. These people know their target audience.
-				</p>
-				
-				<ContentBox type="quote">
-					<p class="font-light">
-						It is remarkable how attention to detail can transform a simple meal into a genuinely welcoming experience. Good design speaks quietly but powerfully.
-					</p>
-				</ContentBox>
-			</section>
+					Weather: 16 degrees c<br><br>
 
-			<section>
-				<!-- Section: Creative solutions -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">Dental floss engineering</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					We headed off again only to have the bolts come loose for the second time today. We stopped beside another convenience store "combini" to repair our scooters. When you are on the roads and there is no obvious solution visible for miles, you have to become creative and make do with what you have.
-				</p>
-				
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					Out comes Oral B dental floss in place of plumbing tape. For those who do not know, plumbing tape is wound around the screw thread of pipes so it seals better. Necessity breeds innovation, even when that innovation involves repurposing oral hygiene products.
+					Mood: Bright and sunny, just like the weather today!
 				</p>
 
-				<ContentBox type="quote">
-					<p class="font-light italic">
-						"Another 35 minutes later, we were off again... this time we made it all the way to Gamagori!"
-					</p>
-				</ContentBox>
-
-				<div class="mt-6">
-					<ImageGallery title="Creative Solutions" photoImages={journeyImages} />
-				</div>
-			</section>
-
-			<section>
-				<!-- Section: Success -->
-				<h3 class="text-xl font-light mb-4 text-km-primary">Resourcefulness pays off</h3>
-				<p class="text-lg leading-relaxed mb-6" style="color: var(--km-text)">
-					The dental floss solution held beautifully for the remainder of our journey. Sometimes the most unexpected items become exactly what you need. Today reminded us that adventure often requires equal parts determination and creativity.
+				<p class="km-body-text">
+					We left Nagoya in sunny spirits today. The weather was a perfect 18 degrees c and the sun was glorious! Today was a day of stopping for repairs.
 				</p>
 
-				<div>
-					<ImageGallery title="Arrival in Gamagori" photoImages={arrivalImages} />
-				</div>
+				<p class="km-body-text">
+					Halfway in we had to stop for repairs. Michael's bolts came lose barely after 10kms. 45 mins later, some handiwork and hyper restlessness, we were off again!
+				</p>
+
+				<p class="km-body-text">
+					On the way we an inviting cafe and hopped in for lunch. Turns out it was a cafe for girls, everything thoughtfully setup, music at the right noise level, lights not too glaring etc... the toilets even had pretty paper and sanitary napkins These people know their target audience.
+				</p>
+
+				<p class="km-body-text">
+					We headed off again only to have the bolts come loose. For the second time today, we stopped beside another convenience store "combini" to repair our scooters. When we are on the roads and there is no obvious solution visible for miles, we have to become creative and make do with what we have. Out comes Oral B dental floss in place of plumbing tape. (For those who don't know, plumbing tape is wound around the screw thread of pipes so it seals better.)
+				</p>
+
+				<p class="km-body-text">
+					Another 35 minutes later, we were off again... this time we made it all the way to Gamagori!!!
+				</p>
+
+				<p class="km-body-text font-medium mt-8">
+					Michelle Yang
+				</p>
 			</section>
 		</div>
 

@@ -7,10 +7,10 @@
   import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const stats = [
-    { value: '44km', label: 'Distance' },
-    { value: '4 hours', label: 'Scooting time' },
-    { value: '591km', label: 'Progress' },
-    { value: '20°C', label: 'Temperature' }
+    { value: 'DAY 11', label: 'Scooting Adventures' },
+    { value: '591km / 1800km', label: 'Kobe to Osaka' },
+    { value: '4 hours', label: 'Estimated scooting time' },
+    { value: 'Relaxed!', label: 'Mood' }
   ];
 
   const photos = [
@@ -25,7 +25,7 @@
 
   const weather = {
     title: 'Weather Report',
-    description: '20 degrees Celsius with another beautiful day. Perfect weather for exploring Osaka\'s unique culture.'
+    description: '20 degrees c, another beautiful day. Just an easy distance today, feeling relaxed.'
   };
 </script>
 
@@ -43,9 +43,9 @@
       backText="Japan 2017 Daily Journal"
       dayNumber="DAY 11"
       date="5 April 2017"
-      title="Kobe to Osaka"
+      title="Rebellious heterogeneity in a homogenous culture"
       progress="591 kilometres of 1,800"
-      subtitle="Rebellious heterogeneity in a homogenous culture"
+      subtitle="Day 11"
     />
 
     <StatsBox {stats} columns={2} />
@@ -58,69 +58,32 @@
     <!-- Main content -->
     <div class="space-y-8 mb-8">
       <section>
-        <!-- Section: Easy day -->
-        <ContentBox type="highlight">
-          Just an easy distance today, feeling relaxed. DAY 11 of our scooting adventures!
-        </ContentBox>
-
         <p class="km-body-text">
-          Kobe to Osaka - 591km of our 1,800km journey. A shorter day with only 4 hours of scooting, 
-          giving us time to truly explore what makes Osaka special.
+          <strong>DAY 11 of our scooting adventures!</strong><br>
+          Kobe to Osaka - 591km / 1800km<br>
+          Estimated scooting time: 4 hours<br>
+          Weather: 20 degrees c, another beautiful day<br>
+          Mood: Just an easy distance today, feeling relaxed
         </p>
       </section>
 
       <section>
-        <!-- Section: Osaka's culture -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Kuidaore - eat until you burst!</h3>
-        
         <p class="km-body-text">
-          We hit the main town of Osaka and partook in their culinary delights. As Japan's third 
-          biggest city, and the economic crossroads of East and West Japan in the 1800s, Osaka boasts 
-          its own unique culture, in particular what is known as 'kuidaore' or 'eat until you burst!'.
+          We hit the main town of Osaka and partook in their culinary delights. As Japan's third's biggest city, and the economic crossroads of East and West Japan in the 1800s, Osaka boasts its own unique culture, in particular what is known as 'kuidaore' or 'eat until you burst!'. This culture of insatiable gluttony is perhaps a reflection of their passionate dynamism that comes from being at ease with themselves and waves of foreign influence.
         </p>
 
         <p class="km-body-text">
-          This culture of insatiable gluttony is perhaps a reflection of their passionate dynamism 
-          that comes from being at ease with themselves and waves of foreign influence.
+          Almost all heterogenous cultures feature some form of coordinated haphazardness, as each incumbent culture sets aside their differences to blend into one whole. Osaka is no different. You can see it in their dressing, their mannerisms and even their language. There is more than a truce; there is acceptance and ease. What seems wordy and formal in Tokyo is shortened and friendly here. This casualness and an easy-going attitude is what comes with being comfortable with where one is in life...
+        </p>
+
+        <p class="km-body-text">
+          If evolution is the response to the change of environmental characteristics, the question to ask is, what was it about the societal environment in Osaka that gave rise to this rebellious heterogeneity in a homogenous culture that is characteristic of the rest of Japan?
         </p>
       </section>
 
       <section>
-        <!-- Section: Cultural observations -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">Coordinated haphazardness</h3>
-        
-        <p class="km-body-text">
-          Almost all heterogeneous cultures feature some form of coordinated haphazardness, as each 
-          incumbent culture sets aside their differences to blend into one whole. Osaka is no different. 
-          You can see it in their dressing, their mannerisms and even their language.
-        </p>
-
-        <p class="km-body-text">
-          There is more than a truce; there is acceptance and ease. What seems wordy and formal in 
-          Tokyo is shortened and friendly here. This casualness and an easy-going attitude is what 
-          comes with being comfortable with where one is in life...
-        </p>
-      </section>
-
-      <section>
-        <!-- Section: Evolutionary question -->
-        <h3 class="text-xl font-light mb-4 text-km-primary">The evolution of culture</h3>
-        
-        <ContentBox type="quote">
-          If evolution is the response to the change of environmental characteristics, the question 
-          to ask is, what was it about the societal environment in Osaka that gave rise to this 
-          rebellious heterogeneity in a homogeneous culture that is characteristic of the rest of Japan?
-        </ContentBox>
-
-        <p class="km-body-text">
-          Perhaps it was Osaka's position as a trading hub, where different cultures naturally 
-          collided and blended. Or maybe it was the economic necessity of adaptation that fostered 
-          this openness to change and difference.
-        </p>
-
-        <p class="km-body-text">
-          Whatever the cause, Osaka stands as a fascinating example of how geography, economics, 
-          and cultural exchange can create islands of diversity within otherwise homogeneous societies.
+        <p class="km-body-text font-medium mt-8">
+          - Michelle Yang
         </p>
       </section>
     </div>
