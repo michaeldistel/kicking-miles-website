@@ -35,18 +35,15 @@
 </svelte:head>
 
 <!-- Day 08: Okayama Rest Day -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
-    
-    <TripHeader 
-      backUrl="/trips/japan-2017"
-      backText="Japan 2017 Daily Journal"
-      dayNumber="DAY EIGHT"
-      date="2 April 2017"
-      title="Momotaro the peach boy"
-      progress="412 kilometres of 1,800"
-      subtitle="Day eight"
-    />
+<TripHeader 
+  backUrl="/trips/japan-2017"
+  backText="Japan 2017 Daily Journal"
+  dayNumber="DAY EIGHT"
+  date="2 April 2017"
+  title="Momotaro the peach boy"
+  progress="412 kilometres of 1,800"
+  subtitle="Day eight"
+/>
 
     <StatsBox {stats} columns={2} />
 
@@ -109,6 +106,3 @@
       previousDay={{ url: "/trips/japan-2017/day-07-route-2-countryside", label: "Day 7" }}
       nextDay={{ url: "/trips/japan-2017/day-09-no-right-or-wrong", label: "Day 9" }}
     />
-
-  </div>
-</div>

@@ -27,7 +27,7 @@
     </div>
   </div>
   <p class="km-body-text mb-4">
-    {day.description}
+    {@html day.description}
   </p>
   <a href={day.url} class="km-link">
     Read {day.title.split(':')[0]} →

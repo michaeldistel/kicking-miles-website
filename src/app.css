@@ -4,313 +4,417 @@
 
 /* Kicking Miles Design System */
 :root {
-  /* Brand Colors */
-  --km-green: #7eb300;
-  --km-magenta: #c5007c;
-  --km-dark-gray: #636363;
-  --km-light-gray: #7e797c;
+    /* Brand Colors */
+    --km-green: #7eb300;
+    --km-magenta: #c5007c;
+    --km-dark-gray: #636363;
+    --km-light-gray: #7e797c;
 
-  /* Semantic Color Mapping */
-  --km-primary: var(--km-dark-gray);
-  --km-secondary: var(--km-light-gray);
-  --km-accent: var(--km-magenta);
-  --km-highlight: var(--km-green);
+    /* Semantic Color Mapping */
+    --km-primary: var(--km-dark-gray);
+    --km-secondary: var(--km-light-gray);
+    --km-accent: var(--km-magenta);
+    --km-highlight: var(--km-green);
 
-  /* Background Colors */
-  --km-bg-subtle: #f8f9fa;
-  --km-bg-highlight: #f0f9ff;
-  --km-bg-accent: #fdf2f8;
+    /* Background Colors */
+    --km-bg-subtle: #f8f9fa;
+    --km-bg-highlight: #f0f9ff;
+    --km-bg-accent: #fdf2f8;
 
-  /* Border Colors */
-  --km-border: var(--km-light-gray);
-  --km-border-accent: var(--km-magenta);
+    /* Border Colors */
+    --km-border: var(--km-light-gray);
+    --km-border-accent: var(--km-magenta);
 }
 
 @layer components {
-  /* Text Color Utilities */
-  .text-km-primary {
-    color: var(--km-primary);
-  }
-
-  .text-km-secondary {
-    color: var(--km-secondary);
-  }
-
-  .text-km-accent {
-    color: var(--km-accent);
-  }
-
-  .text-km-highlight {
-    color: var(--km-highlight);
-  }
-
-  /* Background Utilities */
-  .bg-km-subtle {
-    background-color: var(--km-bg-subtle);
-  }
-
-  .bg-km-highlight {
-    background-color: var(--km-bg-highlight);
-  }
-
-  .bg-km-accent {
-    background-color: var(--km-bg-accent);
-  }
-
-  .bg-km-green {
-    background-color: var(--km-green);
-  }
-
-  .bg-km-magenta {
-    background-color: var(--km-magenta);
-  }
-
-  .bg-km-gray {
-    background-color: var(--km-light-gray);
-  }
-
-  /* Border Utilities */
-  .border-km {
-    border-color: var(--km-border);
-  }
-
-  .border-km-accent {
-    border-color: var(--km-border-accent);
-  }
-
-  /* Divider Utilities */
-  .divider-km {
-    width: 1.5rem;
-    height: 1px;
-    background-color: var(--km-secondary);
-  }
-
-  .divider-km-wide {
-    width: 6rem;
-    height: 1px;
-    background-color: var(--km-secondary);
-  }
-
-  .divider-km-thick {
-    width: 6rem;
-    height: 4px;
-    background-color: var(--km-highlight);
-  }
-
-  /* Common Layout Patterns */
-  .km-container {
-    @apply min-h-screen py-16 px-4;
-  }
-
-  .km-content-wrapper {
-    @apply container mx-auto max-w-4xl;
-  }
-
-  .km-header-section {
-    @apply mb-12 text-center;
-  }
-
-  .km-stats-box {
-    @apply mb-12 p-6 rounded-lg border border-km bg-km-subtle;
-  }
-
-  .km-stats-grid {
-    @apply grid grid-cols-2 md:grid-cols-4 gap-4 text-center;
-  }
-
-  .km-prose-content {
-    @apply max-w-none;
-  }
-
-  .km-navigation {
-    @apply mt-16 pt-8 border-t border-km;
-  }
-
-  /* Typography Patterns */
-  .km-page-title {
-    @apply text-4xl md:text-5xl font-light mb-4 tracking-wide text-km-primary;
-  }
-
-  .km-section-title {
-    @apply text-lg font-medium mb-6 text-km-primary;
-  }
-
-  .km-breadcrumb {
-    @apply text-sm font-medium tracking-wide uppercase hover:underline text-km-secondary;
-  }
-
-  .km-date-label {
-    @apply text-sm font-medium tracking-wide uppercase text-km-secondary;
-  }
-
-  .km-subtitle {
-    @apply text-base text-km-secondary;
-  }
-
-  .km-lead-text {
-    @apply text-lg md:text-xl leading-relaxed text-km-primary;
-  }
-
-  .km-body-text {
-    @apply leading-relaxed text-km-primary;
-  }
-
-  /* Interactive Elements */
-  /* Links */
-  .km-link {
-    @apply text-km-accent hover:underline transition-colors duration-200;
-  }
-
-  .km-link-disabled {
-    @apply text-km-secondary cursor-not-allowed;
-  }
-
-  .km-nav-link {
-    @apply font-medium transition-colors duration-200 text-km-accent;
-  }
-
-  /* Stats Components */
-  .km-stat-value {
-    @apply text-2xl font-semibold text-km-highlight;
-  }
-
-  .km-stat-label {
-    @apply text-sm text-km-secondary;
-  }
-
-  .km-stat-value-large {
-    @apply text-3xl md:text-4xl font-light mb-2 text-km-highlight;
-  }
-
-  .km-stat-label-large {
-    @apply text-sm font-medium text-km-secondary;
-  }
-
-  /* Status Badge Patterns */
-  .km-badge-complete {
-    @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-green;
-  }
-
-  .km-badge-planning {
-    @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-gray;
-  }
-
-  .km-badge-upcoming {
-    @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-magenta;
-  }
-
-  .km-badge-coming-soon {
-    @apply text-sm px-3 py-1 rounded-full bg-km-highlight text-km-primary;
-  }
-
-  /* Article/Card Patterns */
-  .km-article-card {
-    @apply border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 border-km;
-  }
-
-  .km-article-card-disabled {
-    @apply border rounded-lg p-8 opacity-60 border-km;
-  }
-
-  /* Content Boxes */
-  .km-quote-box {
-    @apply p-4 border-l-4 my-8 border-km-accent bg-km-accent;
-  }
-
-  .km-weather-box {
-    @apply mt-8 p-4 rounded-lg border border-km bg-km-highlight;
-  }
-
-  .km-mood-box {
-    @apply mb-12 p-6 rounded-lg border border-km bg-km-subtle text-center;
-  }
-
-  /* Image Gallery Patterns */
-  .km-gallery-main {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-8;
-  }
-
-  .km-gallery-grid {
-    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
-  }
-
-  .km-gallery-compact {
-    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
-  }
-
-  .km-gallery-spacious {
-    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
-  }
-
-  .km-image {
-    @apply w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity;
-  }
-
-  /* Trip Card Components */
-  .km-trip-overview-stats {
-    @apply mb-12 p-8 rounded-lg border border-km bg-km-subtle text-center;
-  }
-
-  .km-trip-overview-grid {
-    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
-  }
-
-  .km-day-card {
-    @apply border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 border-km;
-  }
-
-  .km-day-card-header {
-    @apply flex flex-col md:flex-row md:items-center justify-between mb-4;
-  }
-
-  .km-day-card-meta {
-    @apply mt-4 md:mt-0 flex space-x-4 text-sm text-km-secondary;
-  }
-
-  /* Content Box Styles */
-  .km-content-box-title-wrapper {
-    @apply flex items-center mb-2;
-  }
-
-  .km-content-box-title {
-    @apply text-sm font-medium text-km-primary;
-  }
-
-  .km-content-quote {
-    @apply italic leading-relaxed text-km-primary;
-  }
-
-  .km-content-mood {
-    @apply space-y-2;
-  }
-
-  .km-content-highlight {
-    @apply leading-relaxed text-km-primary;
-  }
-
-  /* Weather Box Styles */
-  .km-weather-title-wrapper {
-    @apply flex items-center mb-2;
-  }
-
-  .km-weather-title {
-    @apply text-sm font-medium text-km-primary;
-  }
-
-  .km-weather-description {
-    @apply text-sm text-km-secondary;
-  }
-
-  /* Footer Styles */
-  .km-footer {
-    @apply container mx-auto px-4 py-4 max-w-4xl text-center mt-4;
-  }
-
-  .km-footer-content {
-    @apply text-center;
-  }
-
-  .km-build-info {
-    @apply text-sm text-km-secondary;
-  }
+
+    /* Text Color Utilities */
+    .text-km-primary {
+        color: var(--km-primary);
+    }
+
+    .text-km-secondary {
+        color: var(--km-secondary);
+    }
+
+    .text-km-accent {
+        color: var(--km-accent);
+    }
+
+    .text-km-highlight {
+        color: var(--km-highlight);
+    }
+
+    /* Background Utilities */
+    .bg-km-subtle {
+        background-color: var(--km-bg-subtle);
+    }
+
+    .bg-km-highlight {
+        background-color: var(--km-bg-highlight);
+    }
+
+    .bg-km-accent {
+        background-color: var(--km-bg-accent);
+    }
+
+    .bg-km-green {
+        background-color: var(--km-green);
+    }
+
+    .bg-km-magenta {
+        background-color: var(--km-magenta);
+    }
+
+    .bg-km-gray {
+        background-color: var(--km-light-gray);
+    }
+
+    /* Border Utilities */
+    .border-km {
+        border-color: var(--km-border);
+    }
+
+    .border-km-accent {
+        border-color: var(--km-border-accent);
+    }
+
+    /* Divider Utilities */
+    .divider-km {
+        width: 1.5rem;
+        height: 1px;
+        background-color: var(--km-secondary);
+    }
+
+    .divider-km-wide {
+        width: 6rem;
+        height: 1px;
+        background-color: var(--km-secondary);
+    }
+
+    .divider-km-thick {
+        width: 6rem;
+        height: 4px;
+        background-color: var(--km-highlight);
+    }
+
+    /* Common Layout Patterns */
+    .km-main {
+        @apply min-h-screen bg-white text-gray-800;
+    }
+
+    .km-container {
+        @apply min-h-screen p-4;
+    }
+
+    .km-container-center {
+        @apply min-h-screen p-4 flex items-center justify-center;
+    }
+
+    .km-content-wrapper {
+        @apply container mx-auto max-w-4xl;
+    }
+
+    .km-content-center {
+        @apply text-center max-w-3xl;
+    }
+
+    .km-content-narrow {
+        @apply max-w-4xl mx-auto space-y-6;
+    }
+
+    .km-content-left {
+        @apply text-left;
+    }
+
+    .km-header-section {
+        @apply text-center;
+    }
+
+    .km-logo-container {
+        @apply w-32 h-32 mx-auto mb-6 relative flex items-center justify-center;
+    }
+
+    .km-logo-image {
+        @apply max-w-full max-h-full object-contain;
+    }
+
+    .km-divider-centered {
+        @apply mx-auto mb-8;
+    }
+
+    .km-adventure-list {
+        @apply space-y-8;
+    }
+
+    .km-section-spacing {
+        @apply mb-16;
+    }
+
+    .km-divider-bottom {
+        @apply mt-16;
+    }
+
+    .km-stats-box {
+        @apply p-6 rounded-lg border border-km bg-km-subtle;
+    }
+
+    .km-stats-grid {
+        @apply grid grid-cols-2 md:grid-cols-4 gap-4 text-center;
+    }
+
+    .km-prose-content {
+        @apply max-w-none;
+    }
+
+    .km-navigation {
+        @apply mt-8 pt-8 border-t border-km;
+    }
+
+    /* Typography Patterns */
+    .km-page-title {
+        @apply text-4xl md:text-5xl font-light mb-4 tracking-wide text-km-primary;
+    }
+
+    .km-section-title {
+        @apply text-lg font-medium mb-6 text-km-primary;
+    }
+
+    .km-subsection-title {
+        @apply text-2xl font-light mb-4 text-km-primary;
+    }
+
+    .km-breadcrumb {
+        @apply text-sm font-medium tracking-wide uppercase hover:underline text-km-secondary;
+    }
+
+    .km-date-label {
+        @apply text-sm font-medium tracking-wide uppercase text-km-secondary;
+    }
+
+    .km-subtitle {
+        @apply text-base text-km-secondary;
+    }
+
+    .km-lead-text {
+        @apply text-lg md:text-xl leading-relaxed text-km-primary;
+    }
+
+    .km-body-text {
+        @apply leading-relaxed text-km-primary;
+    }
+
+    /* Interactive Elements */
+    /* Links */
+    .km-link {
+        @apply text-km-accent hover:underline transition-colors duration-200;
+    }
+
+    .km-link-disabled {
+        @apply text-km-secondary cursor-not-allowed;
+    }
+
+    /* Author Attribution */
+    .km-author-attribution {
+        @apply text-sm text-km-secondary mt-4;
+    }
+
+    /* Buttons */
+    .km-button-primary {
+        @apply text-km-primary font-medium px-8 py-3 rounded-full transition-all duration-300 bg-km-green;
+    }
+
+    /* Clickable Elements */
+    .km-nav-link {
+        @apply font-medium transition-colors duration-200 text-km-accent;
+    }
+
+    /* Stats Components */
+    .km-stat-value {
+        @apply text-2xl font-semibold text-km-highlight;
+    }
+
+    .km-stat-label {
+        @apply text-sm text-km-secondary;
+    }
+
+    .km-stat-value-large {
+        @apply text-3xl md:text-4xl font-light mb-2 text-km-highlight;
+    }
+
+    .km-stat-label-large {
+        @apply text-sm font-medium text-km-secondary;
+    }
+
+    /* Status Badge Patterns */
+    .km-badge-complete {
+        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-green;
+    }
+
+    .km-badge-planning {
+        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-gray;
+    }
+
+    .km-badge-upcoming {
+        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-magenta;
+    }
+
+    .km-badge-coming-soon {
+        @apply text-sm px-3 py-1 rounded-full bg-km-highlight text-km-primary;
+    }
+
+    /* Article/Card Patterns */
+    .km-article-card {
+        @apply border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 border-km;
+    }
+
+    .km-article-card-disabled {
+        @apply border rounded-lg p-8 opacity-60 border-km;
+    }
+
+    /* Content Boxes */
+    .km-quote-box {
+        @apply p-4 border-l-4 my-8 border-km-accent bg-km-accent;
+    }
+
+    .km-weather-box {
+        @apply p-4 rounded-lg border border-km bg-km-highlight;
+    }
+
+    .km-mood-box {
+        @apply mb-12 p-6 rounded-lg border border-km bg-km-subtle text-center;
+    }
+
+    /* Image Gallery Patterns */
+    .km-gallery-main {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-8;
+    }
+
+    .km-gallery-grid {
+        @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
+    }
+
+    .km-gallery-compact {
+        @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
+    }
+
+    .km-gallery-spacious {
+        @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+    }
+
+    .km-gallery-portrait {
+        @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3;
+    }
+
+    .km-gallery-mixed {
+        @apply grid grid-cols-2 gap-3;
+    }
+
+    @media (min-width: 768px) {
+        .km-gallery-mixed {
+            @apply grid-cols-3;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .km-gallery-mixed {
+            @apply grid-cols-4;
+        }
+    }
+
+    .km-image-mixed-landscape {
+        @apply w-full aspect-[16/9] object-cover rounded-lg hover:opacity-90 transition-opacity col-span-2;
+    }
+
+    .km-image-mixed-portrait {
+        @apply w-full aspect-[3/4] object-cover rounded-lg hover:opacity-90 transition-opacity;
+    }
+
+    @media (min-width: 768px) {
+        .km-image-mixed-landscape {
+            @apply col-span-3;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .km-image-mixed-landscape {
+            @apply col-span-2;
+        }
+    }
+
+    .km-image {
+        @apply w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity;
+    }
+
+    .km-image-portrait {
+        @apply w-full aspect-[3/4] object-cover rounded-lg hover:opacity-90 transition-opacity;
+    }
+
+    /* Trip Card Components */
+    .km-trip-overview-stats {
+        @apply mb-12 p-8 rounded-lg border border-km bg-km-subtle text-center;
+    }
+
+    .km-trip-overview-grid {
+        @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+    }
+
+    .km-day-card {
+        @apply border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 border-km;
+    }
+
+    .km-day-card-header {
+        @apply flex flex-col md:flex-row md:items-center justify-between mb-4;
+    }
+
+    .km-day-card-meta {
+        @apply mt-4 md:mt-0 flex space-x-4 text-sm text-km-secondary;
+    }
+
+    /* Content Box Styles */
+    .km-content-box-title-wrapper {
+        @apply flex items-center mb-2;
+    }
+
+    .km-content-box-title {
+        @apply text-sm font-medium text-km-primary;
+    }
+
+    .km-content-quote {
+        @apply italic leading-relaxed text-km-primary;
+    }
+
+    .km-content-mood {
+        @apply space-y-2;
+    }
+
+    .km-content-highlight {
+        @apply leading-relaxed text-km-primary;
+    }
+
+    /* Weather Box Styles */
+    .km-weather-title-wrapper {
+        @apply flex items-center mb-2;
+    }
+
+    .km-weather-title {
+        @apply text-sm font-medium text-km-primary;
+    }
+
+    .km-weather-description {
+        @apply text-sm text-km-secondary;
+    }
+
+    /* Footer Styles */
+    .km-footer {
+        @apply container mx-auto px-4 py-4 max-w-4xl text-center;
+    }
+
+    .km-footer-content {
+        @apply text-center;
+    }
+
+    .km-build-info {
+        @apply text-sm text-km-secondary;
+    }
 }

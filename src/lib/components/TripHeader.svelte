@@ -39,7 +39,7 @@
       <p class="km-subtitle">{subtitle}</p>
     {/if}
     {#if description}
-      <p class="text-sm text-km-secondary">{description}</p>
+      <div class="text-sm text-km-secondary">{@html description}</div>
     {/if}
   </div>
 </div>

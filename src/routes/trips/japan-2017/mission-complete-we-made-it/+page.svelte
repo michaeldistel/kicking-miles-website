@@ -34,15 +34,15 @@
 	<meta property="og:title" content="Mission Complete! We made it!!! | Japan 2017 | Kicking Miles" />
 	<meta property="og:description" content="{description}" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://www.kickingmiles.com/trips/japan-2017/mission-complete-we-made-it/" />
-	<meta property="og:image" content="https://www.kickingmiles.com/images/japan-2017/mission-complete/mission-complete-photo-01.webp" />
+	<meta property="og:url" content="https://kickingmiles.com/trips/japan-2017/mission-complete-we-made-it/" />
+	<meta property="og:image" content="https://kickingmiles.com/images/japan-2017/mission-complete/mission-complete-photo-01.webp" />
 	<meta property="article:published_time" content="2017-05-08" />
 	<meta property="article:author" content="Michael Distel" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Mission Complete! We made it!!! | Japan 2017 | Kicking Miles" />
 	<meta name="twitter:description" content="{description}" />
-	<meta name="twitter:image" content="https://www.kickingmiles.com/images/japan-2017/mission-complete/mission-complete-photo-01.webp" />
-	<link rel="canonical" href="https://www.kickingmiles.com/trips/japan-2017/mission-complete-we-made-it/" />
+	<meta name="twitter:image" content="https://kickingmiles.com/images/japan-2017/mission-complete/mission-complete-photo-01.webp" />
+	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/mission-complete-we-made-it/" />
 </svelte:head>
 
 <TripHeader 

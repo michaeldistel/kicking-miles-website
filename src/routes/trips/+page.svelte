@@ -5,6 +5,19 @@
 
   const adventures: AdventureData[] = [
     {
+      title: 'Japan: Tokyo to Nasu',
+      url: '/trips/japan-2023',
+      dateRange: 'October 2023',
+      subtitle: 'A contemplative return to Japan',
+      description: 'Autumn journey with Alex exploring the serene mountain region of Nasu. Three days of mindful travel through changing seasons and shared discovery.',
+      stats: {
+        distance: '150km',
+        duration: '3 days',
+        cities: '2 cities'
+      },
+      status: 'complete'
+    },
+    {
       title: 'Japan: Fukuoka to Tokyo',
       url: '/trips/japan-2017',
       dateRange: 'March - May 2017',

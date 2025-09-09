@@ -4,7 +4,7 @@
 </script>
 
 <!-- Section: 404 Error -->
-<div class="min-h-screen flex items-center justify-center py-16 px-4">
+<div class="km-container-center">
   <div class="max-w-2xl mx-auto text-center">
     <!-- Logo -->
     <div class="mb-8">
@@ -22,7 +22,7 @@
         description="I could not find that page. Maybe the path changed, or the adventure took a new turn."
       />
       
-      <a href="/" class="text-gray-800 font-medium px-8 py-3 rounded-full transition-all duration-300 bg-km-green">
+      <a href="/" class="km-button-primary">
         Back to base camp
       </a>
       <div class="mt-12 text-sm font-light text-km-secondary">

@@ -28,7 +28,7 @@ SvelteKit-based personal travel website documenting kickboard adventures across 
 - **Flat design**: No gradients, shadows, or depth effects
 - **Container pattern**: `<div class="container mx-auto px-4 py-16 max-w-4xl">`
 - **Typography**: Light font weights (`font-light`), generous spacing (`tracking-wide`)
-- **Colors**: Inline styles using custom palette, avoid Tailwind color classes
+- **Colors**: Custom utility classes (`text-km-primary`, `bg-km-subtle`) from centralized design system in `src/app.css`
 - **Images**: WebP format, organized by adventure and day in `/static/images/`
 - **Navigation**: Breadcrumb patterns with `←` arrows and hover effects
 
@@ -46,10 +46,9 @@ pnpm format          # Prettier formatting
 
 ```bash
 pnpm prod:deploy     # Full deployment pipeline:
-  # 1. pnpm prebuild  - Generates build info with git commit
-  # 2. pnpm build     - SvelteKit static build
-  # 3. rsync to homelab with prod.deploy.files.txt filter
-  # 4. Docker Compose restart on remote server
+  # 1. pnpm prod:build    - Runs prebuild + build (generates build info + SvelteKit static build)
+  # 2. pnpm prod:deploy:copy - rsync to homelab with prod.deploy.files.txt filter
+  # 3. pnpm prod:deploy:run  - Docker Compose restart on remote server
 ```
 
 ### Build System
@@ -83,8 +82,19 @@ pnpm prod:deploy     # Full deployment pipeline:
 - `StatsBox.svelte`: Day statistics in consistent grid layout
 - `ContentBox.svelte`: Highlighted quotes and important content with type variants
 - `WeatherBox.svelte`: Weather information with consistent styling
-- `ImageGallery.svelte`: Photo galleries with responsive layouts
+- `ImageGallery.svelte`: Photo galleries with responsive layouts and portrait support
+  - `galleryType` prop: 'grid' (default), 'compact', 'spacious', 'portrait'
+  - Portrait galleries optimized for mobile phone photos (3:4 aspect ratio)
+  - Japan 2023 uses 'portrait' type for mobile photography
+- `InstagramEmbed.svelte`: Instagram post embedding with responsive design
+  - Accepts `postUrl`, `caption`, and `maxWidth` props
+  - Automatically loads Instagram embed script and processes embeds
+  - Responsive design with loading states and error handling
 - `DayNavigation.svelte`: Consistent day-to-day navigation with arrow indicators
+- `TripCard.svelte`: Individual trip/adventure card display components
+- `AdventureCard.svelte`: Adventure listing and preview cards
+- `Toast.svelte`: Notification and feedback messages
+- `PageHeader.svelte`: Generic page header component for non-trip pages
 - Components are minimal and focused on content presentation
 
 ### Component Architecture Principles
@@ -120,9 +130,17 @@ pnpm prod:deploy     # Full deployment pipeline:
 - Consistent light theme color palette throughout
 - Mobile-responsive design with consistent breakpoint usage
 
+## Trip Status and Modification Guidelines
+
+- **Japan 2017**: COMPLETED trip - Must ask for explicit confirmation before making any changes to this trip's content, structure, or files
+- **Japan 2023**: Recently completed trip - Standard editing allowed
+- **Korea 2025**: Planned future trip - Not yet implemented
+
 When making changes, ensure they align with the existing light theme and follow the established Tailwind class patterns for consistency.
 
 ## Writing and Content
+
+Don't reword Michelle Yang writing, leave it as it is
 
 You are writing as Michael Distel.
 
@@ -145,9 +163,10 @@ Style
 Principles
 
 - Be honest about uncertainty. It is fine to be wrong and to revise later.
-- Timestamp or note context when it matters.
 - Invite conversation rather than push conclusions.
 
 Avoid
 
 - Imperatives, prescriptive advice, sales or marketing language, buzzwords, long metaphors, filler, and em dashes.
+
+TRIP DETAILS are in the TRIP-DETAILS.md file in each of the trip folders

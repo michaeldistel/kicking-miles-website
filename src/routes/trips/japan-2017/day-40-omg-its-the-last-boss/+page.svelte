@@ -42,15 +42,15 @@
 	<meta property="og:title" content="Day 40 - OMG it's the last boss! | Japan 2017 | Kicking Miles" />
 	<meta property="og:description" content="{description}" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://www.kickingmiles.com/trips/japan-2017/day-40-omg-its-the-last-boss/" />
-	<meta property="og:image" content="https://www.kickingmiles.com/images/japan-2017/day-40/day40-photo-01.webp" />
+	<meta property="og:url" content="https://kickingmiles.com/trips/japan-2017/day-40-omg-its-the-last-boss/" />
+	<meta property="og:image" content="https://kickingmiles.com/images/japan-2017/day-40/day40-photo-01.webp" />
 	<meta property="article:published_time" content="2017-05-07" />
 	<meta property="article:author" content="Michael Distel" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Day 40 - OMG it's the last boss! | Japan 2017 | Kicking Miles" />
 	<meta name="twitter:description" content="{description}" />
-	<meta name="twitter:image" content="https://www.kickingmiles.com/images/japan-2017/day-40/day40-photo-01.webp" />
-	<link rel="canonical" href="https://www.kickingmiles.com/trips/japan-2017/day-40-omg-its-the-last-boss/" />
+	<meta name="twitter:image" content="https://kickingmiles.com/images/japan-2017/day-40/day40-photo-01.webp" />
+	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-40-omg-its-the-last-boss/" />
 </svelte:head>
 
 <TripHeader 

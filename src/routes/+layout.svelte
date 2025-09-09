@@ -21,7 +21,7 @@
 height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<main class="min-h-screen bg-white text-gray-800">
+<main class="km-main">
   <slot />
   <Footer />
 </main>

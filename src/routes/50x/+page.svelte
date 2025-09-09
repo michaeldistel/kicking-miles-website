@@ -4,7 +4,7 @@
 </script>
 
 <!-- Section: Server Error -->
-<div class="min-h-screen flex items-center justify-center py-16 px-4">
+<div class="km-container-center">
   <div class="max-w-2xl mx-auto text-center">
     <!-- Logo -->
     <div class="mb-8">

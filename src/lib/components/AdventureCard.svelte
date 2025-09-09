@@ -43,7 +43,7 @@
         {adventure.subtitle}
       </div>
     </div>
-    <div class="mt-6 lg:mt-0 flex flex-col items-start lg:items-end space-y-2">
+    <div class="mt-6 lg:mt-0 flex flex-col items-center lg:items-end space-y-2">
       <div class="flex space-x-6 text-sm text-km-secondary">
         <span>{adventure.stats.distance}</span>
         <span>•</span>
@@ -57,7 +57,7 @@
     </div>
   </div>
   <p class="km-body-text mb-6">
-    {adventure.description}
+    {@html adventure.description}
   </p>
   {#if isClickable}
     <a href={adventure.url} class={linkClass}>
