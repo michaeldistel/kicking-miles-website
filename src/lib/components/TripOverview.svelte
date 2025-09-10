@@ -47,7 +47,7 @@
         {@html trip.leadText}
       </p>
       <p class="km-body-text mb-6">
-        {trip.bodyText}
+        {@html trip.bodyText}
       </p>
     </div>
 
