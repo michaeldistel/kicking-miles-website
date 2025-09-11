@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "prod:deploy": "pnpm prod:build && pnpm prod:deploy:copy && pnpm prod:deploy:run",
     "prod:build": "pnpm prebuild && pnpm build",
-    "prod:deploy:copy": "rsync -avz -e 'ssh' ./* homelab:~/ssd-2tb/apps/kickingmiles-website --include-from='prod.deploy.files.txt' --exclude '*'",
+    "prod:deploy:copy": "rsync -avz --delete -e 'ssh' ./* homelab:~/ssd-2tb/apps/kickingmiles-website --include-from='prod.deploy.files.txt' --exclude '*'",
     "prod:deploy:run": "ssh homelab 'cd ~/ssd-2tb/apps/kickingmiles-website && docker compose -f prod.compose.yml down && docker compose -f prod.compose.yml up -d'",
     "prebuild": "node scripts/generate-build-info.cjs",
     "postinstall": "node scripts/generate-build-info.cjs"
