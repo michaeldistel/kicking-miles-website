@@ -63,7 +63,8 @@
 	subtitle="Towada to Aomori"
 />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
 	<StatsBox {stats} />
 
@@ -76,7 +77,7 @@
 	/>
 
 	<!-- Section: Content -->
-	<div class="space-y-8 mb-8">
+	<div class="km-prose-content space-y-8">
 		<section>
 			<img src="/images/japan-2017/day-40/day40-photo-01.webp" alt="The final boss challenge - extreme headwinds along the coast" class="w-full mb-4" />
 			<p class="km-body-text">
@@ -116,9 +117,19 @@
 			<hr class="border-km-subtle my-8" />
 			<p class="km-body-text">
 				<strong>PS:</strong> Tomorrow will be our last day! It's a 3 hr ferry ride from Aomori city to Hakodate and then a 10km scoot up the moutain! We expect to summit between 4-6pm JP time!
-			</p>
-		</section>
+		</p>
+	</section>
 
-		<p class="text-sm text-gray-600 mt-4">Michelle Yang</p>
-	</div>
+	<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
+    </div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={40}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-39-golden-week-holiday-madness", label: "Day 39" }}
+      nextDay={{ url: "/trips/japan-2017/mission-complete-we-made-it", label: "Mission Complete" }}
+    />
+
+  </div>
 </div>

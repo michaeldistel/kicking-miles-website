@@ -1,41 +1,42 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import ContentBox from '$lib/components/ContentBox.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
-    { value: 'DAY THREE', label: 'Scooting Adventures' },
-    { value: '75km', label: 'Total distance travelled' },
-    { value: '12 hours', label: 'Total time including stops' },
-    { value: '165km / 1800km', label: 'Shimonoseki to Hofu' }
+    { value: '12 hours', label: 'Time' },
+    { value: 'Hofu', label: 'Destination' },
+    { value: 'Mountain passes', label: 'Challenge' },
+    { value: 'Great breakfast', label: 'Mood' },
+    { value: '12°C', label: 'Temp' },
+    { value: '75km', label: 'Distance' }
   ];
 
-  const photos = [
-    { src: '/images/japan-2017/day-03/day03-photo-01.webp', alt: 'Starting the journey from Shimonoseki' },
-    { src: '/images/japan-2017/day-03/day03-photo-02.webp', alt: 'Coastal scenery on the way to Hofu' },
-    { src: '/images/japan-2017/day-03/day03-photo-03.webp', alt: 'Beautiful seaside views along the route' },
-    { src: '/images/japan-2017/day-03/day03-photo-04.webp', alt: 'Taking a well-deserved break during the long mountain stretch' },
-    { src: '/images/japan-2017/day-03/day03-photo-05.webp', alt: 'Challenging mountain terrain with steep winding roads ahead' },
-    { src: '/images/japan-2017/day-03/day03-photo-06.webp', alt: 'Navigating the demanding mountain passes on kickboards' },
-    { src: '/images/japan-2017/day-03/day03-photo-07.webp', alt: 'Brief rest stop along the scenic coastal route' },
-    { src: '/images/japan-2017/day-03/day03-photo-08.webp', alt: 'Beautiful scenic views rewarding the difficult mountain ascent' },
-    { src: '/images/japan-2017/day-03/day03-photo-09.webp', alt: 'Pushing through the demanding mountain terrain together' },
-    { src: '/images/japan-2017/day-03/day03-photo-10.webp', alt: 'Making steady progress towards the Hofu destination' },
-    { src: '/images/japan-2017/day-03/day03-photo-11.webp', alt: 'Successful completion of the challenging third day of the journey' }
+  const routeImages = [
+    { src: '/images/japan-2017/day-03/route-map-1x1.webp', alt: 'Route map showing the mountain path from Shimonoseki to Hofu' },
+    { src: '/images/japan-2017/day-03/updates-3x4.webp', alt: 'Journey updates and highlights from the mountain crossing adventure' }
   ];
 
-  const featuredImages = [
-    { src: '/images/japan-2017/day-03/day03-route-map.webp', alt: 'Route map showing the mountain path from Shimonoseki to Hofu' },
-    { src: '/images/japan-2017/day-03/day03-updates.webp', alt: 'Journey updates and highlights from the mountain crossing adventure' }
+  const photoImages = [
+    { src: '/images/japan-2017/day-03/photo-01-4x3.webp', alt: 'Starting the journey from Shimonoseki' },
+    { src: '/images/japan-2017/day-03/photo-02-4x3.webp', alt: 'Coastal scenery on the way to Hofu' },
+    { src: '/images/japan-2017/day-03/photo-03-4x3.webp', alt: 'Beautiful seaside views along the route' },
+    { src: '/images/japan-2017/day-03/photo-04-4x3.webp', alt: 'Taking a well-deserved break during the long mountain stretch' },
+    { src: '/images/japan-2017/day-03/photo-05-4x3.webp', alt: 'Challenging mountain terrain with steep winding roads ahead' },
+    { src: '/images/japan-2017/day-03/photo-06-4x3.webp', alt: 'Navigating the demanding mountain passes on kickboards' },
+    { src: '/images/japan-2017/day-03/photo-07-4x3.webp', alt: 'Brief rest stop along the scenic coastal route' },
+    { src: '/images/japan-2017/day-03/photo-08-4x3.webp', alt: 'Beautiful scenic views rewarding the difficult mountain ascent' },
+    { src: '/images/japan-2017/day-03/photo-09-4x3.webp', alt: 'Pushing through the demanding mountain terrain together' },
+    { src: '/images/japan-2017/day-03/photo-10-4x3.webp', alt: 'Making steady progress towards the Hofu destination' },
+    { src: '/images/japan-2017/day-03/photo-11-4x3.webp', alt: 'Successful completion of the challenging third day of the journey' }
   ];
 
-  const weather = {
-    title: 'Weather',
-    description: '12 degrees c, glorious weather. Mood: Had a hearty breakfast at Starbucks and a wonderful send off by the staff there!'
-  };
+  // Combine all images for PhotoSwipe gallery
+  const allImages = [...routeImages, ...photoImages];
+  const galleryImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -44,38 +45,29 @@
 </svelte:head>
 
 <!-- Day 03: Shimonoseki to Hofu -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY 03"
+      dayNumber="Day 03"
       date="28 March 2017"
       title="Our first long stretch!"
       progress="165 kilometres of 1,800"
       subtitle="Day three"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={6} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-12">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY THREE of our scooting adventures!</strong><br>
-          Shimonoseki to Hofu - 165km / 1800km<br>
-          Estimated scooting time: 10 hours<br>
-          Weather: 12 degrees c, glorious weather<br>
-          Mood: Had a hearty breakfast at Starbucks and a wonderful send off by the staff there!
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           We started off with a wonderful sendoff from the staff at Starbucks! Our tummies full of nourishment and caffeine, we set off along the coast to a beautiful seaside scenery. The weather was glorious!
@@ -92,28 +84,20 @@
         <p class="km-body-text">
           This time we had two special send offs in one day - the group at Starbucks in Shimonoseki and another at the 7-11 in Asa! With their words, "ganbatte", trailing behind us, we headed further into the mountains with our trusty scooters!
         </p>
-
-        <p class="km-body-text">
-          Total distance travelled: 75km<br>
-          Total time including stops: 12 hours
-        </p>
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-12">
-      <div>
-        <ImageGallery title="Day Three Journey" routeImages={featuredImages} />
-      </div>
-      <div>
-        <ImageGallery photoImages={photos} galleryType="compact" />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Mountain Journey & Route Map" 
+        galleryId="day03-gallery"
+      />
     </div>
 
     <!-- Day navigation -->

@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '872km', label: 'Distance' },
@@ -13,43 +14,25 @@
 		{ value: 'Genki and happy', label: 'Mood' }
 	];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-19/day19-yoneko-cafe.webp',
-			alt: 'Route map showing the location of our encounter with Yoneko-san in Hamamatsu'
-		}
+	const images = [
+		// Yoneko cafe special encounter
+		{ src: '/images/japan-2017/day-19/yoneko-cafe-1x1.webp', alt: 'Special encounter with Yoneko-san at 7-Eleven in Hamamatsu' },
+		
+		// Photo gallery
+		{ src: '/images/japan-2017/day-19/photo-01-4x3.webp', alt: 'Morning departure from Gamagori continuing the coastal journey' },
+		{ src: '/images/japan-2017/day-19/photo-02-4x3.webp', alt: 'Stopping at 7-Eleven for dinner before reaching our hotel' },
+		{ src: '/images/japan-2017/day-19/photo-03-4x3.webp', alt: 'Scenic route from Gamagori to Hamamatsu' },
+		{ src: '/images/japan-2017/day-19/photo-04-4x3.webp', alt: 'Taking a moment to rest and catch our breath' },
+		{ src: '/images/japan-2017/day-19/photo-05-16x9.webp', alt: 'Beautiful countryside along our 872km journey' },
+		{ src: '/images/japan-2017/day-19/photo-06-4x3.webp', alt: 'Continuing the journey towards Hamamatsu' },
+		{ src: '/images/japan-2017/day-19/photo-07-4x3.webp', alt: 'Final stretch of our day\'s adventure' }
 	];
 
-	const sevenElevenImages = [
-		{
-			src: '/images/japan-2017/day-19/day19-photo-01.webp',
-			alt: 'Morning departure from Gamagori continuing the coastal journey'
-		},
-		{
-			src: '/images/japan-2017/day-19/day19-photo-02.webp',
-			alt: 'Stopping at 7-Eleven for dinner before reaching our hotel'
-		}
-	];
+	let pswpImages: any[] = [];
 
-	const journeyImages = [
-		{
-			src: '/images/japan-2017/day-19/day19-photo-03.webp',
-			alt: 'Scenic route from Gamagori to Hamamatsu'
-		},
-		{
-			src: '/images/japan-2017/day-19/day19-photo-04.webp',
-			alt: 'Taking a moment to rest and catch our breath'
-		},
-		{
-			src: '/images/japan-2017/day-19/day19-photo-05.webp',
-			alt: 'Beautiful countryside along our 872km journey'
-		}
-	];
-
-	const weather = {
-		title: 'Weather Report',
-		description: '19 degrees c'
-	};
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -58,8 +41,8 @@
 </svelte:head>
 
 <!-- Day 19: Gamagori to Hamamatsu -->
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<TripHeader 
 			backUrl="/trips/japan-2017"
@@ -71,28 +54,13 @@
 			subtitle="Day 19"
 		/>
 
-		<StatsBox {stats} columns={2} />
-
-		<!-- Weather -->
-		<div class="mb-12">
-			<WeatherBox {weather} />
+		<div class="mb-8 mt-12">
+			<StatsBox {stats} fullWidth />
 		</div>
 
 		<!-- Main content -->
-		<div class="space-y-8 mb-8">
+		<div class="km-prose-content space-y-8">
 			<section>
-				<p class="km-body-text">
-					<strong>DAY 19 of our scooting adventures!</strong><br><br>
-
-					Gamagori to Hammamatsu - 872km / 1800km<br><br>
-
-					Estimated scooting time: 10 hours<br><br>
-
-					Weather: 19 degrees c<br><br>
-
-					Mood: A little tired from our 100 year old haunted hotel last night but overall 'genki' and happy!
-				</p>
-
 				<p class="km-body-text">
 					Stopping by 7-11 to takeaway our dinner just before we hit our hotel, we spent a couple of minutes resting and catching our breath. We were chatting abt last night's haunted hotel when Gordon told us abt his dream of dementors and sleep paralysis (where reality and dreams combine). At the point when Yoneko san walked out, Tresha and Michelle were laughing at having sleep paralysis filled with yakiniku bbq and cream buns.
 				</p>
@@ -121,19 +89,24 @@
 					We said our goodbyes with a promise to contact us if she ever comes to Singapore. Thank you for a beautiful moment Yoneko san
 				</p>
 
-				<p class="km-body-text font-medium mt-8">
-					Michelle Yang
-				</p>
-			</section>
+			<p class="text-sm text-km-subtle italic mt-8">
+				Michelle Yang
+			</p>
+		</section>
+
+		<!-- PhotoSwipe Gallery -->
+		<div class="mt-12">
+			<PhotoSwipeGallery images={pswpImages} title="Day 19: 7-Eleven Encounters" />
 		</div>
-
-  <!-- Day navigation -->
-  <DayNavigation 
-    currentDay={19}
-    totalDays={40}
-    previousDay={{ url: "/trips/japan-2017/day-18-dental-floss-makes-good-repair-tape", label: "Day 18" }}
-    nextDay={{ url: "/trips/japan-2017/day-20-our-first-serious-casualty", label: "Day 20" }}
-  />
-
 	</div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={19}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-18-dental-floss-makes-good-repair-tape", label: "Day 18" }}
+      nextDay={{ url: "/trips/japan-2017/day-20-our-first-serious-casualty", label: "Day 20" }}
+    />
+
+  </div>
 </div>

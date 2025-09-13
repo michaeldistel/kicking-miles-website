@@ -1,38 +1,30 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils.js';
 
   const stats = [
     { value: 'DAY SIX', label: 'Scooting Adventures' },
     { value: '329km / 1800km', label: 'Hiroshima to Takehara' },
     { value: '8 hours', label: 'Estimated scooting time' },
-    { value: 'Snow!', label: 'Weather challenge' }
+    { value: 'Snow!', label: 'Weather challenge' },
+    { value: 'Nature wins', label: 'Lesson learned' }
   ];
 
-  const photos = [
-    { src: '/images/japan-2017/day-06/day06-photo-01.webp', alt: 'Leaving Hiroshima in the rain' },
-    { src: '/images/japan-2017/day-06/day06-photo-02.webp', alt: 'Rugged up in rain protection gear' },
-    { src: '/images/japan-2017/day-06/day06-photo-03.webp', alt: 'Slippery wet pavement conditions' },
-    { src: '/images/japan-2017/day-06/day06-photo-04.webp', alt: 'Mountain pass challenges ahead' },
-    { src: '/images/japan-2017/day-06/day06-photo-05.webp', alt: 'Cold and wet conditions testing resolve' },
-    { src: '/images/japan-2017/day-06/day06-photo-06.webp', alt: 'Emergency 7-Eleven supply stop' },
-    { src: '/images/japan-2017/day-06/day06-photo-07.webp', alt: 'Snow hitting in the mountain passes' },
-    { src: '/images/japan-2017/day-06/day06-photo-08.webp', alt: 'Nature wins this round' }
-  ];
-
-  const featuredImages = [
-    { src: '/images/japan-2017/day-06/day06-route-map.webp', alt: 'Route map from Hiroshima to Takehara through challenging terrain' },
-    { src: '/images/japan-2017/day-06/day06-updates.webp', alt: 'Weather challenges and mountain pass struggles against nature' }
-  ];
-
-  const weather = {
-    title: 'Weather Report',
-    description: '8 degrees c, rains. Feeling abit cold, wet and nervous about the mountain passes.'
-  };
+  // Combined gallery images with new filenames
+  const galleryImages = prepareImagesForPhotoSwipe([
+    { src: '/images/japan-2017/day-06/route-map-4x3.webp', alt: 'Route map from Hiroshima to Takehara through challenging terrain' },
+    { src: '/images/japan-2017/day-06/updates-1x1.webp', alt: 'Weather challenges and mountain pass struggles against nature' },
+    { src: '/images/japan-2017/day-06/photo-01-1x1.webp', alt: 'Leaving Hiroshima in the rain' },
+    { src: '/images/japan-2017/day-06/photo-02-4x3.webp', alt: 'Rugged up in rain protection gear' },
+    { src: '/images/japan-2017/day-06/photo-03-4x3.webp', alt: 'Slippery wet pavement conditions' },
+    { src: '/images/japan-2017/day-06/photo-04-3x4.webp', alt: 'Mountain pass challenges ahead' },
+    { src: '/images/japan-2017/day-06/photo-05-3x4.webp', alt: 'Cold and wet conditions testing resolve' },
+    { src: '/images/japan-2017/day-06/photo-07-4x3.webp', alt: 'Snow hitting in the mountain passes' },
+    { src: '/images/japan-2017/day-06/photo-08-1x1.webp', alt: 'Nature wins this round' }
+  ]);
 </script>
 
 <svelte:head>
@@ -41,8 +33,8 @@
 </svelte:head>
 
 <!-- Day 06: Hiroshima to Takehara -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
@@ -53,26 +45,17 @@
       progress="329 kilometres of 1,800"
       subtitle="Day six"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={5} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-8">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY SIX of our scooting adventures!</strong><br>
-          Hiroshima to Takehara - 329km / 1800km<br>
-          Estimated scooting time: 8 hours<br>
-          Weather: 8 degrees c, rains<br>
-          Mood: Feeling abit cold, wet and nervous about the mountain passes
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           Every adventurer starts off thinking they're a hero but it doesn't take long before nature puts them back into place.
@@ -96,20 +79,17 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-8">
-      <div>
-        <ImageGallery title="Day Six Journey" routeImages={featuredImages} />
-      </div>
-      <div>
-        <ImageGallery photoImages={photos} galleryType="compact" />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Nature vs Adventurer" 
+        galleryId="day06-gallery"
+      />
     </div>
 
     <!-- Day navigation -->

@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
   import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { onMount } from 'svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
     { value: '754', label: 'Distance' },
@@ -13,9 +14,15 @@
     { value: 'Rest day', label: 'Activity' }
   ];
 
-  const featuredImages = [
-    { src: '/images/japan-2017/day-17/day17-updates.webp', alt: 'Weather delay update and team rest day planning in Nagoya' }
+  const images = [
+    { src: '/images/japan-2017/day-17/updates-01-1x1.webp', alt: 'Weather delay update and team rest day planning in Nagoya' }
   ];
+
+  let pswpImages: any[] = [];
+
+  onMount(() => {
+    pswpImages = prepareImagesForPhotoSwipe(images);
+  });
 
   const weather = {
     title: 'Weather Report',
@@ -29,8 +36,8 @@
 </svelte:head>
 
 <!-- Day 17: Nagoya Rest Day -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
@@ -42,15 +49,12 @@
       subtitle="Update"
     />
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
+    <div class="mb-8 mt-12">
+      <StatsBox {stats} columns={4} fullWidth={true} />
     </div>
 
     <!-- Main content -->
-    <div class="space-y-8 mb-8">
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           <strong>DAY 17 of our scooting adventures!</strong><br><br>
@@ -62,25 +66,23 @@
           It was raining the whole day today and temperature was about 8 degrees c, so we decided to stay in Nagoya for an extra day. The girls went out shopping while the boys lazed in the hotel room, lol. Tomorrow is gonna be a sunny day at 18 degrees c! Onwards to Gamagori!
         </p>
 
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-8">
+      <!-- Image galleries -->
       <div>
-        <ImageGallery title="Day Seventeen Rest" routeImages={featuredImages} />
+        <PhotoSwipeGallery images={pswpImages} title="Day 17 Updates" galleryId="day17-all" />
       </div>
     </div>
 
-  <!-- Day navigation -->
-  <DayNavigation 
-    currentDay={17}
-    totalDays={40}
-    previousDay={{ url: "/trips/japan-2017/day-16-simple-appreciation", label: "Day 16" }}
-    nextDay={{ url: "/trips/japan-2017/day-18-dental-floss-makes-good-repair-tape", label: "Day 18" }}
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={17}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-16-simple-appreciation", label: "Day 16" }}
+      nextDay={{ url: "/trips/japan-2017/day-18-dental-floss-makes-good-repair-tape", label: "Day 18" }}
   />
 
   </div>

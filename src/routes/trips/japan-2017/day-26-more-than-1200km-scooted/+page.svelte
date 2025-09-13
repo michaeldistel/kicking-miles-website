@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1333km', label: 'Distance' },
@@ -13,38 +14,16 @@
 		{ value: '14°C', label: 'Temperature' }
 	];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-26/day26-route-map.webp',
-			alt: 'Route map from Utsunomiya to Koriyama - Day 26 journey with train assistance'
-		}
+	const images = [
+		{ src: '/images/japan-2017/day-26/route-map-01-1x1.webp', alt: 'Route map from Utsunomiya to Koriyama - Day 26 journey with train assistance' },
+		{ src: '/images/japan-2017/day-26/updates-01-4x3.webp', alt: 'Day 26 updates and reflections on exhaustion and practical decisions' }
 	];
 
-	const exhaustionImages = [
-		{
-			src: '/images/japan-2017/day-26/day26-photo-01.webp',
-			alt: 'Sitting lost somewhere on the roadside, catching our breath'
-		},
-		{
-			src: '/images/japan-2017/day-26/day26-photo-02.webp',
-			alt: 'The reality of exhaustion - arch of our soles in severe pain'
-		}
-	];
+	let pswpImages: any[] = [];
 
-	const reflectionImages = [
-		{
-			src: '/images/japan-2017/day-26/day26-photo-03.webp',
-			alt: 'Taking the train - our first ride out of tiredness and fatigue'
-		},
-		{
-			src: '/images/japan-2017/day-26/day26-photo-04.webp',
-			alt: 'What we started with at the beginning of the trip'
-		},
-		{
-			src: '/images/japan-2017/day-26/day26-photo-05.webp',
-			alt: 'All the things we threw away as we went along the journey'
-		}
-	];
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -64,8 +43,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-26-more-than-1200km-scooted" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -78,42 +57,15 @@
 			subtitle="Utsunomiya to Koriyama"
 		/>
 
-		<!-- Stats -->
-		<StatsBox {stats} />
-
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Weather Report",
-				description: "14 degrees c, sunny! Feel really exhausted from yesterday's pace. Arch of our soles in alot of pain."
-			}}
-		/>
+		<div class="mb-8 mt-12">
+			<StatsBox {stats} columns={4} fullWidth={true} />
+		</div>
 
 		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 26 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Utsunomiya to Koriyama - 1333km / 1800km
-				</p>
-
-				<p class="km-body-text">
-					Estimated scooting time: 15 hours
-				</p>
-
-				<p class="km-body-text">
-					Weather: 14 degrees c, sunny!
-				</p>
-
-				<p class="km-body-text">
-					Mood: Feel really exhausted from yesterday's pace. Arch of our soles in alot of pain.
-				</p>
-
 				<p class="km-body-text">
 					Exhaustion has taken its toll on us. We sat lost somewhere on the roadside, catching our breath. On journeys like these, there's always an infernal desire to push until you reach your goal, but the initiated knows that idealism cannot exist on such arduous undertakings. Reality is a humbling experience for the arrogant. We ended up taking the train halfway on this section of the trip. This train ride was the very first one done out of tiredness and fatigue. In many ways, this seemingly simple decision to take the train was a very confronting experience that required alot of courage to acknowledge and to sit with.
 				</p>
@@ -130,18 +82,25 @@
 					This was what we started with at the beginning of the trip. You won't believe the amount of things we threw away as we went along hahaha! We go through life thinking we absolutely need certain 'essential' things but we come to realise that half of what we think we need, we can actually survive without. In the end, we take nothing to our grave but our birthday suit. All that matters is a life well lived, in honesty and in love.
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
-		<!-- Day navigation -->
-		<DayNavigation 
-			currentDay={26}
-			totalDays={40}
-			previousDay={{ url: "/trips/japan-2017/day-25-second-half-of-the-journey-officially-begins", label: "Day 25" }}
-			nextDay={{ url: "/trips/japan-2017/day-27-my-fukushima-family", label: "Day 27" }}
-		/>	</div>
+		<!-- Photo Gallery -->
+		<div>
+			<PhotoSwipeGallery images={pswpImages} title="Day 26 - More than 1200km" galleryId="day26-all" />
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={26}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-25-second-half-of-the-journey-officially-begins", label: "Day 25" }}
+      nextDay={{ url: "/trips/japan-2017/day-27-my-fukushima-family", label: "Day 27" }}
+    />
+  </div>
 </div>

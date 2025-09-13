@@ -55,7 +55,8 @@
 	subtitle="Towada"
 />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
 	<StatsBox {stats} />
 
@@ -68,7 +69,7 @@
 	/>
 
 	<!-- Section: Content -->
-	<div class="space-y-8 mb-8">
+	<div class="km-prose-content space-y-8">
 		<section>
 			<img src="/images/japan-2017/day-39/day39-photo-01.webp" alt="Golden Week crowds at the onsen hot springs" class="w-full mb-4" />
 			<p class="km-body-text">
@@ -134,6 +135,16 @@
 			<p>Then the real question to ask is, where is this strong sense of responsibility stemming from? Perhaps to really understand any culture, we need to remain curious and open to look beyond what's obvious.</p>
 		</ContentBox>
 
-		<p class="text-sm text-gray-600 mt-4">Michelle Yang</p>
+		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 	</div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={39}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-38-the-steep-ascent-into-the-hakoda-mountain-ranges", label: "Day 38" }}
+      nextDay={{ url: "/trips/japan-2017/day-40-omg-its-the-last-boss", label: "Day 40" }}
+    />
+
+  </div>
 </div>

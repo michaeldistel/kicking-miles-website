@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1347km', label: 'Distance' },
@@ -13,35 +14,20 @@
 		{ value: 'Sanctuary', label: 'Mode' }
 	];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-28/day28-route-map.webp',
-			alt: 'Mt Adatara - Forest Park Adatara meditation sanctuary location'
-		}
+	const images = [
+		{ src: '/images/japan-2017/day-28/route-map-01-1x1.webp', alt: 'Mt Adatara - Forest Park Adatara meditation sanctuary location' },
+		{ src: '/images/japan-2017/day-28/photo-01-4x3.webp', alt: 'Forest Park Adatara luxury glamping cabin nestled in the forest' },
+		{ src: '/images/japan-2017/day-28/photo-02-4x3.webp', alt: 'Beautiful manicured wild landscaping with stone demarcations' },
+		{ src: '/images/japan-2017/day-28/photo-03-4x3.webp', alt: 'Peaceful forest sanctuary environment perfect for meditation' },
+		{ src: '/images/japan-2017/day-28/photo-04-4x3.webp', alt: 'Natural hot spring and relaxation facilities at the sanctuary' },
+		{ src: '/images/japan-2017/day-28/photo-05-4x3.webp', alt: 'Evening reflections in the tranquil forest environment' }
 	];
 
-	const sanctuaryImages = [
-		{
-			src: '/images/japan-2017/day-28/day28-photo-01.webp',
-			alt: 'Forest Park Adatara luxury glamping cabin nestled in the forest'
-		},
-		{
-			src: '/images/japan-2017/day-28/day28-photo-02.webp',
-			alt: 'Beautiful manicured wild landscaping with stone demarcations'
-		},
-		{
-			src: '/images/japan-2017/day-28/day28-photo-03.webp',
-			alt: 'Cozy cabin snugged amidst the forest floors'
-		},
-		{
-			src: '/images/japan-2017/day-28/day28-photo-04.webp',
-			alt: 'Unexpectedly beautiful onsen with outdoor bath area'
-		},
-		{
-			src: '/images/japan-2017/day-28/day28-photo-05.webp',
-			alt: 'Resting and recuperating at this special sanctuary'
-		}
-	];
+	let pswpImages: any[] = [];
+
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -61,8 +47,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-28-forest-park-adatara-is-my-meditation-sanctuary" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -75,30 +61,14 @@
 			subtitle="Mt Adatara"
 		/>
 
-		<!-- Stats -->
-		<StatsBox {stats} />
+	<!-- Stats -->
+	<StatsBox {stats} fullWidth />
 
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Sanctuary Report",
-				description: "Spending the day resting at a cabin sponsored by the wonderful people at Forest Park Adatara!"
-			}}
-		/>
-
-		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+	<!-- Content sections -->
+	<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 28 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Mt Adatara - 1347km / 1800km
-				</p>
-
 				<p class="km-body-text">
 					Spending the day resting at a cabin sponsored by the wonderful people at Forest Park Adatara!
 				</p>
@@ -127,13 +97,23 @@
 					Thanks to everyone who sponsored our night's stay at this beautiful cabin!!! What an apt analogy... a cabin in the mountains for travellers to rest their tired bodies and be on their way... except I know that I'll always be back!
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
+		<!-- Photo Gallery -->
+		<div>
+			<PhotoSwipeGallery 
+				images={pswpImages}
+				title="Forest Park Adatara Sanctuary" 
+				galleryId="day28-sanctuary"
+			/>
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
 		<DayNavigation 
 			currentDay={28}
 			totalDays={40}

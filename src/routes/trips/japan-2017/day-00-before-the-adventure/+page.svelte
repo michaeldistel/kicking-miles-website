@@ -1,14 +1,26 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import StatsBox from '$lib/components/StatsBox.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import ContentBox from '$lib/components/ContentBox.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
-  const preparationImages = [
-    { src: '/images/japan-2017/day-00/day00-photo-01.webp', alt: 'Before the main event - the night before departure' },
-    { src: '/images/japan-2017/day-00/day00-photo-02.webp', alt: 'Nervous energy and final preparations' },
-    { src: '/images/japan-2017/day-00/day00-photo-03.webp', alt: 'Ready for tomorrow\'s adventure to begin' }
+  const stats = [
+    { value: 'Night before', label: 'Time' },
+    { value: 'Hotel room', label: 'Location' },
+    { value: 'Sukiyaki meal', label: 'Challenge' },
+    { value: 'Nervous energy', label: 'Mood' }
   ];
+
+  const photoImages = [
+    { src: '/images/japan-2017/day-00/photo-01-4x3.webp', alt: 'Before the main event - the night before departure' },
+    { src: '/images/japan-2017/day-00/photo-02-4x3.webp', alt: 'Nervous energy and final preparations' },
+    { src: '/images/japan-2017/day-00/photo-03-4x3.webp', alt: 'Ready for tomorrow\'s adventure to begin' }
+  ];
+
+  // Prepare images for PhotoSwipe gallery
+  const galleryImages = prepareImagesForPhotoSwipe(photoImages);
 </script>
 
 <svelte:head>
@@ -17,8 +29,8 @@
 </svelte:head>
 
 <!-- Day 00: Before the Adventure -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
@@ -29,42 +41,45 @@
       progress="The night before departure"
       subtitle="Nervous energy and sukiyaki"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={4} fullWidth={true} />
+  </div>
 
-    <!-- Mood indicator -->
-    <div class="mb-12 p-6 rounded-lg border text-center border-km bg-km-subtle">
-      <div class="space-y-2">
-        <div class="text-lg font-medium text-km-primary">Mood</div>
-        <div class="text-2xl font-light text-km-accent">Nervous Energy</div>
-        <div class="text-sm text-km-secondary">Half butterflies, half sukiyaki</div>
-      </div>
-    </div>
+  <div class="km-content-wrapper">
 
-    <!-- Content -->
-    <div class="prose max-w-none">
-      <div class="space-y-6 text-km-primary">
-        
-        <p class="text-lg md:text-xl leading-relaxed">
+    <!-- Main content -->
+    <div class="km-prose-content space-y-8">
+      <section>
+        <p class="km-body-text">
           As the hours tick by and we're supposed to be sleeping, some of us are restless with a bundle of nervous energy... Half feels like butterflies in our stomach, the other half, a hearty sukiyaki meal the day before 🤤😂
         </p>
+      </section>
 
-        <section>
-          <p class="km-body-text font-medium mt-8">
-            - Michelle Yang
-          </p>
-        </section>
+      <section>
+        <p class="text-sm text-km-subtle italic mt-8">
+          - Michelle Yang
+        </p>
+      </section>
 
-        <ImageGallery title="Before the Main Event" photoImages={preparationImages} galleryType="grid" />
-
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Before the Main Event" 
+        galleryId="day00-gallery"
+      />
     </div>
 
-  <!-- Day navigation -->
-  <DayNavigation 
-    currentDay={0}
-    totalDays={40}
-    previousDay={{ url: "/trips/japan-2017", label: "Japan 2017" }}
-    nextDay={{ url: "/trips/japan-2017/day-01-fukuoka-to-kitakyushu", label: "Day 1" }}
-  />
+  
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={0}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017", label: "Japan 2017" }}
+      nextDay={{ url: "/trips/japan-2017/day-01-fukuoka-to-kitakyushu", label: "Day 1" }}
+    />
 
   </div>
 </div>

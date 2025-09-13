@@ -47,30 +47,32 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-35-when-life-throws-you-yet-another-curve-ball/" />
 </svelte:head>
 
-<TripHeader 
-	backUrl="/trips/japan-2017/"
-	backText="Japan 2017 Daily Journal"
-	dayNumber="DAY 35"
-	date="1 May 2017"
-	title="When life throws you yet another curve ball..."
-	progress="1592km / 1800km"
-	subtitle="Ichinoseki to Hanamaki"
-/>
+<div class="km-container">
+  <div class="km-content-wrapper">
+    
+    <TripHeader 
+      backUrl="/trips/japan-2017/"
+      backText="Japan 2017 Daily Journal"
+      dayNumber="DAY 35"
+      date="1 May 2017"
+      title="When life throws you yet another curve ball..."
+      progress="1592km / 1800km"
+      subtitle="Ichinoseki to Hanamaki"
+    />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
-	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
+    <!-- Section: Trip Stats -->
+    <StatsBox {stats} />
 
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather",
-			description: "20 degrees c"
-		}}
+    <!-- Section: Weather -->
+    <WeatherBox 
+      weather={{
+        title: "Weather",
+        description: "20 degrees c"
+      }}
 	/>
 
 	<!-- Section: Content -->
-	<div class="space-y-8 mb-8">
+	<div class="km-prose-content space-y-8">
 		<section>
 			<img src="/images/japan-2017/day-35/day35-photo-01.webp" alt="Mr and Mrs Terui from the 7-11 at Kitakami showing their love and support" class="w-full mb-4" />
 			<p class="km-body-text">
@@ -124,17 +126,19 @@
 			<p>Life always finds a way if we let it</p>
 		</ContentBox>
 
-		<p class="text-sm text-gray-600 mt-4">Michelle Yang</p>
+		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 
 		<!-- Section: Image Gallery -->
-		<ImageGallery photoImages={photoImages} title="Journey Photos" />
-
-		<!-- Day navigation -->
-		<DayNavigation 
-			currentDay={35}
-			totalDays={40}
-			previousDay={{ url: "/trips/japan-2017/day-34-allergy-attack", label: "Day 34" }}
-			nextDay={{ url: "/trips/japan-2017/day-36-going-slow-and-being-present", label: "Day 36" }}
-		/>
+		<ImageGallery photoImages={photoImages} title="Journey Photos" galleryType="mixed" />
 	</div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={35}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-34-allergy-attack", label: "Day 34" }}
+      nextDay={{ url: "/trips/japan-2017/day-36-going-slow-and-being-present", label: "Day 36" }}
+    />
+
+  </div>
 </div>

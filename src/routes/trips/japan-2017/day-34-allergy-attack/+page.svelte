@@ -50,30 +50,33 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-34-allergy-attack/" />
 </svelte:head>
 
-<TripHeader 
-	backUrl="/trips/japan-2017/"
-	backText="Japan 2017 Daily Journal"
-	dayNumber="DAY 34"
-	date="30 April 2017"
-	title="Allergy attack!"
-	progress="1538km / 1800km"
-	subtitle="Osaki to Ichinoseki"
-/>
+<!-- Day 34: Allergy Attack -->
+<div class="km-container">
+  <div class="km-content-wrapper">
+    
+    <TripHeader 
+      backUrl="/trips/japan-2017/"
+      backText="Japan 2017 Daily Journal"
+      dayNumber="DAY 34"
+      date="30 April 2017"
+      title="Allergy attack!"
+      progress="1538km / 1800km"
+      subtitle="Osaki to Ichinoseki"
+    />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
-	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
+    <!-- Section: Trip Stats -->
+    <StatsBox {stats} />
 
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather Report",
-			description: "19 degrees c, rains threatened! Starting to feel exhausted from allergies"
-		}}
-	/>
+    <!-- Section: Weather -->
+    <WeatherBox 
+      weather={{
+        title: "Weather Report",
+        description: "19 degrees c, rains threatened! Starting to feel exhausted from allergies"
+      }}
+    />
 
-	<!-- Section: Main Content -->
-	<div class="space-y-8 mb-8">
+    <!-- Section: Main Content -->
+    <div class="km-prose-content space-y-8">
 		<section>
 			<p class="km-body-text">
 				DAY 34 of our scooting adventures!
@@ -115,17 +118,24 @@
 				And so I am kicking every mile to the end, no matter the pain, no matter the exhaustion and no matter the allergies, because I deserve to live the good life.
 			</p>
 
-			<p class="km-body-text font-medium">
-				Michelle Yang
-			</p>
-		</section>
+		<p class="km-body-text font-medium">
+			Michelle Yang
+		</p>
+	</section>
 
-		<!-- Day navigation -->
-		<DayNavigation 
-			currentDay={34}
-			totalDays={40}
-			previousDay={{ url: "/trips/japan-2017/day-33-a-fond-farewell-to-sendai", label: "Day 33" }}
-			nextDay={{ url: "/trips/japan-2017/day-35-when-life-throws-you-yet-another-curve-ball", label: "Day 35" }}
-		/>
+	<!-- Photo Gallery -->
+	<div>
+		<ImageGallery photoImages={photoImages} galleryType="mixed" />
 	</div>
+    </div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={34}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-33-a-fond-farewell-to-sendai", label: "Day 33" }}
+      nextDay={{ url: "/trips/japan-2017/day-35-when-life-throws-you-yet-another-curve-ball", label: "Day 35" }}
+    />
+
+  </div>
 </div>

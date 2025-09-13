@@ -5,6 +5,7 @@
   }>;
   export let size: 'normal' | 'large' = 'normal';
   export let columns: number | undefined = undefined;
+  export let fullWidth: boolean = false;
   
   // Generate responsive grid classes using predefined Tailwind classes
   $: gridClass = (() => {
@@ -14,6 +15,8 @@
       return 'grid gap-4 text-center grid-cols-3 md:grid-cols-3';
     } else if (columns === 4) {
       return 'grid gap-4 text-center grid-cols-2 md:grid-cols-4';
+    } else if (columns === 6) {
+      return 'grid gap-4 text-center grid-cols-2 md:grid-cols-3 lg:grid-cols-6';
     } else {
       // Default behavior based on stats count
       const cols = Math.min(stats.length, 2);
@@ -21,10 +24,12 @@
       return `grid gap-4 text-center ${cols === 1 ? 'grid-cols-1' : 'grid-cols-2'} ${mdCols === 1 ? 'md:grid-cols-1' : mdCols === 2 ? 'md:grid-cols-2' : mdCols === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'}`;
     }
   })();
+
+  $: boxClass = fullWidth ? 'km-stats-box-full-width' : 'km-stats-box';
 </script>
 
 <!-- Stats Box -->
-<div class="km-stats-box">
+<div class={boxClass}>
   <div class={gridClass}>
     {#each stats as stat}
       <div>

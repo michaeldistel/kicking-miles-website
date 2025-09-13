@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1374', label: 'Distance' },
@@ -13,62 +14,26 @@
 		{ value: 'Mountains', label: 'Route' }
 	];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-29/day29-route-map.webp',
-			alt: 'Route map from Mt Adatara to Fukushima through mountain roads'
-		}
+	const images = [
+		{ src: '/images/japan-2017/day-29/route-map-01-1x1.webp', alt: 'Route map from Mt Adatara to Fukushima through mountain roads' },
+		{ src: '/images/japan-2017/day-29/photo-01-4x3.webp', alt: 'Warm farewell from everyone at Forest Park Adatara' },
+		{ src: '/images/japan-2017/day-29/photo-02-1x1.webp', alt: 'Hugs and thoughtful presents from dear friends' },
+		{ src: '/images/japan-2017/day-29/photo-03-3x4.webp', alt: 'Heat packs from Emi and many "ki o tsuketes"' },
+		{ src: '/images/japan-2017/day-29/photo-04-1x1.webp', alt: 'Our scooters getting curious attention before departure' },
+		{ src: '/images/japan-2017/day-29/photo-05-4x3.webp', alt: 'First time ditching the main highways for mountain roads' },
+		{ src: '/images/japan-2017/day-29/photo-06-3x4.webp', alt: 'Beautiful ride through the mountain scenery' },
+		{ src: '/images/japan-2017/day-29/photo-07-4x3.webp', alt: 'Meeting wonderful people along the mountain roads' },
+		{ src: '/images/japan-2017/day-29/photo-08-3x4.webp', alt: 'Waves and smiles from locals along the way' },
+		{ src: '/images/japan-2017/day-29/photo-09-4x3.webp', alt: 'The little things that cheer us on to move forwards' },
+		{ src: '/images/japan-2017/day-29/photo-10-4x3.webp', alt: 'Scenic mountain views on our way to Fukushima' },
+		{ src: '/images/japan-2017/day-29/photo-11-3x4.webp', alt: 'Choosing gratitude for what happens right now' }
 	];
 
-	const sendoffImages = [
-		{
-			src: '/images/japan-2017/day-29/day29-photo-01.webp',
-			alt: 'Warm farewell from everyone at Forest Park Adatara'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-02.webp',
-			alt: 'Hugs and thoughtful presents from dear friends'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-03.webp',
-			alt: 'Heat packs from Emi and many "ki o tsuketes"'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-04.webp',
-			alt: 'Our scooters getting curious attention before departure'
-		}
-	];
+	let pswpImages: any[] = [];
 
-	const mountainRideImages = [
-		{
-			src: '/images/japan-2017/day-29/day29-photo-05.webp',
-			alt: 'First time ditching the main highways for mountain roads'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-06.webp',
-			alt: 'Beautiful ride through the mountain scenery'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-07.webp',
-			alt: 'Meeting wonderful people along the mountain roads'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-08.webp',
-			alt: 'Waves and smiles from locals along the way'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-09.webp',
-			alt: 'The little things that cheer us on to move forwards'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-10.webp',
-			alt: 'Scenic mountain views on our way to Fukushima'
-		},
-		{
-			src: '/images/japan-2017/day-29/day29-photo-11.webp',
-			alt: 'Choosing gratitude for what happens right now'
-		}
-	];
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -88,8 +53,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-29-wonderful-sendoff-and-a-lovely-ride-through-the-mountains" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -102,34 +67,14 @@
 			subtitle="Mt Adatara to Fukushima"
 		/>
 
-		<!-- Stats -->
-		<StatsBox {stats} />
+	<!-- Stats -->
+	<StatsBox {stats} fullWidth />
 
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Weather Report",
-				description: "17 degrees c, sunny! Ditching our trusty Route 4 and looking forward to the lovely ride through the mountains today!"
-			}}
-		/>
-
-		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+	<!-- Content sections -->
+	<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 29 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Mt Adatara to Fukushima - 1374 / 1800km
-				</p>
-
-				<p class="km-body-text">
-					Estimated scooting time: 4 hours
-				</p>
-
 				<p class="km-body-text">
 					Weather: 17 degrees c, sunny!
 				</p>
@@ -155,12 +100,22 @@
 				</p>
 
 				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
+		<!-- Photo Gallery -->
+		<div>
+			<PhotoSwipeGallery 
+				images={pswpImages}
+				title="Mountain Sendoff Journey" 
+				galleryId="day29-sendoff"
+			/>
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
 		<DayNavigation 
 			currentDay={29}
 			totalDays={40}

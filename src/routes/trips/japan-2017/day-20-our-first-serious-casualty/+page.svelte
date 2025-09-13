@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '948km', label: 'Distance' },
@@ -13,73 +14,26 @@
 		{ value: 'Exhausted after 3 days', label: 'Mood' }
 	];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-20/day20-route-map.webp',
-			alt: 'Route map from Hamamatsu to Shizuoka - Day 20 journey'
-		}
+	const images = [
+		{ src: '/images/japan-2017/day-20/route-map-01-1x1.webp', alt: 'Route map from Hamamatsu to Shizuoka - Day 20 journey' },
+		{ src: '/images/japan-2017/day-20/photo-01-3x4.webp', alt: 'Farewell from hotel staff in Hamamatsu' },
+		{ src: '/images/japan-2017/day-20/photo-02-3x4.webp', alt: 'Making our way through friendly Hamamatsu town' },
+		{ src: '/images/japan-2017/day-20/photo-03-4x3.webp', alt: 'Wonderful encounters with locals on our way out' },
+		{ src: '/images/japan-2017/day-20/photo-04-3x4.webp', alt: 'School safety volunteer waving and wishing us safe travels' },
+		{ src: '/images/japan-2017/day-20/photo-05-4x3.webp', alt: 'Farm roads and scenic countryside before the accident' },
+		{ src: '/images/japan-2017/day-20/photo-06-4x3.webp', alt: 'Taking corners like gregarious racers' },
+		{ src: '/images/japan-2017/day-20/photo-07-4x3.webp', alt: 'Aftermath of the serious accident - first aid administration' },
+		{ src: '/images/japan-2017/day-20/photo-08-4x3.webp', alt: 'Tresha recovering after the face plant crash' },
+		{ src: '/images/japan-2017/day-20/photo-09-3x4.webp', alt: 'Team gathering after the emergency' },
+		{ src: '/images/japan-2017/day-20/photo-10-4x3.webp', alt: 'Decision made to take the train to Shizuoka for rest' },
+		{ src: '/images/japan-2017/day-20/photo-11-3x4.webp', alt: 'Reflecting on adventure, risk, and the courage to live boldly' }
 	];
 
-	const hamamatsuImages = [
-		{
-			src: '/images/japan-2017/day-20/day20-photo-01.webp',
-			alt: 'Farewell from hotel staff in Hamamatsu'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-02.webp',
-			alt: 'Making our way through friendly Hamamatsu town'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-03.webp',
-			alt: 'Wonderful encounters with locals on our way out'
-		}
-	];
+	let pswpImages: any[] = [];
 
-	const journeyImages = [
-		{
-			src: '/images/japan-2017/day-20/day20-photo-04.webp',
-			alt: 'School safety volunteer waving and wishing us safe travels'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-05.webp',
-			alt: 'Farm roads and scenic countryside before the accident'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-06.webp',
-			alt: 'Taking corners like gregarious racers'
-		}
-	];
-
-	const accidentImages = [
-		{
-			src: '/images/japan-2017/day-20/day20-photo-07.webp',
-			alt: 'Aftermath of the serious accident - first aid administration'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-08.webp',
-			alt: 'Tresha recovering after the face plant crash'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-09.webp',
-			alt: 'Team gathering after the emergency'
-		}
-	];
-
-	const recoveryImages = [
-		{
-			src: '/images/japan-2017/day-20/day20-photo-10.webp',
-			alt: 'Decision made to take the train to Shizuoka for rest'
-		},
-		{
-			src: '/images/japan-2017/day-20/day20-photo-11.webp',
-			alt: 'Reflecting on adventure, risk, and the courage to live boldly'
-		}
-	];
-
-	const weather = {
-		title: 'Weather Report',
-		description: '20 degrees c'
-	};
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -101,28 +55,13 @@
 			subtitle="Day 20"
 		/>
 
-		<StatsBox {stats} columns={2} />
-
-		<!-- Weather -->
-		<div class="mb-12">
-			<WeatherBox {weather} />
+		<div class="mb-8 mt-12">
+			<StatsBox {stats} columns={4} fullWidth={true} />
 		</div>
 
 		<!-- Main content -->
 		<div class="space-y-8 mb-8">
 			<section>
-				<p class="km-body-text">
-					<strong>DAY 20 of our scooting adventures!</strong><br><br>
-
-					Hammamatsu to Shizuoka - 948km / 1800km<br><br>
-
-					Estimated scooting time: 12 hours<br><br>
-
-					Weather: 20 degrees c<br><br>
-
-					Mood: Starting to feel exhausted again after 3 consecutive days of scooting.
-				</p>
-
 				<p class="km-body-text">
 					After a fond farewell from the staff at our hotel, we made our way through Hamamatsu town. There's something about Hamamatsu... everyone was really spontaneous and friendly here for some reason! Aside from Yoneko san we met yesterday, we came across 3 more wonderful groups of people on the way out. During travels like these, we sometimes get horrible experiences but more often than not, the wonderful experiences outweigh the bad and Hamamatsu was a good example. We left in happy spirits!
 				</p>
@@ -163,6 +102,11 @@
 					Michelle Yang
 				</p>
 			</section>
+		</div>
+
+		<!-- Photo Gallery -->
+		<div>
+			<PhotoSwipeGallery images={pswpImages} title="Day 20 - First Serious Casualty" galleryId="day20-all" />
 		</div>
 
   <!-- Day navigation -->

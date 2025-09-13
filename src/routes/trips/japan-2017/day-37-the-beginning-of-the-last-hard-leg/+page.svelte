@@ -67,7 +67,8 @@
 	subtitle="Morioka to Ninohe"
 />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
 	<StatsBox {stats} />
 
@@ -80,7 +81,7 @@
 	/>
 
 	<!-- Section: Content -->
-	<div class="space-y-8 mb-8">
+	<div class="km-prose-content space-y-8">
 		<section>
 			<img src="/images/japan-2017/day-37/day37-photo-01.webp" alt="The challenging mountainous terrain north of Morioka" class="w-full mb-4" />
 			<p class="km-body-text">
@@ -116,6 +117,16 @@
 			<p>And that's why we kick the miles everyday so that when we wake up tomorrow, we will wake with happiness and peace on our face, knowing that we have given our very best.</p>
 		</ContentBox>
 
-		<p class="text-sm text-gray-600 mt-4">Michelle Yang</p>
+		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 	</div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={37}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-36-going-slow-and-being-present", label: "Day 36" }}
+      nextDay={{ url: "/trips/japan-2017/day-38-the-steep-ascent-into-the-hakoda-mountain-ranges", label: "Day 38" }}
+    />
+
+  </div>
 </div>

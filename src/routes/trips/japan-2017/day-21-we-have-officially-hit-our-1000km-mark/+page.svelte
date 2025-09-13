@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1006km', label: 'Distance' },
@@ -13,42 +14,22 @@
 		{ value: 'Exhausted but 1000km!!!', label: 'Mood' }
 	];
 
-	const celebrationImages = [
-		{
-			src: '/images/japan-2017/day-21/day21-photo-01.webp',
-			alt: 'Celebrating hitting the 1000km milestone with high-fives and jigs'
-		},
-		{
-			src: '/images/japan-2017/day-21/day21-photo-02.webp',
-			alt: 'McDonald\'s celebratory meal after reaching 1000km mark'
-		},
-		{
-			src: '/images/japan-2017/day-21/day21-photo-03.webp',
-			alt: 'Team photo marking our major milestone achievement'
-		}
+	const images = [
+		{ src: '/images/japan-2017/day-21/route-map-01-1x1.webp', alt: 'Route map from Shizuoka to Mishima - Day 21 journey marking our 1000km milestone' },
+		{ src: '/images/japan-2017/day-21/photo-02-3x4.webp', alt: 'McDonald\'s celebratory meal after reaching 1000km mark' },
+		{ src: '/images/japan-2017/day-21/photo-03-3x4.webp', alt: 'Team photo marking our major milestone achievement' },
+		{ src: '/images/japan-2017/day-21/photo-04-9x16.webp', alt: 'The physical toll visible - worn Asics Noosa Tri shoes after 1000km' },
+		{ src: '/images/japan-2017/day-21/photo-05-9x16.webp', alt: 'Salt trails on black shirts from vigorous daily sweating' },
+		{ src: '/images/japan-2017/day-21/photo-06-4x3.webp', alt: 'Scooters in Mishima town showing remarkable durability after 1000km' },
+		{ src: '/images/japan-2017/day-21/photo-07-4x3.webp', alt: 'Reflective moment at Lake Hamana after reaching 1000km' },
+		{ src: '/images/japan-2017/day-21/updates-01-3x4.webp', alt: 'Day 21 updates and reflections on hitting 1000km mark' }
 	];
 
-	const journeyImages = [
-		{
-			src: '/images/japan-2017/day-21/day21-photo-04.webp',
-			alt: 'The physical toll visible - worn Asics Noosa Tri shoes after 1000km'
-		},
-		{
-			src: '/images/japan-2017/day-21/day21-photo-05.webp',
-			alt: 'Salt trails on black shirts from vigorous daily sweating'
-		},
-		{
-			src: '/images/japan-2017/day-21/day21-photo-06.webp',
-			alt: 'Scooters in Mishima town showing remarkable durability after 1000km'
-		}
-	];
+	let pswpImages: any[] = [];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-21/day21-route-map.webp',
-			alt: 'Route map from Shizuoka to Mishima - Day 21 journey marking our 1000km milestone'
-		}
-	];
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -82,32 +63,12 @@
 			subtitle="Day 21"
 		/>
 
-		<!-- Stats -->
-		<StatsBox {stats} />
+	<!-- Stats -->
+	<StatsBox {stats} fullWidth />
 
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Weather Report",
-				description: "20 degrees c"
-			}}
-		/>
-
-		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+	<!-- Content sections -->
+	<div class="km-prose-content space-y-8">
 			<section>
-				<p class="km-body-text">
-					<strong>DAY 21 of our scooting adventures!</strong><br><br>
-
-					Shizuoka to Mishima - 1006km / 1800km<br><br>
-
-					Estimated scooting time: 5 hours<br><br>
-
-					Weather: 20 degrees c<br><br>
-
-					Mood: Exhausted but we have officially hit our 1000km mark!!!
-				</p>
-
 				<p class="km-body-text">
 					As our scooters pulled into the town of Mishima this afternoon, we hi-fived each other for hitting our 1000km mark and then danced a little jig and had a little celebratory meal at Macdonalds! More than halfway!!! And it felt like it wasn't that many days ago when we started.
 				</p>
@@ -160,6 +121,15 @@
 					Michelle Yang
 				</p>
 			</section>
+
+			<!-- Photo Gallery -->
+			<div>
+				<PhotoSwipeGallery 
+					images={pswpImages}
+					title="1000km Milestone Journey" 
+					galleryId="day21-milestone"
+				/>
+			</div>
 		</div>
 
 		<!-- Day navigation -->

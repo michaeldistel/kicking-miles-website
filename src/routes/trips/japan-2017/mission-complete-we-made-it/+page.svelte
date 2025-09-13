@@ -155,7 +155,7 @@
 		</section>
 
 		<!-- Section: Image Gallery -->
-		<ImageGallery photoImages={photoImages} title="Mission Complete!" />
+		<ImageGallery photoImages={photoImages} title="Mission Complete!" galleryType="mixed" />
 
 		<!-- Day navigation -->
 		<DayNavigation 

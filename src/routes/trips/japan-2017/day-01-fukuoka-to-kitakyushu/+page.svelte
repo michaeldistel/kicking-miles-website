@@ -1,39 +1,40 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
   import ContentBox from '$lib/components/ContentBox.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
-    { value: 'DAY ONE', label: 'Scooting Adventures' },
-    { value: '70kms / 1800kms', label: 'Fukuoka to Kitakyushu' },
-    { value: '8 hours', label: 'Estimated scooting time' },
-    { value: '~6000 kcal', label: 'Calories burnt' }
+    { value: '8 hours', label: 'Time' },
+    { value: 'Kitakyushu', label: 'Destination' },
+    { value: 'Rain & hail', label: 'Challenge' },
+    { value: 'Nervous', label: 'Mood' },
+    { value: '8-12°C', label: 'Temp' },
+    { value: '70km', label: 'Distance' }
   ];
 
   const routeImages = [
-    { src: '/images/japan-2017/day-01/day01-route-map.webp', alt: 'Route map showing the path from Fukuoka to Kitakyushu' },
-    { src: '/images/japan-2017/day-01/day01-updates.webp', alt: 'Journey updates and progress notes from Fukuoka to Kitakyushu' }
+    { src: '/images/japan-2017/day-01/route-map-1x1.webp', alt: 'Route map showing the path from Fukuoka to Kitakyushu' },
+    { src: '/images/japan-2017/day-01/updates-3x4.webp', alt: 'Journey updates and progress notes from Fukuoka to Kitakyushu' }
   ];
 
   const photoImages = [
-    { src: '/images/japan-2017/day-01/day01-photo-02.webp', alt: 'First moments on the kickboards beginning the Japan adventure' },
-    { src: '/images/japan-2017/day-01/day01-photo-03.webp', alt: 'Caught in a severe storm with heavy rain and strong winds' },
-    { src: '/images/japan-2017/day-01/day01-photo-04.webp', alt: 'Seeking shelter from rain and hail under cover' },
-    { src: '/images/japan-2017/day-01/day01-photo-05.webp', alt: 'Finding refuge and warmth inside McDonald\'s during the storm' },
-    { src: '/images/japan-2017/day-01/day01-photo-06.webp', alt: 'Wet and cold but determined to continue the journey' },
-    { src: '/images/japan-2017/day-01/day01-photo-07.webp', alt: 'Beautiful rainbow appearing after the storm passes' },
-    { src: '/images/japan-2017/day-01/day01-photo-08.webp', alt: 'Arriving in Kitakyushu tired but successful at midnight' },
-    { src: '/images/japan-2017/day-01/day01-photo-09.webp', alt: 'Exhausted but celebrating a successful completion of the challenging first day' },
-    { src: '/images/japan-2017/day-01/day01-photo-10.webp', alt: 'Hotel arrival and rest after 10-hour adventure' }
+    { src: '/images/japan-2017/day-01/photo-02-4x3.webp', alt: 'First moments on the kickboards beginning the Japan adventure' },
+    { src: '/images/japan-2017/day-01/photo-03-4x3.webp', alt: 'Caught in a severe storm with heavy rain and strong winds' },
+    { src: '/images/japan-2017/day-01/photo-04-4x3.webp', alt: 'Seeking shelter from rain and hail under cover' },
+    { src: '/images/japan-2017/day-01/photo-05-16x9.webp', alt: 'Finding refuge and warmth inside McDonald\'s during the storm' },
+    { src: '/images/japan-2017/day-01/photo-06-4x3.webp', alt: 'Wet and cold but determined to continue the journey' },
+    { src: '/images/japan-2017/day-01/photo-07-4x3.webp', alt: 'Beautiful rainbow appearing after the storm passes' },
+    { src: '/images/japan-2017/day-01/photo-08-4x3.webp', alt: 'Arriving in Kitakyushu tired but successful at midnight' },
+    { src: '/images/japan-2017/day-01/photo-09-4x3.webp', alt: 'Exhausted but celebrating a successful completion of the challenging first day' },
+    { src: '/images/japan-2017/day-01/photo-10-4x3.webp', alt: 'Hotel arrival and rest after 10-hour adventure' }
   ];
 
-  const weather = {
-    title: 'Weather',
-    description: 'Expected rains. Temperature was cooool. We started at 12 degrees c but one stage it dropped to 8.'
-  };
+  // Combine all images for PhotoSwipe gallery
+  const allImages = [...routeImages, ...photoImages];
+  const galleryImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -42,8 +43,8 @@
 </svelte:head>
 
 <!-- Day 01: Fukuoka to Kitakyushu -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
@@ -54,26 +55,17 @@
       subtitle="Day one"
       progress="70 kilometres of 1,800"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={6} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-8">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY ONE of our scooting adventures!</strong><br>
-          Fukuoka to Kitakyushu - 70kms / 1800kms<br>
-          Estimated scooting time: 8 hours<br>
-          Weather: Expected rains<br>
-          Mood: Extremely nervous on our first day!
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           We finally made it to Kitakyushu in one piece after about 10 hours on the road and were greeted by the sight of a beautiful rainbow. Shortly after we hit the main town, it started pouring. We took cover in Macdonalds for about 2 hours when we finally decided to brave the rain and complete the last 15 kms to the hotel.... when... it started to hail! After more taking shelter, we got to our hotel at 12am.
@@ -97,21 +89,21 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
 
-      <div>
-        <ImageGallery title="Route Map" routeImages={routeImages} />
-      </div>
-
-      <div>
-        <ImageGallery title="Journey Photos" photoImages={photoImages} />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Journey Photos & Route Map" 
+        galleryId="day01-gallery"
+      />
     </div>
 
-  <!-- Day navigation -->
+  
+    <!-- Day navigation -->
   <DayNavigation 
     currentDay={1}
     totalDays={40}

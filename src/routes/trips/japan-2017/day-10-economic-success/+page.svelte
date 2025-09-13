@@ -1,27 +1,23 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils.js';
 
   const stats = [
     { value: 'DAY TEN', label: 'Scooting Adventures' },
     { value: '547km / 1800km', label: 'Himeji to Kobe' },
     { value: '9 hours', label: 'Estimated scooting time' },
-    { value: 'Beautiful day!', label: 'Weather' }
+    { value: 'Beautiful day!', label: 'Weather' },
+    { value: 'Economics', label: 'Observations' }
   ];
 
-  const featuredImages = [
-    { src: '/images/japan-2017/day-10/day10-route-map.webp', alt: 'Route map from Himeji to Kobe approaching the major cities' },
-    { src: '/images/japan-2017/day-10/day10-updates.webp', alt: 'Reflections on Japanese UX design and economic success observations' }
-  ];
-
-  const weather = {
-    title: 'Weather Report',
-    description: '15 degrees c, another beautiful day. Getting tired again.'
-  };
+  // Combined gallery images with new filenames
+  const galleryImages = prepareImagesForPhotoSwipe([
+    { src: '/images/japan-2017/day-10/route-map-01-1x1.webp', alt: 'Route map from Himeji to Kobe approaching the major cities' },
+    { src: '/images/japan-2017/day-10/updates-01-1x1.webp', alt: 'Reflections on Japanese UX design and economic success observations' }
+  ]);
 </script>
 
 <svelte:head>
@@ -30,8 +26,8 @@
 </svelte:head>
 
 <!-- Day 10: Modern Japan -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
@@ -42,26 +38,17 @@
       progress="547 kilometres of 1,800"
       subtitle="Day ten"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={5} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-8">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY TEN of our scooting adventures!</strong><br>
-          Himeji to Kobe - 547km / 1800km<br>
-          Estimated scooting time: 9 hours<br>
-          Weather: 15 degrees c, another beautiful day<br>
-          Mood: Getting tired again
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           Dinner at Kurasushi the last 10km before Kobe. Kurashushi is an extremely affordable fast food sushi chain. You place your order on a screen and it delivers your food to you through a high speed conveyor belt.
@@ -77,27 +64,26 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-8">
-      <div>
-        <ImageGallery title="Day Ten Journey" routeImages={featuredImages} />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Economic Observations" 
+        galleryId="day10-gallery"
+      />
     </div>
 
     <!-- Day navigation -->
-  <!-- Day navigation -->
-  <DayNavigation 
-    currentDay={10}
-    totalDays={40}
-    previousDay={{ url: "/trips/japan-2017/day-09-no-right-or-wrong", label: "Day 9" }}
-    nextDay={{ url: "/trips/japan-2017/day-11-rebellious-heterogeneity", label: "Day 11" }}
-  />
+    <DayNavigation 
+      currentDay={10}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-09-no-right-or-wrong", label: "Day 9" }}
+      nextDay={{ url: "/trips/japan-2017/day-11-rebellious-heterogeneity", label: "Day 11" }}
+    />
 
   </div>
 </div>

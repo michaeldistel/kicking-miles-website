@@ -73,6 +73,8 @@
 			alt: 'Planning to write detailed tsunami observations'
 		}
 	];
+
+	const photos = [...tsunamiSiteImages, ...journeyUpdateImages];
 </script>
 
 <svelte:head>
@@ -92,8 +94,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-32-updates" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -118,7 +120,7 @@
 		/>
 
 		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
@@ -134,13 +136,19 @@
 					I meant to write a detailed one on everything I observed and learnt about the Sendai tsunami but you'll all have to pardon me and give me a couple of days because we're so exhausted by the time we arrive in our hotel. We were initially pushing out 60km - 80km per day at the start of the trip. Now we're lucky if we do 50km. I'm one day behind our updates again but will have time to get up to speed once we hit the major town Morioka.
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
+		<!-- Photo Gallery -->
+		<div>
+			<ImageGallery photoImages={photos} galleryType="mixed" />
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
 		<DayNavigation 
 			currentDay={32}
 			totalDays={40}

@@ -1,37 +1,37 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import ContentBox from '$lib/components/ContentBox.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
-    { value: 'DAY FIVE', label: 'Scooting Adventures' },
-    { value: '274 / 1800km', label: 'Hiroshima' },
-    { value: 'Rest day today', label: 'Estimated scooting time' },
-    { value: 'Sakura spotted!', label: 'Discovery' }
+    { value: 'Rest day', label: 'Time' },
+    { value: 'Hiroshima', label: 'Location' },
+    { value: 'Sakura spotted', label: 'Discovery' },
+    { value: 'Recuperating', label: 'Mood' },
+    { value: 'Cool weather', label: 'Temp' }
   ];
 
-  const photos = [
-    { src: '/images/japan-2017/day-05/day05-photo-01.webp', alt: 'Rest day in Hiroshima' },
-    { src: '/images/japan-2017/day-05/day05-photo-02.webp', alt: 'Maintaining and repairing scooters' },
-    { src: '/images/japan-2017/day-05/day05-photo-03.webp', alt: 'Hiroshima Peace Memorial Park visit' },
-    { src: '/images/japan-2017/day-05/day05-photo-04.webp', alt: 'First sakura blooms spotted!' },
-    { src: '/images/japan-2017/day-05/day05-photo-05.webp', alt: 'Cherry blossom chase begins' },
-    { src: '/images/japan-2017/day-05/day05-photo-06.webp', alt: 'Peaceful moments at the memorial park' },
-    { src: '/images/japan-2017/day-05/day05-photo-07.webp', alt: 'Beautiful cool weather in Hiroshima' }
+  const routeImages = [
+    { src: '/images/japan-2017/day-05/route-map-3x4.webp', alt: 'Rest day location in Hiroshima for sakura discovery' },
+    { src: '/images/japan-2017/day-05/updates-1x1.webp', alt: 'Sakura discovery and rest day highlights in Hiroshima' }
   ];
 
-  const featuredImages = [
-    { src: '/images/japan-2017/day-05/day05-route-map.webp', alt: 'Rest day location in Hiroshima for sakura discovery' },
-    { src: '/images/japan-2017/day-05/day05-updates.webp', alt: 'Sakura discovery and rest day highlights in Hiroshima' }
+  const photoImages = [
+    { src: '/images/japan-2017/day-05/photo-01-4x3.webp', alt: 'Rest day in Hiroshima' },
+    { src: '/images/japan-2017/day-05/photo-02-4x3.webp', alt: 'Maintaining and repairing scooters' },
+    { src: '/images/japan-2017/day-05/photo-03-3x4.webp', alt: 'Hiroshima Peace Memorial Park visit' },
+    { src: '/images/japan-2017/day-05/photo-04-3x4.webp', alt: 'First sakura blooms spotted!' },
+    { src: '/images/japan-2017/day-05/photo-05-3x4.webp', alt: 'Cherry blossom chase begins' },
+    { src: '/images/japan-2017/day-05/photo-06-3x4.webp', alt: 'Peaceful moments at the memorial park' },
+    { src: '/images/japan-2017/day-05/photo-07-4x3.webp', alt: 'Beautiful cool weather in Hiroshima' }
   ];
 
-  const weather = {
-    title: 'Weather Report',
-    description: 'Beautiful cool weather! A little tired, day of recuperation, enjoying the sakura.'
-  };
+  // Combine all images for PhotoSwipe gallery
+  const allImages = [...routeImages, ...photoImages];
+  const galleryImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -40,38 +40,29 @@
 </svelte:head>
 
 <!-- Day 05: Hiroshima Rest Day -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY FIVE"
+      dayNumber="Day 05"
       date="30 March 2017"
       title="The sakura chase has begun!"
       progress="274 kilometres of 1,800"
       subtitle="Day five"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={5} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-12">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY FIVE of our scooting adventures!</strong><br>
-          Hiroshima - 274 / 1800km<br>
-          Estimated scooting time: Rest day today<br>
-          Weather: Beautiful cool weather!<br>
-          Mood: A little tired, day of recuperation, enjoying the sakura
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           It has officially begun!!! First blooms spotted! Chasing the cherry blossoms across Japan on scooter!
@@ -99,20 +90,17 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-8">
-      <div>
-        <ImageGallery title="Day Five Journey" routeImages={featuredImages} />
-      </div>
-      <div>
-        <ImageGallery photoImages={photos} galleryType="compact" />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Sakura Discovery & Memorial Park" 
+        galleryId="day05-gallery"
+      />
     </div>
 
     <!-- Day navigation -->

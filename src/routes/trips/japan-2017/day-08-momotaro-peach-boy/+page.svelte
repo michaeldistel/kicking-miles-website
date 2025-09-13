@@ -1,32 +1,23 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils.js';
 
   const stats = [
     { value: 'DAY EIGHT', label: 'Scooting Adventures' },
     { value: '412 / 1800km', label: 'Okayama' },
     { value: 'Rest day today', label: 'Estimated scooting time' },
-    { value: 'Recovery', label: 'Focus' }
+    { value: 'Recovery', label: 'Focus' },
+    { value: 'Momotaro', label: 'Folklore discovery' }
   ];
 
-  const photos = [
-    { src: '/images/japan-2017/day-08/day08-photo-01.webp', alt: 'Overview of Okayama city from hotel' },
-    { src: '/images/japan-2017/day-08/day08-photo-02.webp', alt: 'Rest day in Okayama, birthplace of Momotaro' }
-  ];
-
-  const featuredImages = [
-    { src: '/images/japan-2017/day-08/day08-route-map.webp', alt: 'Rest day location in Okayama - home of Momotaro legend' },
-    { src: '/images/japan-2017/day-08/day08-updates.webp', alt: 'Rest day reflections and Momotaro folklore discovery' }
-  ];
-
-  const weather = {
-    title: 'Weather Report',
-    description: 'Good weather. A little tired, day of recuperation.'
-  };
+  // Combined gallery images with new filenames
+  const galleryImages = prepareImagesForPhotoSwipe([
+    { src: '/images/japan-2017/day-08/route-map-01-4x3.webp', alt: 'Rest day location in Okayama - home of Momotaro legend' },
+    { src: '/images/japan-2017/day-08/updates-01-1x1.webp', alt: 'Rest day reflections and Momotaro folklore discovery' }
+  ]);
 </script>
 
 <svelte:head>
@@ -35,35 +26,29 @@
 </svelte:head>
 
 <!-- Day 08: Okayama Rest Day -->
-<TripHeader 
-  backUrl="/trips/japan-2017"
-  backText="Japan 2017 Daily Journal"
-  dayNumber="DAY EIGHT"
-  date="2 April 2017"
-  title="Momotaro the peach boy"
-  progress="412 kilometres of 1,800"
-  subtitle="Day eight"
-/>
+<div class="km-container">
+  <div class="km-content-wrapper">
+    
+    <TripHeader 
+      backUrl="/trips/japan-2017"
+      backText="Japan 2017 Daily Journal"
+      dayNumber="DAY EIGHT"
+      date="2 April 2017"
+      title="Momotaro the peach boy"
+      progress="412 kilometres of 1,800"
+      subtitle="Day eight"
+    />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={5} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-8">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY EIGHT of our scooting adventures!</strong><br>
-          Okayama - 412 / 1800km<br>
-          Estimated scooting time: Rest day today<br>
-          Weather: Good weather<br>
-          Mood: A little tired, day of recuperation
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           Today is a rest day for our muscles. We finally arrived at 11pm+ to our accommodation last night after knocking on many hotel doors! By the time we knocked out, it was 1am+. For the first time since we started, exhaustion hit us and we overslept pass checkout time, haha! There was a strong desire to reprimand ourselves and push forwards to our goal but abit of kindness and compassion at the right time is what is sometimes needed to bring balance and success to our goals. Resting today and updating our website. Early start tomorrow for Himeji!
@@ -83,20 +68,17 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-8">
-      <div>
-        <ImageGallery title="Day Eight Rest" routeImages={featuredImages} />
-      </div>
-      <div>
-        <ImageGallery photoImages={photos} galleryType="compact" />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Momotaro Rest Day" 
+        galleryId="day08-gallery"
+      />
     </div>
 
     <!-- Day navigation -->
@@ -106,3 +88,6 @@
       previousDay={{ url: "/trips/japan-2017/day-07-route-2-countryside", label: "Day 7" }}
       nextDay={{ url: "/trips/japan-2017/day-09-no-right-or-wrong", label: "Day 9" }}
     />
+
+  </div>
+</div>

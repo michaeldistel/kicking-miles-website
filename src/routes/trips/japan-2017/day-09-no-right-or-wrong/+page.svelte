@@ -1,33 +1,25 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils.js';
 
   const stats = [
     { value: 'DAY NINE', label: 'Scooting Adventures' },
     { value: '492km / 1800km', label: 'Okayama to Himeji' },
     { value: '12 hours', label: 'Estimated scooting time' },
-    { value: 'Clear skies!', label: 'Weather' }
+    { value: 'Clear skies!', label: 'Weather' },
+    { value: 'Philosophy', label: 'Life lessons' }
   ];
 
-  const photos = [
-    { src: '/images/japan-2017/day-09/day09-photo-01.webp', alt: 'Feeling adjusted to daily physical challenges' },
-    { src: '/images/japan-2017/day-09/day09-photo-02.webp', alt: 'Beautiful clear skies on route to Himeji' },
-    { src: '/images/japan-2017/day-09/day09-photo-03.webp', alt: 'Mental and emotional challenges of the journey' }
-  ];
-
-  const featuredImages = [
-    { src: '/images/japan-2017/day-09/day09-route-map.webp', alt: 'Route map from Okayama to Himeji along the coastal path' },
-    { src: '/images/japan-2017/day-09/day09-updates.webp', alt: 'Philosophical reflections on perseverance and finding the right path' }
-  ];
-
-  const weather = {
-    title: 'Weather Report',
-    description: '17 degrees c, beautiful clear skies. Raring to go!'
-  };
+  // Combined gallery images with new filenames
+  const galleryImages = prepareImagesForPhotoSwipe([
+    { src: '/images/japan-2017/day-09/route-map-01-4x3.webp', alt: 'Route map from Okayama to Himeji along the coastal path' },
+    { src: '/images/japan-2017/day-09/updates-01-1x1.webp', alt: 'Philosophical reflections on perseverance and finding the right path' },
+    { src: '/images/japan-2017/day-09/photo-01-3x4.webp', alt: 'Feeling adjusted to daily physical challenges' },
+    { src: '/images/japan-2017/day-09/photo-03-4x3.webp', alt: 'Mental and emotional challenges of the journey' }
+  ]);
 </script>
 
 <svelte:head>
@@ -36,8 +28,8 @@
 </svelte:head>
 
 <!-- Day 09: Philosophical Journey -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
@@ -48,26 +40,17 @@
       progress="492 kilometres of 1,800"
       subtitle="Day nine"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={5} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-8">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY NINE of our scooting adventures!</strong><br>
-          Okayama to Himeji - 492km / 1800km<br>
-          Estimated scooting time: 12 hours<br>
-          Weather: 17 degrees c, beautiful clear skies<br>
-          Mood: Raring to go!
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           Nine days in and we're feeling more adjusted to the daily physical punishment. One of the biggest challenge in doing a trip like this, would really be the ability to lean into discomfort and hanging on through it to give the body time to adjust. Physically, it might sound really difficult but anyone with a slightly above average fitness level will find this pace easy to conquer. It's not so much strenuous as it is tiring.
@@ -83,20 +66,17 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-8">
-      <div>
-        <ImageGallery title="Day Nine Journey" routeImages={featuredImages} />
-      </div>
-      <div>
-        <ImageGallery photoImages={photos} galleryType="compact" />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Philosophical Journey" 
+        galleryId="day09-gallery"
+      />
     </div>
 
     <!-- Day navigation -->

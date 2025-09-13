@@ -1,34 +1,34 @@
 <script>
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import ContentBox from '$lib/components/ContentBox.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
-    { value: 'DAY FOUR', label: 'Scooting Adventures' },
-    { value: '274 / 1800km', label: 'Hofu to Hiroshima' },
-    { value: '9 hours', label: 'Estimated scooting time' },
-    { value: 'Train', label: 'Final transport mode' }
+    { value: '9 hours', label: 'Time' },
+    { value: 'Hiroshima', label: 'Destination' },
+    { value: 'Brake failure', label: 'Challenge' },
+    { value: 'Humbled', label: 'Mood' },
+    { value: 'Train', label: 'Transport' }
   ];
 
-  const photos = [
-    { src: '/images/japan-2017/day-04/day04-photo-01.webp', alt: 'Starting the journey from Hofu' },
-    { src: '/images/japan-2017/day-04/day04-photo-02.webp', alt: 'Mountain passes of Hofu' },
-    { src: '/images/japan-2017/day-04/day04-photo-03.webp', alt: 'The challenging terrain and broken brakes incident' },
-    { src: '/images/japan-2017/day-04/day04-photo-04.webp', alt: 'Taking the train to Hiroshima after learning a lesson in humility' }
+  const routeImages = [
+    { src: '/images/japan-2017/day-04/route-map-4x3.webp', alt: 'Route map showing the planned path from Hofu to Hiroshima' },
+    { src: '/images/japan-2017/day-04/updates-1x1.webp', alt: 'Journey updates documenting the lessons learned and humble moments' }
   ];
 
-  const featuredImages = [
-    { src: '/images/japan-2017/day-04/day04-route-map.webp', alt: 'Route map showing the planned path from Hofu to Hiroshima' },
-    { src: '/images/japan-2017/day-04/day04-updates.webp', alt: 'Journey updates documenting the lessons learned and humble moments' }
+  const photoImages = [
+    { src: '/images/japan-2017/day-04/photo-01-4x3.webp', alt: 'Starting the journey from Hofu' },
+    { src: '/images/japan-2017/day-04/photo-02-4x3.webp', alt: 'Mountain passes of Hofu' },
+    { src: '/images/japan-2017/day-04/photo-03-3x4.webp', alt: 'The challenging terrain and broken brakes incident' },
+    { src: '/images/japan-2017/day-04/photo-04-3x4.webp', alt: 'Taking the train to Hiroshima after learning a lesson in humility' }
   ];
 
-  const weather = {
-    title: 'Weather Report',
-    description: 'Didn\'t take note! A little nervous after the close escape.'
-  };
+  // Combine all images for PhotoSwipe gallery
+  const allImages = [...routeImages, ...photoImages];
+  const galleryImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -37,38 +37,29 @@
 </svelte:head>
 
 <!-- Day 04: Hofu to Hiroshima -->
-<div class="min-h-screen py-16 px-4">
-  <div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
     
     <TripHeader 
       backUrl="/trips/japan-2017"
       backText="Japan 2017 Daily Journal"
-      dayNumber="DAY FOUR"
+      dayNumber="Day 04"
       date="29 March 2017"
       title="A lesson in humility"
       progress="274 kilometres of 1,800"
       subtitle="Day four"
     />
+  </div>
+  
+  <!-- Full-width stats box outside content wrapper -->
+  <div class="mt-12 mb-8">
+    <StatsBox {stats} columns={5} fullWidth={true} />
+  </div>
 
-    <StatsBox {stats} columns={2} />
-
-    <!-- Weather -->
-    <div class="mb-12">
-      <WeatherBox {weather} />
-    </div>
+  <div class="km-content-wrapper">
 
     <!-- Main content -->
-    <div class="space-y-8 mb-12">
-      <section>
-        <p class="km-body-text">
-          <strong>DAY FOUR of our scooting adventures</strong><br>
-          Hofu to Hiroshima - 274 / 1800km<br>
-          Estimated scooting time: 9 hours<br>
-          Weather: Didn't take note!<br>
-          Mood: A little nervous after the close escape
-        </p>
-      </section>
-
+    <div class="km-prose-content space-y-8">
       <section>
         <p class="km-body-text">
           We set off into the chilly morning with a tired and aching body to head up into the mountain passes of Hofu. It wasn't long into the morning that Michelle's breaks were busted. Cruising down one of the gentle slopes, she couldn't break properly and had to slide to a stop, throwing herself off the scooter. All the flipping and parkour training we did paid off because she landed safely on her feet!
@@ -88,20 +79,17 @@
       </section>
 
       <section>
-        <p class="km-body-text font-medium mt-8">
+        <p class="text-sm text-km-subtle italic mt-8">
           - Michelle Yang
         </p>
       </section>
-    </div>
 
-    <!-- Image galleries -->
-    <div class="space-y-8 mb-12">
-      <div>
-        <ImageGallery title="Day Four Journey" routeImages={featuredImages} />
-      </div>
-      <div>
-        <ImageGallery photoImages={photos} galleryType="compact" />
-      </div>
+      <!-- PhotoSwipe Gallery -->
+      <PhotoSwipeGallery 
+        images={galleryImages} 
+        title="Humility Lesson & Route Map" 
+        galleryId="day04-gallery"
+      />
     </div>
 
     <!-- Day navigation -->

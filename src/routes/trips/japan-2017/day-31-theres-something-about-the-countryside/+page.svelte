@@ -50,6 +50,8 @@
 			alt: 'Home made meal by Yuki\'s mom - Sendai family warmth'
 		}
 	];
+
+	const photos = [...routeMapImages, ...countrysideImages];
 </script>
 
 <svelte:head>
@@ -69,8 +71,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-31-theres-something-about-the-countryside" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -95,7 +97,7 @@
 		/>
 
 		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
@@ -143,13 +145,19 @@
 					That day, we received so much love from people, including coffee from an ojisan at 7-11 and of course a home made meal by Yuki's mom! Our trip has been so much more enjoyable because of these little interactions. And all this could only have happened because two strangers have decided to let go of their fears to meet at the side of a random road to see what beautiful experiences would bloom.
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
+		<!-- Photo Gallery -->
+		<div>
+			<ImageGallery photoImages={photos} galleryType="mixed" />
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
 		<DayNavigation 
 			currentDay={31}
 			totalDays={40}

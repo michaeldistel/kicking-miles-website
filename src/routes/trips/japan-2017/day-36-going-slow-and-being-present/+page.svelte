@@ -48,70 +48,84 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-36-going-slow-and-being-present/" />
 </svelte:head>
 
-<TripHeader 
-	backUrl="/trips/japan-2017/"
-	backText="Japan 2017 Daily Journal"
-	dayNumber="DAY 36"
-	date="2 May 2017"
-	title="Going slow and being present"
-	progress="1635km / 1800km"
-	subtitle="Hanamaki to Morioka"
-/>
+<div class="km-container">
+  <div class="km-content-wrapper">
+    
+    <TripHeader 
+      backUrl="/trips/japan-2017/"
+      backText="Japan 2017 Daily Journal"
+      dayNumber="DAY 36"
+      date="2 May 2017"
+      title="Going slow and being present"
+      progress="1635km / 1800km"
+      subtitle="Hanamaki to Morioka"
+    />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
-	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
+    <!-- Section: Trip Stats -->
+    <div class="grid md:grid-cols-2 gap-8 mb-8 mt-12">
+      <StatsBox {stats} />
+      <WeatherBox 
+        weather={{
+          title: "Weather",
+          description: "14 degrees c"
+        }}
+			/>
+		</div>
 
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather",
-			description: "14 degrees c"
-		}}
-	/>
+		<!-- Section: Content -->
+		<div class="km-prose-content space-y-8">
+			<section>
+				<p class="km-body-text">
+					Mood: Excited to hit the next big town Morioka!
+				</p>
+			</section>
 
-	<!-- Section: Content -->
-	<div class="space-y-8 mb-8">
-		<section>
-			<p class="km-body-text">
-				Mood: Excited to hit the next big town Morioka!
-			</p>
-		</section>
+			<section>
+				<p class="km-body-text">
+					Hanamaki to Morioka was one of the easiest days we've ever done. It was a straight path along our trusty Route 4. On adventure trips like this, a straight path with no obstacles is a luxury to the max!
+				</p>
+			</section>
 
-		<section>
-			<p class="km-body-text">
-				Hanamaki to Morioka was one of the easiest days we've ever done. It was a straight path along our trusty Route 4. On adventure trips like this, a straight path with no obstacles is a luxury to the max!
-			</p>
-		</section>
+			<section>
+				<p class="km-body-text">
+					We were clocking our best pace ever, more than 10km/hr. At twice our previous pace in Western Honshu, we had alot of free time to stop and take photos, chat with people, chill in a cafe with coffee.
+				</p>
+			</section>
 
-		<section>
-			<p class="km-body-text">
-				We were clocking our best pace ever, more than 10km/hr. At twice our previous pace in Western Honshu, we had alot of free time to stop and take photos, chat with people, chill in a cafe with coffee.
-			</p>
-		</section>
+			<section>
+				<p class="km-body-text">
+					A wave from a construction worker standing on top of the roof, a honk from many motorbikers and a friendly cheer from the MOS burger staff... it was a relaxing and "raku" day. I even exchanged my scooter for a guy's bike and we rode along side by side for a kilometre or two, haha!
+				</p>
+			</section>
 
-		<section>
-			<p class="km-body-text">
-				A wave from a construction worker standing on top of the roof, a honk from many motorbikers and a friendly cheer from the MOS burger staff... it was a relaxing and "raku" day. I even exchanged my scooter for a guy's bike and we rode along side by side for a kilometre or two, haha!
-			</p>
-		</section>
+			<section>
+				<p class="km-body-text">
+					As I pondered about it all while scooting, it occurred to me how much we have been pushing to reach our goal and how little time we've had to actually fully enjoy the experience. Had we given it more time, how would our experiences have changed? I wondered how our friendship would have developed if we stayed the night at Kyoko's place or accepted someone's offer for coffee or rode for longer than a kilometre or two on someone else's bike. Would we have had many more such spontaneous moments if we gave ourselves more time?
+				</p>
+			</section>
 
-		<section>
-			<p class="km-body-text">
-				As I pondered about it all while scooting, it occurred to me how much we have been pushing to reach our goal and how little time we've had to actually fully enjoy the experience. Had we given it more time, how would our experiences have changed? I wondered how our friendship would have developed if we stayed the night at Kyoko's place or accepted someone's offer for coffee or rode for longer than a kilometre or two on someone else's bike. Would we have had many more such spontaneous moments if we gave ourselves more time?
-			</p>
-		</section>
+			<section>
+				<p class="km-body-text">
+					One thing is for sure, if we were to plan this trip again, we would allocate a longer time to stay in more places and connect with more people. The goal is fundamentally essential because it gives us a direction but through this trip, it has become more clear than ever how important it is not to lose sight of the present and to enjoy the journey.
+				</p>
+			</section>
 
-		<section>
-			<p class="km-body-text">
-				One thing is for sure, if we were to plan this trip again, we would allocate a longer time to stay in more places and connect with more people. The goal is fundamentally essential because it gives us a direction but through this trip, it has become more clear than ever how important it is not to lose sight of the present and to enjoy the journey.
-			</p>
-		</section>
+			<ContentBox type="highlight">
+				<p>That's why we're taking today slow to give us the time and space to be present and show appreciation to the beauty that's around us.</p>
+			</ContentBox>
 
-		<ContentBox type="highlight">
-			<p>That's why we're taking today slow to give us the time and space to be present and show appreciation to the beauty that's around us.</p>
-		</ContentBox>
+			<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 
-		<p class="text-sm text-gray-600 mt-4">Michelle Yang</p>
-	</div>
+			<ImageGallery photoImages={photoImages} galleryType="mixed" />
+		</div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={36}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-35-when-life-throws-you-yet-another-curve-ball", label: "Day 35" }}
+      nextDay={{ url: "/trips/japan-2017/day-37-the-beginning-of-the-last-hard-leg", label: "Day 37" }}
+    />
+
+  </div>
 </div>

@@ -54,6 +54,8 @@
 			alt: 'The warmth of connection on the open road'
 		}
 	];
+
+	const photos = [...routeMapImages, ...wonderfulPeopleImages];
 </script>
 
 <svelte:head>
@@ -73,8 +75,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-30-wonderful-people-everywhere" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -99,7 +101,7 @@
 		/>
 
 		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
@@ -139,13 +141,19 @@
 					I say it again, maybe it's just a wave but that flash of smile that comes with it is warmer than even the warmest sunshine. When it gets cold as it sometimes does here, these little warm moments are what keeps us going!
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
+		<!-- Photo Gallery -->
+		<div>
+			<ImageGallery photoImages={photos} galleryType="mixed" />
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
 		<DayNavigation 
 			currentDay={30}
 			totalDays={40}

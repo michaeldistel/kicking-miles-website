@@ -71,7 +71,8 @@
 	subtitle="Ninohe to Towada"
 />
 
-<div class="container mx-auto px-4 py-4 pb-2 max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
 	<StatsBox {stats} />
 
@@ -84,7 +85,7 @@
 	/>
 
 	<!-- Section: Content -->
-	<div class="space-y-8 mb-8">
+	<div class="km-prose-content space-y-8">
 		<section>
 			<img src="/images/japan-2017/day-38/day38-photo-01.webp" alt="The challenging Hakoda mountain ranges stretching ahead" class="w-full mb-4" />
 			<p class="km-body-text">
@@ -156,17 +157,19 @@
 			<p>And that is why we will continue leaning into the challenges that tomorrow will surely throw at us.</p>
 		</ContentBox>
 
-		<p class="text-sm text-gray-600 mt-4">Michelle Yang</p>
+		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 
 		<!-- Section: Image Gallery -->
-		<ImageGallery photoImages={photoImages} title="Hakoda Mountain Challenge" />
-
-		<!-- Day navigation -->
-		<DayNavigation 
-			currentDay={38}
-			totalDays={40}
-			previousDay={{ url: "/trips/japan-2017/day-37-the-beginning-of-the-last-hard-leg", label: "Day 37" }}
-			nextDay={{ url: "/trips/japan-2017/day-39-golden-week-holiday-madness", label: "Day 39" }}
-		/>
+		<ImageGallery photoImages={photoImages} title="Hakoda Mountain Challenge" galleryType="mixed" />
 	</div>
+
+    <!-- Day navigation -->
+    <DayNavigation 
+      currentDay={38}
+      totalDays={40}
+      previousDay={{ url: "/trips/japan-2017/day-37-the-beginning-of-the-last-hard-leg", label: "Day 37" }}
+      nextDay={{ url: "/trips/japan-2017/day-39-golden-week-holiday-madness", label: "Day 39" }}
+    />
+
+  </div>
 </div>

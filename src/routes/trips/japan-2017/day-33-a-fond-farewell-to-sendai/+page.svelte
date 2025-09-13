@@ -72,6 +72,8 @@
 			alt: 'Hotel built for tsunami reconstruction workers - beacon of hope'
 		}
 	];
+
+	const photos = [...farewellImages, ...journeyImages, ...hotelImages];
 </script>
 
 <svelte:head>
@@ -91,8 +93,8 @@
 	<link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/day-33-a-fond-farewell-to-sendai" />
 </svelte:head>
 
-<div class="min-h-screen py-16 px-4">
-	<div class="container mx-auto max-w-4xl">
+<div class="km-container">
+  <div class="km-content-wrapper">
 		
 		<!-- Header -->
 		<TripHeader 
@@ -117,7 +119,7 @@
 		/>
 
 		<!-- Content sections -->
-		<div class="space-y-8 mb-8">
+		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
@@ -169,13 +171,19 @@
 					Funny that isn't it? And then it follows that if life is simply a matter of interpretation, then perhaps there are so many more perspectives from which we can potentially view our lives right now.
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
-		</div>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
 
-		<!-- Day navigation -->
+		<!-- Photo Gallery -->
+		<div>
+			<ImageGallery photoImages={photos} galleryType="mixed" />
+		</div>
+	</div>
+
+		
+    <!-- Day navigation -->
 		<DayNavigation 
 			currentDay={33}
 			totalDays={40}

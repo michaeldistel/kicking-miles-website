@@ -1,10 +1,11 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { onMount } from 'svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1347', label: 'Distance' },
@@ -13,47 +14,22 @@
 		{ value: 'Family', label: 'Focus' }
 	];
 
-	const routeMapImages = [
-		{
-			src: '/images/japan-2017/day-27/day27-route-map.webp',
-			alt: 'Route map showing Koriyama to Motomiya - visiting Fukushima family'
-		}
+	const images = [
+		{ src: '/images/japan-2017/day-27/route-map-01-1x1.webp', alt: 'Route map showing Koriyama to Motomiya - visiting Fukushima family' },
+		{ src: '/images/japan-2017/day-27/photo-01-4x3.webp', alt: 'Arriving at my Fukushima family home in Motomiya' },
+		{ src: '/images/japan-2017/day-27/photo-02-4x3.webp', alt: 'Okasan preparing her wholesome dinner with love' },
+		{ src: '/images/japan-2017/day-27/photo-04-4x3.webp', alt: 'Traditional Japanese home hospitality and warmth' },
+		{ src: '/images/japan-2017/day-27/photo-05-4x3.webp', alt: 'Spending quality time with my Fukushima host family' },
+		{ src: '/images/japan-2017/day-27/photo-07-4x3.webp', alt: 'Rest and recovery in the comfort of family' },
+		{ src: '/images/japan-2017/day-27/photo-08-4x3.webp', alt: 'Grateful moments with my Japanese family' },
+		{ src: '/images/japan-2017/day-27/updates-01-1x1.webp', alt: 'Day 27 updates and reflections on family connections in Fukushima' }
 	];
 
-	const familyImages = [
-		{
-			src: '/images/japan-2017/day-27/day27-photo-01.webp',
-			alt: 'Arriving at my Fukushima family home in Motomiya'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-02.webp',
-			alt: 'Okasan preparing her wholesome dinner with love'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-03.webp',
-			alt: 'Simple dinner full of wholesomeness for body, heart and soul'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-04.webp',
-			alt: 'Warm family moments and conversations'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-05.webp',
-			alt: 'The loving hearth and warm embrace of family'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-06.webp',
-			alt: 'Grateful moments with my Fukushima mom'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-07.webp',
-			alt: 'Evening spent in the comfort of chosen family'
-		},
-		{
-			src: '/images/japan-2017/day-27/day27-photo-08.webp',
-			alt: 'More precious moments with my Fukushima family'
-		}
-	];
+	let pswpImages: any[] = [];
+
+	onMount(() => {
+		pswpImages = prepareImagesForPhotoSwipe(images);
+	});
 </script>
 
 <svelte:head>
@@ -85,30 +61,17 @@
 			title="My Fukushima family"
 			progress="1347 / 1800km"
 			subtitle="Koriyama to Motomiya"
-		/>		<!-- Stats -->
-		<StatsBox {stats} />
-
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Heart Report",
-				description: "Can't go by Motomiya without stopping by and spending an evening with my Fukushima family."
-			}}
 		/>
+		
+		<div class="mb-8 mt-12">
+			<StatsBox {stats} columns={4} fullWidth={true} />
+		</div>
 
 		<!-- Content sections -->
 		<div class="space-y-8 mb-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 27 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Koriyama to Motomiya - 1347 / 1800km
-				</p>
-
 				<p class="km-body-text">
 					Can't go by Motomiya without stopping by and spending an evening with my Fukushima family
 				</p>
@@ -125,11 +88,16 @@
 					Always thankful for the loving hearth and warm embrace of my Fukushima family
 				</p>
 
-				<p class="km-body-text font-medium">
-					Michelle Yang
-				</p>
-			</section>
+			<p class="km-body-text font-medium">
+				Michelle Yang
+			</p>
+		</section>
+
+		<!-- Photo Gallery -->
+		<div>
+			<PhotoSwipeGallery images={pswpImages} title="Day 27 - My Fukushima Family" galleryId="day27-all" />
 		</div>
+	</div>
 
 		<!-- Day navigation -->
 		<DayNavigation 
