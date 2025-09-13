@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 38;
 	const title = 'The steep ascent into the Hakoda mountain ranges';
@@ -18,30 +18,34 @@
 		{ value: '8 hours', label: 'Scooting Time' }
 	];
 
-	const photoImages = [
-		{ src: '/images/japan-2017/day-38/day38-photo-01.webp', alt: 'The challenging Hakoda mountain ranges stretching ahead' },
-		{ src: '/images/japan-2017/day-38/day38-photo-02.webp', alt: 'Steep mountain ascents through multiple passes' },
-		{ src: '/images/japan-2017/day-38/day38-photo-03.webp', alt: 'Beautiful but demanding mountain scenery' },
-		{ src: '/images/japan-2017/day-38/day38-photo-04.webp', alt: 'Narrow mountain roads without sidewalks' },
-		{ src: '/images/japan-2017/day-38/day38-photo-05.webp', alt: 'The physical challenge of ascending slopes' },
-		{ src: '/images/japan-2017/day-38/day38-photo-06.webp', alt: 'Mountain landscapes testing our endurance' },
-		{ src: '/images/japan-2017/day-38/day38-photo-07.webp', alt: 'Sparse settlements in the mountainous terrain' },
-		{ src: '/images/japan-2017/day-38/day38-photo-08.webp', alt: 'The demanding route through Hakoda ranges' },
-		{ src: '/images/japan-2017/day-38/day38-photo-09.webp', alt: 'Challenging mountain passes we conquered' },
-		{ src: '/images/japan-2017/day-38/day38-photo-10.webp', alt: 'Beautiful views from the steep ascents' },
-		{ src: '/images/japan-2017/day-38/day38-photo-11.webp', alt: 'The rugged terrain that tested our limits' },
-		{ src: '/images/japan-2017/day-38/day38-photo-12.webp', alt: 'Mountain road challenges without public transport backup' },
-		{ src: '/images/japan-2017/day-38/day38-photo-13.webp', alt: 'Scenic but demanding Hakoda mountain landscapes' },
-		{ src: '/images/japan-2017/day-38/day38-photo-14.webp', alt: 'The physical and mental challenge of mountain scooting' },
-		{ src: '/images/japan-2017/day-38/day38-photo-15.webp', alt: 'Beautiful mountain vistas along our route' },
-		{ src: '/images/japan-2017/day-38/day38-photo-16.webp', alt: 'The confidence-building journey through mountain passes' },
-		{ src: '/images/japan-2017/day-38/day38-photo-17.webp', alt: 'Challenging terrain that pushed our boundaries' },
-		{ src: '/images/japan-2017/day-38/day38-photo-18.webp', alt: 'Mountain scenery from our most demanding leg' },
-		{ src: '/images/japan-2017/day-38/day38-photo-19.webp', alt: 'The steep ascents into Hakoda ranges' },
-		{ src: '/images/japan-2017/day-38/day38-photo-20.webp', alt: 'Beautiful but challenging mountain landscape' },
-		{ src: '/images/japan-2017/day-38/day38-photo-21.webp', alt: 'The reward of conquering difficult mountain passes' },
-		{ src: '/images/japan-2017/day-38/day38-photo-22.webp', alt: 'Final mountain views from our challenging ascent' }
+	// Photo gallery images with alt text
+	const photoImagesData = [
+		{ src: '/images/japan-2017/day-38/day38-photo-01-1x1.webp', alt: 'The challenging Hakoda mountain ranges stretching ahead' },
+		{ src: '/images/japan-2017/day-38/day38-photo-02-16x9.webp', alt: 'Steep mountain ascents through multiple passes' },
+		{ src: '/images/japan-2017/day-38/day38-photo-03-4x3.webp', alt: 'Beautiful but demanding mountain scenery' },
+		{ src: '/images/japan-2017/day-38/day38-photo-04-3x4.webp', alt: 'Narrow mountain roads without sidewalks' },
+		{ src: '/images/japan-2017/day-38/day38-photo-05-4x3.webp', alt: 'The physical challenge of ascending slopes' },
+		{ src: '/images/japan-2017/day-38/day38-photo-06-4x3.webp', alt: 'Mountain landscapes testing our endurance' },
+		{ src: '/images/japan-2017/day-38/day38-photo-07-3x4.webp', alt: 'Sparse settlements in the mountainous terrain' },
+		{ src: '/images/japan-2017/day-38/day38-photo-08-4x3.webp', alt: 'The demanding route through Hakoda ranges' },
+		{ src: '/images/japan-2017/day-38/day38-photo-09-1x1.webp', alt: 'Challenging mountain passes we conquered' },
+		{ src: '/images/japan-2017/day-38/day38-photo-10-4x3.webp', alt: 'Beautiful views from the steep ascents' },
+		{ src: '/images/japan-2017/day-38/day38-photo-11-4x3.webp', alt: 'The rugged terrain that tested our limits' },
+		{ src: '/images/japan-2017/day-38/day38-photo-12-3x4.webp', alt: 'Mountain road challenges without public transport backup' },
+		{ src: '/images/japan-2017/day-38/day38-photo-13-3x4.webp', alt: 'Scenic but demanding Hakoda mountain landscapes' },
+		{ src: '/images/japan-2017/day-38/day38-photo-14-3x4.webp', alt: 'The physical and mental challenge of mountain scooting' },
+		{ src: '/images/japan-2017/day-38/day38-photo-15-3x4.webp', alt: 'Beautiful mountain vistas along our route' },
+		{ src: '/images/japan-2017/day-38/day38-photo-16-1x1.webp', alt: 'The confidence-building journey through mountain passes' },
+		{ src: '/images/japan-2017/day-38/day38-photo-17-3x4.webp', alt: 'Challenging terrain that pushed our boundaries' },
+		{ src: '/images/japan-2017/day-38/day38-photo-18-16x9.webp', alt: 'Mountain scenery from our most demanding leg' },
+		{ src: '/images/japan-2017/day-38/day38-photo-19-4x3.webp', alt: 'The steep ascents into Hakoda ranges' },
+		{ src: '/images/japan-2017/day-38/day38-photo-20-4x3.webp', alt: 'Beautiful but challenging mountain landscape' },
+		{ src: '/images/japan-2017/day-38/day38-photo-21-4x3.webp', alt: 'The reward of conquering difficult mountain passes' },
+		{ src: '/images/japan-2017/day-38/day38-photo-22-4x3.webp', alt: 'Final mountain views from our challenging ascent' }
 	];
+	
+	// Prepare images for PhotoSwipe
+	const photoImages = prepareImagesForPhotoSwipe(photoImagesData);
 </script>
 
 <svelte:head>
@@ -74,25 +78,13 @@
 <div class="km-container">
   <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
-
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather",
-			description: "26 degrees c"
-		}}
-	/>
+	<StatsBox stats={[
+		...stats,
+		{ value: '26°C', label: 'Temperature' }
+	]} fullWidth={true} />
 
 	<!-- Section: Content -->
 	<div class="km-prose-content space-y-8">
-		<section>
-			<img src="/images/japan-2017/day-38/day38-photo-01.webp" alt="The challenging Hakoda mountain ranges stretching ahead" class="w-full mb-4" />
-			<p class="km-body-text">
-				Mood: It felt like a furnace. We were nervous about crossing the next 3 mountain passes, many parts without a side walk, and apprehensive about the physical exertion. We made it eventually but got sunburnt
-			</p>
-		</section>
-
 		<section>
 			<p class="km-body-text">
 				Day 37 marked our entry into the hilly terrain of the Aomori region. Out of the total of 70km+, there would have been about 15km of ascending slopes. Day 38 on the other hand, marked our real steep ascent into the mountains, as we scoot deeper into the Hakoda ranges through the multiple mountain passes. Out of the 50km+, about nearly three-quarters of it were ascending slopes, some of them without sidewalks once again.
@@ -159,8 +151,11 @@
 
 		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 
-		<!-- Section: Image Gallery -->
-		<ImageGallery photoImages={photoImages} title="Hakoda Mountain Challenge" galleryType="mixed" />
+		<PhotoSwipeGallery 
+			images={photoImages} 
+			galleryId="day38-photos" 
+			title="Day 38 Photos" 
+		/>
 	</div>
 
     <!-- Day navigation -->

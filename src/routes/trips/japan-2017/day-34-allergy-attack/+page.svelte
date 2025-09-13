@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 34;
 	const title = 'Allergy attack!';
@@ -12,25 +12,28 @@
 	const description = 'Battling exhausting allergies and reflecting on the deeper motivations that keep me kicking every mile to the end.';
 
 	const stats = [
-		{ value: 'DAY 34', label: 'Journey Day' },
-		{ value: 'Osaki to Ichinoseki', label: 'Route' },
-		{ value: '1538km / 1800km', label: 'Progress' },
-		{ value: '8 hours', label: 'Estimated scooting time' }
+		{ value: '1538km', label: 'Distance' },
+		{ value: '1800km', label: 'Journey Total' },
+		{ value: '8 hours', label: 'Estimated scooting time' },
+		{ value: 'Allergies', label: 'Challenge' },
+		{ value: '19°C', label: 'Weather' }
 	];
 
 	const photoImages = [
-		{ src: '/images/japan-2017/day-34/day34-photo-01.webp', alt: 'Scenic countryside view during our scooting journey' },
-		{ src: '/images/japan-2017/day-34/day34-photo-02.webp', alt: 'Mountain landscape along the route' },
-		{ src: '/images/japan-2017/day-34/day34-photo-03.webp', alt: 'Rural road through beautiful green fields' },
-		{ src: '/images/japan-2017/day-34/day34-photo-04.webp', alt: 'Peaceful valley scenery' },
-		{ src: '/images/japan-2017/day-34/day34-photo-05.webp', alt: 'Traditional Japanese countryside architecture' },
-		{ src: '/images/japan-2017/day-34/day34-photo-06.webp', alt: 'Rolling hills and farmland view' },
-		{ src: '/images/japan-2017/day-34/day34-photo-07.webp', alt: 'Scenic mountain backdrop during our journey' },
-		{ src: '/images/japan-2017/day-34/day34-photo-08.webp', alt: 'Beautiful rural landscape with mountains' },
-		{ src: '/images/japan-2017/day-34/day34-photo-09.webp', alt: 'Countryside road winding through green fields' },
-		{ src: '/images/japan-2017/day-34/day34-photo-10.webp', alt: 'Panoramic view of the Japanese countryside' },
-		{ src: '/images/japan-2017/day-34/day34-photo-11.webp', alt: 'Beautiful scenery capturing the essence of our journey' }
+		{ src: '/images/japan-2017/day-34/photo-01-1x1.webp', alt: 'Scenic countryside view during our scooting journey' },
+		{ src: '/images/japan-2017/day-34/photo-02-4x3.webp', alt: 'Mountain landscape along the route' },
+		{ src: '/images/japan-2017/day-34/photo-03-3x4.webp', alt: 'Rural road through beautiful green fields' },
+		{ src: '/images/japan-2017/day-34/photo-04-4x3.webp', alt: 'Peaceful valley scenery' },
+		{ src: '/images/japan-2017/day-34/photo-05-4x3.webp', alt: 'Traditional Japanese countryside architecture' },
+		{ src: '/images/japan-2017/day-34/photo-06-3x4.webp', alt: 'Rolling hills and farmland view' },
+		{ src: '/images/japan-2017/day-34/photo-07-3x4.webp', alt: 'Scenic mountain backdrop during our journey' },
+		{ src: '/images/japan-2017/day-34/photo-08-3x4.webp', alt: 'Beautiful rural landscape with mountains' },
+		{ src: '/images/japan-2017/day-34/photo-09-3x4.webp', alt: 'Countryside road winding through green fields' },
+		{ src: '/images/japan-2017/day-34/photo-10-3x4.webp', alt: 'Panoramic view of the Japanese countryside' },
+		{ src: '/images/japan-2017/day-34/photo-11-4x3.webp', alt: 'Beautiful scenery capturing the essence of our journey' }
 	];
+
+	const preparedImages = prepareImagesForPhotoSwipe(photoImages);
 </script>
 
 <svelte:head>
@@ -65,39 +68,11 @@
     />
 
     <!-- Section: Trip Stats -->
-    <StatsBox {stats} />
-
-    <!-- Section: Weather -->
-    <WeatherBox 
-      weather={{
-        title: "Weather Report",
-        description: "19 degrees c, rains threatened! Starting to feel exhausted from allergies"
-      }}
-    />
+    <StatsBox {stats} fullWidth={true} />
 
     <!-- Section: Main Content -->
     <div class="km-prose-content space-y-8">
 		<section>
-			<p class="km-body-text">
-				DAY 34 of our scooting adventures!
-			</p>
-
-			<p class="km-body-text">
-				Osaki to Ichinoseki - 1538km / 1800km
-			</p>
-
-			<p class="km-body-text">
-				Estimated scooting time: 8 hours
-			</p>
-
-			<p class="km-body-text">
-				Weather: 19 degrees c, rains threatened!
-			</p>
-
-			<p class="km-body-text">
-				Mood: Starting to feel exhausted from allergies
-			</p>
-
 			<p class="km-body-text">
 				As we go further up north each day, we find that we're both starting to get massive allergies. Yuki's mom reckons it's the cedar pollen that's found in the region. I only know that I sneezed so much that my whole body feels extremely exhausted, as if I ran a marathon on high intensity mode. If you suffer from hay fever like us, you would understand that feeling of exhaustion.
 			</p>
@@ -125,7 +100,7 @@
 
 	<!-- Photo Gallery -->
 	<div>
-		<ImageGallery photoImages={photoImages} galleryType="mixed" />
+		<PhotoSwipeGallery images={preparedImages} title="Day 34: Allergy attack - determination through discomfort" galleryId="day-34-allergy-attack" />
 	</div>
     </div>
 

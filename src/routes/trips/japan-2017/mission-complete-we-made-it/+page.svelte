@@ -2,8 +2,9 @@
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const title = 'Mission complete! We made it!!!';
 	const date = '8 May';
@@ -16,16 +17,19 @@
 		{ value: 'Fukuoka to Mount Hakodate', label: 'Route Completed' }
 	];
 
-	const photoImages = [
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-01.webp', alt: 'Mission complete! We made it to the summit!' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-02.webp', alt: 'Standing at the top after 41 days of adventure' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-03.webp', alt: 'The moment of triumph at Mount Hakodate observatory' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-04.webp', alt: 'Celebrating with our kickboards at the summit' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-05.webp', alt: 'The view from the top - we actually made it!' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-06.webp', alt: 'Sharing the moment with the lovely elderly couple' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-07.webp', alt: 'Heart-to-heart connections at the summit' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-08.webp', alt: 'The final photo opportunity at the observatory' }
+	// Photo gallery images with alt text
+	const photoImagesData = [
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-02-4x3.webp', alt: 'Standing at the top after 41 days of adventure' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-03-4x3.webp', alt: 'The moment of triumph at Mount Hakodate observatory' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-04-1x1.webp', alt: 'Celebrating with our kickboards at the summit' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-05-4x3.webp', alt: 'The view from the top - we actually made it!' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-06-4x3.webp', alt: 'Sharing the moment with the lovely elderly couple' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-07-3x4.webp', alt: 'Heart-to-heart connections at the summit' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-08-1x1.webp', alt: 'The final photo opportunity at the observatory' }
 	];
+	
+	// Prepare images for PhotoSwipe
+	const photoImages = prepareImagesForPhotoSwipe(photoImagesData);
 </script>
 
 <svelte:head>
@@ -155,7 +159,11 @@
 		</section>
 
 		<!-- Section: Image Gallery -->
-		<ImageGallery photoImages={photoImages} title="Mission Complete!" galleryType="mixed" />
+		<PhotoSwipeGallery 
+			images={photoImages} 
+			galleryId="mission-complete-photos" 
+			title="Mission Complete Photos" 
+		/>
 
 		<!-- Day navigation -->
 		<DayNavigation 

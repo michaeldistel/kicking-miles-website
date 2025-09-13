@@ -1,57 +1,59 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1451km', label: 'Distance' },
 		{ value: '1800km', label: 'Journey Total' },
 		{ value: '3 hours', label: 'Estimated scooting time' },
-		{ value: 'Countryside', label: 'Setting' }
+		{ value: 'Countryside', label: 'Setting' },
+		{ value: '17°C', label: 'Weather' }
 	];
 
 	const routeMapImages = [
 		{
-			src: '/images/japan-2017/day-31/day31-route-map.webp',
+			src: '/images/japan-2017/day-31/route-map-1x1.webp',
 			alt: 'Route map from Ogawara to Sendai through countryside roads'
 		}
 	];
 
 	const countrysideImages = [
 		{
-			src: '/images/japan-2017/day-31/day31-photo-01.webp',
+			src: '/images/japan-2017/day-31/photo-01-4x3.webp',
 			alt: 'Semi-countryside feel of Tohoku putting us at ease'
 		},
 		{
-			src: '/images/japan-2017/day-31/day31-photo-02.webp',
+			src: '/images/japan-2017/day-31/photo-02-3x4.webp',
 			alt: 'The stillness and warmth of countryside scenery'
 		},
 		{
-			src: '/images/japan-2017/day-31/day31-photo-03.webp',
+			src: '/images/japan-2017/day-31/photo-03-4x3.webp',
 			alt: 'Waved at and cheered on by the most people yet'
 		},
 		{
-			src: '/images/japan-2017/day-31/day31-photo-04.webp',
+			src: '/images/japan-2017/day-31/photo-04-4x3.webp',
 			alt: 'Meeting Yuki who made a u-turn to cheer us on'
 		},
 		{
-			src: '/images/japan-2017/day-31/day31-photo-05.webp',
+			src: '/images/japan-2017/day-31/photo-05-1x1.webp',
 			alt: 'Small token of cash for a boost from kind stranger'
 		},
 		{
-			src: '/images/japan-2017/day-31/day31-photo-06.webp',
+			src: '/images/japan-2017/day-31/photo-06-4x3.webp',
 			alt: 'Coffee from ojisan at 7-11 and kindness everywhere'
 		},
 		{
-			src: '/images/japan-2017/day-31/day31-photo-07.webp',
+			src: '/images/japan-2017/day-31/photo-07-4x3.webp',
 			alt: 'Home made meal by Yuki\'s mom - Sendai family warmth'
 		}
 	];
 
-	const photos = [...routeMapImages, ...countrysideImages];
+	const allImages = [...routeMapImages, ...countrysideImages];
+	const preparedImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -86,41 +88,13 @@
 		/>
 
 		<!-- Stats -->
-		<StatsBox {stats} />
-
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Weather Report",
-				description: "17 degrees c! Can't wait to meet my Sendai family!"
-			}}
-		/>
+		<StatsBox {stats} fullWidth={true} />
 
 		<!-- Content sections -->
 		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 31 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Ogawara to Sendai - 1451km / 1800km
-				</p>
-
-				<p class="km-body-text">
-					Estimated scooting time: 3 hours
-				</p>
-
-				<p class="km-body-text">
-					Weather: 17 degrees c!
-				</p>
-
-				<p class="km-body-text">
-					Mood: Can't wait to meet my Sendai family!
-				</p>
-
 				<p class="km-body-text">
 					If you know me well, you would know that I'm a massive introvert who enjoys quiet spaces and a lot of alone time. I feel more centered and calm, less tired and more at peace. Away from the hustle and bustle of busy Singapore, I love spending my time, not chasing after famous tourist sites, but simply hiding in a mountain cabin, camping in the wilderness or going for a walk in the woods.
 				</p>
@@ -152,7 +126,7 @@
 
 		<!-- Photo Gallery -->
 		<div>
-			<ImageGallery photoImages={photos} galleryType="mixed" />
+			<PhotoSwipeGallery images={preparedImages} title="Day 31: There's something about the countryside" galleryId="day-31-countryside" />
 		</div>
 	</div>
 

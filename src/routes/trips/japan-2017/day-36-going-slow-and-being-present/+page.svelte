@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 36;
 	const title = 'Going slow and being present';
@@ -18,17 +18,20 @@
 		{ value: '4 hours', label: 'Scooting Time' }
 	];
 
-	// Note: No images were provided in the content, so creating empty array for consistency
-	const photoImages: { src: string; alt: string; }[] = [
-		{ src: '/images/japan-2017/day-36/day36-photo-01.webp', alt: 'Beautiful scenery along the straight path of Route 4' },
-		{ src: '/images/japan-2017/day-36/day36-photo-02.webp', alt: 'Relaxing moments during our easy day to Morioka' },
-		{ src: '/images/japan-2017/day-36/day36-photo-03.webp', alt: 'Countryside views during our best pace day' },
-		{ src: '/images/japan-2017/day-36/day36-photo-04.webp', alt: 'Taking time to chat with people and enjoy the journey' },
-		{ src: '/images/japan-2017/day-36/day36-photo-05.webp', alt: 'Scenic landscapes as we approached Morioka' },
-		{ src: '/images/japan-2017/day-36/day36-photo-06.webp', alt: 'Moments of connection and appreciation for the beauty around us' },
-		{ src: '/images/japan-2017/day-36/day36-photo-07.webp', alt: 'The peaceful journey giving us time to be present' },
-		{ src: '/images/japan-2017/day-36/day36-photo-08.webp', alt: 'Capturing the essence of going slow and being present' }
+	// Photo gallery images with alt text
+	const photoImagesData = [
+		{ src: '/images/japan-2017/day-36/day36-photo-01-4x3.webp', alt: 'Beautiful scenery along the straight path of Route 4' },
+		{ src: '/images/japan-2017/day-36/day36-photo-02-4x3.webp', alt: 'Relaxing moments during our easy day to Morioka' },
+		{ src: '/images/japan-2017/day-36/day36-photo-03-3x4.webp', alt: 'Countryside views during our best pace day' },
+		{ src: '/images/japan-2017/day-36/day36-photo-04-4x3.webp', alt: 'Taking time to chat with people and enjoy the journey' },
+		{ src: '/images/japan-2017/day-36/day36-photo-05-3x4.webp', alt: 'Scenic landscapes as we approached Morioka' },
+		{ src: '/images/japan-2017/day-36/day36-photo-06-3x4.webp', alt: 'Moments of connection and appreciation for the beauty around us' },
+		{ src: '/images/japan-2017/day-36/day36-photo-07-4x3.webp', alt: 'The peaceful journey giving us time to be present' },
+		{ src: '/images/japan-2017/day-36/day36-photo-08-1x1.webp', alt: 'Capturing the essence of going slow and being present' }
 	];
+	
+	// Prepare images for PhotoSwipe
+	const photoImages = prepareImagesForPhotoSwipe(photoImagesData);
 </script>
 
 <svelte:head>
@@ -62,24 +65,15 @@
     />
 
     <!-- Section: Trip Stats -->
-    <div class="grid md:grid-cols-2 gap-8 mb-8 mt-12">
-      <StatsBox {stats} />
-      <WeatherBox 
-        weather={{
-          title: "Weather",
-          description: "14 degrees c"
-        }}
-			/>
-		</div>
+    <div class="mb-8 mt-12">
+      <StatsBox stats={[
+        ...stats,
+        { value: '14°C', label: 'Temperature' }
+      ]} fullWidth={true} />
+    </div>
 
 		<!-- Section: Content -->
 		<div class="km-prose-content space-y-8">
-			<section>
-				<p class="km-body-text">
-					Mood: Excited to hit the next big town Morioka!
-				</p>
-			</section>
-
 			<section>
 				<p class="km-body-text">
 					Hanamaki to Morioka was one of the easiest days we've ever done. It was a straight path along our trusty Route 4. On adventure trips like this, a straight path with no obstacles is a luxury to the max!
@@ -116,7 +110,11 @@
 
 			<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 
-			<ImageGallery photoImages={photoImages} galleryType="mixed" />
+			<PhotoSwipeGallery 
+				images={photoImages} 
+				galleryId="day36-photos" 
+				title="Day 36 Photos" 
+			/>
 		</div>
 
     <!-- Day navigation -->

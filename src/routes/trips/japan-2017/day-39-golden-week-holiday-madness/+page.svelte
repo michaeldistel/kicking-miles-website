@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 39;
 	const title = 'Golden week holiday madness';
@@ -18,14 +18,18 @@
 		{ value: 'Rain Day', label: 'Status' }
 	];
 
-	const photoImages = [
-		{ src: '/images/japan-2017/day-39/day39-photo-01.webp', alt: 'Golden Week crowds at the onsen hot springs' },
-		{ src: '/images/japan-2017/day-39/day39-photo-02.webp', alt: 'Packed hotel during Golden Week celebrations' },
-		{ src: '/images/japan-2017/day-39/day39-photo-03.webp', alt: 'The contrast between busy Friday and empty Saturday morning' },
-		{ src: '/images/japan-2017/day-39/day39-photo-04.webp', alt: 'Golden Week holiday atmosphere in Towada' },
-		{ src: '/images/japan-2017/day-39/day39-photo-05.webp', alt: 'Cultural observations during the holiday period' },
-		{ src: '/images/japan-2017/day-39/day39-photo-06.webp', alt: 'The madness and beauty of Japanese Golden Week' }
+	// Photo gallery images with alt text
+	const photoImagesData = [
+		{ src: '/images/japan-2017/day-39/day39-photo-01-1x1.webp', alt: 'Golden Week crowds at the onsen hot springs' },
+		{ src: '/images/japan-2017/day-39/day39-photo-02-3x4.webp', alt: 'Packed hotel during Golden Week celebrations' },
+		{ src: '/images/japan-2017/day-39/day39-photo-03-4x3.webp', alt: 'The contrast between busy Friday and empty Saturday morning' },
+		{ src: '/images/japan-2017/day-39/day39-photo-04-4x3.webp', alt: 'Golden Week holiday atmosphere in Towada' },
+		{ src: '/images/japan-2017/day-39/day39-photo-05-4x3.webp', alt: 'Cultural observations during the holiday period' },
+		{ src: '/images/japan-2017/day-39/day39-photo-06-4x3.webp', alt: 'The madness and beauty of Japanese Golden Week' }
 	];
+	
+	// Prepare images for PhotoSwipe
+	const photoImages = prepareImagesForPhotoSwipe(photoImagesData);
 </script>
 
 <svelte:head>
@@ -58,25 +62,13 @@
 <div class="km-container">
   <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
-
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather",
-			description: "Rain day - stuck in Towada"
-		}}
-	/>
+	<StatsBox stats={[
+		...stats,
+		{ value: 'Rainy', label: 'Weather' }
+	]} fullWidth={true} />
 
 	<!-- Section: Content -->
 	<div class="km-prose-content space-y-8">
-		<section>
-			<img src="/images/japan-2017/day-39/day39-photo-01.webp" alt="Golden Week crowds at the onsen hot springs" class="w-full mb-4" />
-			<p class="km-body-text">
-				A quick update to keep everyone in the loop!
-			</p>
-		</section>
-
 		<section>
 			<p class="km-body-text">
 				The final distance will be 1842km because we are bypassing the direct mountain path to scoot along the coast.
@@ -136,6 +128,12 @@
 		</ContentBox>
 
 		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
+
+		<PhotoSwipeGallery 
+			images={photoImages} 
+			galleryId="day39-photos" 
+			title="Day 39 Photos" 
+		/>
 	</div>
 
     <!-- Day navigation -->

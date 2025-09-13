@@ -1,80 +1,82 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1451km', label: 'Distance' },
 		{ value: '1800km', label: 'Journey Total' },
 		{ value: 'Updates', label: 'Status' },
-		{ value: 'Behind', label: 'Schedule' }
+		{ value: 'Behind', label: 'Schedule' },
+		{ value: 'Exhausted', label: 'Mood' }
 	];
 
 	const routeMapImages = [
 		{
-			src: '/images/japan-2017/day-32/day32-route-map.webp',
+			src: '/images/japan-2017/day-32/route-map-1x1.webp',
 			alt: 'Sendai - visiting tsunami destruction zone and updates'
 		}
 	];
 
 	const tsunamiSiteImages = [
 		{
-			src: '/images/japan-2017/day-32/day32-photo-01.webp',
+			src: '/images/japan-2017/day-32/photo-01-3x4.webp',
 			alt: 'Tsunami destruction zone in Sendai - only 10 minutes from house'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-02.webp',
+			src: '/images/japan-2017/day-32/photo-02-4x3.webp',
 			alt: 'Learning about the 2012 tsunami impact on Sendai'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-03.webp',
+			src: '/images/japan-2017/day-32/photo-03-4x3.webp',
 			alt: 'Observing the lasting effects of the tsunami'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-04.webp',
+			src: '/images/japan-2017/day-32/photo-04-4x3.webp',
 			alt: 'Reflection on the scale of destruction'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-05.webp',
+			src: '/images/japan-2017/day-32/photo-05-4x3.webp',
 			alt: 'Understanding the recovery process'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-06.webp',
+			src: '/images/japan-2017/day-32/photo-06-4x3.webp',
 			alt: 'Documenting the visit to the affected area'
 		}
 	];
 
 	const journeyUpdateImages = [
 		{
-			src: '/images/japan-2017/day-32/day32-photo-07.webp',
+			src: '/images/japan-2017/day-32/photo-07-4x3.webp',
 			alt: 'Exhausted by the time we arrive at hotels'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-08.webp',
+			src: '/images/japan-2017/day-32/photo-08-4x3.webp',
 			alt: 'Reduced from 60-80km per day to lucky if we do 50km'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-09.webp',
+			src: '/images/japan-2017/day-32/photo-09-4x3.webp',
 			alt: 'One day behind on updates but catching up'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-10.webp',
+			src: '/images/japan-2017/day-32/photo-10-3x4.webp',
 			alt: 'Will have time to get up to speed once we hit Morioka'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-11.webp',
+			src: '/images/japan-2017/day-32/photo-11-3x4.webp',
 			alt: 'Journey reality - fatigue setting in'
 		},
 		{
-			src: '/images/japan-2017/day-32/day32-photo-12.webp',
+			src: '/images/japan-2017/day-32/photo-12-4x3.webp',
 			alt: 'Planning to write detailed tsunami observations'
 		}
 	];
 
-	const photos = [...tsunamiSiteImages, ...journeyUpdateImages];
+	const allImages = [...routeMapImages, ...tsunamiSiteImages, ...journeyUpdateImages];
+	const preparedImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -109,25 +111,13 @@
 		/>
 
 		<!-- Stats -->
-		<StatsBox {stats} />
-
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Status Report",
-				description: "Exhausted but learning. One day behind updates but will catch up in Morioka."
-			}}
-		/>
+		<StatsBox {stats} fullWidth={true} />
 
 		<!-- Content sections -->
 		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 32 of our scooting adventures! Sendai - 1451km / 1800km
-				</p>
-
 				<p class="km-body-text">
 					We visited the destruction zone of the 2012 tsunami site in Sendai. It was only a 10 minute drive from her house. More details to be written in Facebook or the blog.
 				</p>
@@ -143,7 +133,7 @@
 
 		<!-- Photo Gallery -->
 		<div>
-			<ImageGallery photoImages={photos} galleryType="mixed" />
+			<PhotoSwipeGallery images={preparedImages} title="Day 32: Updates - Tsunami site and journey reality" galleryId="day-32-updates" />
 		</div>
 	</div>
 

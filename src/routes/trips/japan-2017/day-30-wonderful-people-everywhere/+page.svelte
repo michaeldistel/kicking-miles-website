@@ -1,61 +1,67 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1417km', label: 'Distance' },
 		{ value: '1800km', label: 'Journey Total' },
 		{ value: '6 hours', label: 'Estimated scooting time' },
-		{ value: 'Pleasant', label: 'Experience' }
+		{ value: 'Pleasant', label: 'Experience' },
+		{ value: '22°C', label: 'Weather' }
 	];
 
 	const routeMapImages = [
 		{
-			src: '/images/japan-2017/day-30/day30-route-map.webp',
+			src: '/images/japan-2017/day-30/route-map-1x1.webp',
 			alt: 'Route map from Fukushima to Odawara - wonderful people everywhere'
 		}
 	];
 
 	const wonderfulPeopleImages = [
 		{
-			src: '/images/japan-2017/day-30/day30-photo-01.webp',
+			src: '/images/japan-2017/day-30/photo-01-4x3.webp',
 			alt: 'Friendly people buying us energy drinks along the way'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-02.webp',
+			src: '/images/japan-2017/day-30/photo-02-3x4.webp',
 			alt: 'Generous locals offering Vitamin C sweets'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-03.webp',
+			src: '/images/japan-2017/day-30/photo-03-3x4.webp',
 			alt: 'Police quietly holding up traffic to help us navigate'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-04.webp',
+			src: '/images/japan-2017/day-30/photo-04-1x1.webp',
 			alt: 'Waves and smiles from car windows - warmer than sunshine'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-05.webp',
+			src: '/images/japan-2017/day-30/photo-05-3x4.webp',
 			alt: 'Well-maintained smooth roads and friendly encounters'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-06.webp',
+			src: '/images/japan-2017/day-30/photo-06-4x3.webp',
 			alt: 'Understanding drivers sharing small roads with us'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-07.webp',
+			src: '/images/japan-2017/day-30/photo-07-4x3.webp',
 			alt: 'Moments of human kindness that keep us going'
 		},
 		{
-			src: '/images/japan-2017/day-30/day30-photo-08.webp',
+			src: '/images/japan-2017/day-30/photo-08-4x3.webp',
 			alt: 'The warmth of connection on the open road'
+		},
+		{
+			src: '/images/japan-2017/day-30/updates-4x3.webp',
+			alt: 'Day 30 travel updates and wonderful people experiences'
 		}
 	];
 
-	const photos = [...routeMapImages, ...wonderfulPeopleImages];
+	const allImages = [...routeMapImages, ...wonderfulPeopleImages];
+	const preparedImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -90,41 +96,13 @@
 		/>
 
 		<!-- Stats -->
-		<StatsBox {stats} />
-
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Weather Report",
-				description: "22 degrees c! Feeling good and rested!"
-			}}
-		/>
+		<StatsBox {stats} fullWidth={true} />
 
 		<!-- Content sections -->
 		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 30 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Fukushima to Odawara - 1417km / 1800km
-				</p>
-
-				<p class="km-body-text">
-					Estimated scooting time: 6 hours
-				</p>
-
-				<p class="km-body-text">
-					Weather: 22 degrees c!
-				</p>
-
-				<p class="km-body-text">
-					Mood: Feeling good and rested!
-				</p>
-
 				<p class="km-body-text">
 					And wow, today we just realised that after 30 days of being on the road, we have only met nice people! Not a single bad soul! No one who's been rude, aggressive, nasty... In fact, people have been understanding and even supportive when we might have been an annoyance to road drivers as we sometimes share small roads.
 				</p>
@@ -148,7 +126,7 @@
 
 		<!-- Photo Gallery -->
 		<div>
-			<ImageGallery photoImages={photos} galleryType="mixed" />
+			<PhotoSwipeGallery images={preparedImages} title="Day 30: Wonderful people everywhere" galleryId="day-30-wonderful-people" />
 		</div>
 	</div>
 

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 40;
 	const title = 'OMG it\'s the last boss!';
@@ -18,22 +18,26 @@
 		{ value: '12 hours', label: 'Scooting Time' }
 	];
 
-	const photoImages = [
-		{ src: '/images/japan-2017/day-40/day40-photo-01.webp', alt: 'The final boss challenge - extreme headwinds along the coast' },
-		{ src: '/images/japan-2017/day-40/day40-photo-02.webp', alt: 'Battling the 47km/hr winds on our last major day' },
-		{ src: '/images/japan-2017/day-40/day40-photo-03.webp', alt: 'Coastal route proving more challenging than expected' },
-		{ src: '/images/japan-2017/day-40/day40-photo-04.webp', alt: 'The hardest day of our entire trip' },
-		{ src: '/images/japan-2017/day-40/day40-photo-05.webp', alt: 'Fighting through the head gales along the coastline' },
-		{ src: '/images/japan-2017/day-40/day40-photo-06.webp', alt: 'The Wind Gods trying to stop us in our tracks' },
-		{ src: '/images/japan-2017/day-40/day40-photo-07.webp', alt: 'Satisfaction of overcoming our greatest challenge' },
-		{ src: '/images/japan-2017/day-40/day40-photo-08.webp', alt: 'The final boss battle of our video game journey' },
-		{ src: '/images/japan-2017/day-40/day40-photo-09.webp', alt: 'Beautiful coastal scenery despite the brutal conditions' },
-		{ src: '/images/japan-2017/day-40/day40-photo-10.webp', alt: 'Pushing through the most challenging weather' },
-		{ src: '/images/japan-2017/day-40/day40-photo-11.webp', alt: 'The epic struggle toward Aomori city' },
-		{ src: '/images/japan-2017/day-40/day40-photo-12.webp', alt: 'Conquering the final major challenge' },
-		{ src: '/images/japan-2017/day-40/day40-photo-13.webp', alt: 'Coastal views from our most demanding day' },
-		{ src: '/images/japan-2017/day-40/day40-photo-14.webp', alt: 'The triumph of reaching Aomori against all odds' }
+	// Photo gallery images with alt text
+	const photoImagesData = [
+		{ src: '/images/japan-2017/day-40/day40-photo-01-3x4.webp', alt: 'The final boss challenge - extreme headwinds along the coast' },
+		{ src: '/images/japan-2017/day-40/day40-photo-02-4x3.webp', alt: 'Battling the 47km/hr winds on our last major day' },
+		{ src: '/images/japan-2017/day-40/day40-photo-03-4x3.webp', alt: 'Coastal route proving more challenging than expected' },
+		{ src: '/images/japan-2017/day-40/day40-photo-04-3x4.webp', alt: 'The hardest day of our entire trip' },
+		{ src: '/images/japan-2017/day-40/day40-photo-05-4x3.webp', alt: 'Fighting through the head gales along the coastline' },
+		{ src: '/images/japan-2017/day-40/day40-photo-06-4x3.webp', alt: 'The Wind Gods trying to stop us in our tracks' },
+		{ src: '/images/japan-2017/day-40/day40-photo-07-1x1.webp', alt: 'Satisfaction of overcoming our greatest challenge' },
+		{ src: '/images/japan-2017/day-40/day40-photo-08-3x4.webp', alt: 'The final boss battle of our video game journey' },
+		{ src: '/images/japan-2017/day-40/day40-photo-09-4x3.webp', alt: 'Beautiful coastal scenery despite the brutal conditions' },
+		{ src: '/images/japan-2017/day-40/day40-photo-10-4x3.webp', alt: 'Pushing through the most challenging weather' },
+		{ src: '/images/japan-2017/day-40/day40-photo-11-3x4.webp', alt: 'The epic struggle toward Aomori city' },
+		{ src: '/images/japan-2017/day-40/day40-photo-12-3x4.webp', alt: 'Conquering the final major challenge' },
+		{ src: '/images/japan-2017/day-40/day40-photo-13-3x4.webp', alt: 'Coastal views from our most demanding day' },
+		{ src: '/images/japan-2017/day-40/day40-photo-14-3x4.webp', alt: 'The triumph of reaching Aomori against all odds' }
 	];
+	
+	// Prepare images for PhotoSwipe
+	const photoImages = prepareImagesForPhotoSwipe(photoImagesData);
 </script>
 
 <svelte:head>
@@ -66,25 +70,13 @@
 <div class="km-container">
   <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
-
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather",
-			description: "16 degrees c, wind is 47km/hr"
-		}}
-	/>
+	<StatsBox stats={[
+		...stats,
+		{ value: '16°C, 47km/hr winds', label: 'Weather' }
+	]} fullWidth={true} />
 
 	<!-- Section: Content -->
 	<div class="km-prose-content space-y-8">
-		<section>
-			<img src="/images/japan-2017/day-40/day40-photo-01.webp" alt="The final boss challenge - extreme headwinds along the coast" class="w-full mb-4" />
-			<p class="km-body-text">
-				Mood: Nervous about our last leg! Some slopes but we're taking the coastal path after Noheji to avoid the ranges. Headwinds are over 40km/hr
-			</p>
-		</section>
-
 		<section>
 			<p class="km-body-text">
 				Today's marks the last major scoot and also the hardest day of our trip! Our nervousness was nothing compared to the force of the headwinds! Average wind speed recorded today in the city was 47km/hour. I daresay it was way higher than that along the coastline.
@@ -121,6 +113,12 @@
 	</section>
 
 	<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
+
+	<PhotoSwipeGallery 
+		images={photoImages} 
+		galleryId="day40-photos" 
+		title="Day 40 Photos" 
+	/>
     </div>
 
     <!-- Day navigation -->

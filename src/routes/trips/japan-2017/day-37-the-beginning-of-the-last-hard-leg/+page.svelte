@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 37;
 	const title = 'The beginning of the last hard leg';
@@ -18,26 +18,30 @@
 		{ value: '10 hours', label: 'Scooting Time' }
 	];
 
-	const photoImages = [
-		{ src: '/images/japan-2017/day-37/day37-photo-01.webp', alt: 'The challenging mountainous terrain north of Morioka' },
-		{ src: '/images/japan-2017/day-37/day37-photo-02.webp', alt: 'Beautiful mountain scenery along our route' },
-		{ src: '/images/japan-2017/day-37/day37-photo-03.webp', alt: 'Winding mountain roads through the valleys' },
-		{ src: '/images/japan-2017/day-37/day37-photo-04.webp', alt: 'Steep slopes and narrow paths we encountered' },
-		{ src: '/images/japan-2017/day-37/day37-photo-05.webp', alt: 'Valley settlements built on flat land between mountains' },
-		{ src: '/images/japan-2017/day-37/day37-photo-06.webp', alt: 'Route 4 hugging the valley floor between mountains' },
-		{ src: '/images/japan-2017/day-37/day37-photo-07.webp', alt: 'Mountainous landscape stretching ahead' },
-		{ src: '/images/japan-2017/day-37/day37-photo-08.webp', alt: 'The challenging terrain that tested our limits' },
-		{ src: '/images/japan-2017/day-37/day37-photo-09.webp', alt: 'Beautiful but demanding mountain passes' },
-		{ src: '/images/japan-2017/day-37/day37-photo-10.webp', alt: 'Scenic views from the mountain roads' },
-		{ src: '/images/japan-2017/day-37/day37-photo-11.webp', alt: 'The rugged beauty of northern Honshu mountains' },
-		{ src: '/images/japan-2017/day-37/day37-photo-12.webp', alt: 'Narrow roads winding through the mountainous terrain' },
-		{ src: '/images/japan-2017/day-37/day37-photo-13.webp', alt: 'Valley views from our challenging route' },
-		{ src: '/images/japan-2017/day-37/day37-photo-14.webp', alt: 'Mountain landscapes that define northern Japan' },
-		{ src: '/images/japan-2017/day-37/day37-photo-15.webp', alt: 'The demanding but beautiful terrain ahead' },
-		{ src: '/images/japan-2017/day-37/day37-photo-16.webp', alt: 'Steep mountain roads testing our endurance' },
-		{ src: '/images/japan-2017/day-37/day37-photo-17.webp', alt: 'The gateway to torture for scooters - mountainous northern routes' },
-		{ src: '/images/japan-2017/day-37/day37-photo-18.webp', alt: 'Beautiful mountain scenery along our challenging journey' }
+	// Photo gallery images with alt text
+	const photoImagesData = [
+		{ src: '/images/japan-2017/day-37/day37-photo-01-1x1.webp', alt: 'The challenging mountainous terrain north of Morioka' },
+		{ src: '/images/japan-2017/day-37/day37-photo-02-4x3.webp', alt: 'Beautiful mountain scenery along our route' },
+		{ src: '/images/japan-2017/day-37/day37-photo-03-4x3.webp', alt: 'Winding mountain roads through the valleys' },
+		{ src: '/images/japan-2017/day-37/day37-photo-04-4x3.webp', alt: 'Steep slopes and narrow paths we encountered' },
+		{ src: '/images/japan-2017/day-37/day37-photo-05-4x3.webp', alt: 'Valley settlements built on flat land between mountains' },
+		{ src: '/images/japan-2017/day-37/day37-photo-06-3x4.webp', alt: 'Route 4 hugging the valley floor between mountains' },
+		{ src: '/images/japan-2017/day-37/day37-photo-07-3x4.webp', alt: 'Mountainous landscape stretching ahead' },
+		{ src: '/images/japan-2017/day-37/day37-photo-08-3x4.webp', alt: 'The challenging terrain that tested our limits' },
+		{ src: '/images/japan-2017/day-37/day37-photo-09-4x3.webp', alt: 'Beautiful but demanding mountain passes' },
+		{ src: '/images/japan-2017/day-37/day37-photo-10-4x3.webp', alt: 'Scenic views from the mountain roads' },
+		{ src: '/images/japan-2017/day-37/day37-photo-11-16x9.webp', alt: 'The rugged beauty of northern Honshu mountains' },
+		{ src: '/images/japan-2017/day-37/day37-photo-12-4x3.webp', alt: 'Narrow roads winding through the mountainous terrain' },
+		{ src: '/images/japan-2017/day-37/day37-photo-13-4x3.webp', alt: 'Valley views from our challenging route' },
+		{ src: '/images/japan-2017/day-37/day37-photo-14-4x3.webp', alt: 'Mountain landscapes that define northern Japan' },
+		{ src: '/images/japan-2017/day-37/day37-photo-15-4x3.webp', alt: 'The demanding but beautiful terrain ahead' },
+		{ src: '/images/japan-2017/day-37/day37-photo-16-3x4.webp', alt: 'Steep mountain roads testing our endurance' },
+		{ src: '/images/japan-2017/day-37/day37-photo-17-16x9.webp', alt: 'The gateway to torture for scooters - mountainous northern routes' },
+		{ src: '/images/japan-2017/day-37/day37-photo-18-4x3.webp', alt: 'Beautiful mountain scenery along our challenging journey' }
 	];
+	
+	// Prepare images for PhotoSwipe
+	const photoImages = prepareImagesForPhotoSwipe(photoImagesData);
 </script>
 
 <svelte:head>
@@ -70,25 +74,13 @@
 <div class="km-container">
   <div class="km-content-wrapper">
 	<!-- Section: Trip Stats -->
-	<StatsBox {stats} />
-
-	<!-- Section: Weather -->
-	<WeatherBox 
-		weather={{
-			title: "Weather",
-			description: "23 degrees c"
-		}}
-	/>
+	<StatsBox stats={[
+		...stats,
+		{ value: '23°C', label: 'Temperature' }
+	]} fullWidth={true} />
 
 	<!-- Section: Content -->
 	<div class="km-prose-content space-y-8">
-		<section>
-			<img src="/images/japan-2017/day-37/day37-photo-01.webp" alt="The challenging mountainous terrain north of Morioka" class="w-full mb-4" />
-			<p class="km-body-text">
-				Mood: Hot and tired from all the slopes. About 90% of the way is slopes!
-			</p>
-		</section>
-
 		<section>
 			<p class="km-body-text">
 				We've generally had it easy the whole trip when it came to terrain. North of Morioka is where the fun stuff begins. From here onwards, it's mountainous all the way up to Aomori. If Aomori is known as the gateway to Hokkaido, then north of Morioka is known as the gateway to torture for scooters.
@@ -118,6 +110,12 @@
 		</ContentBox>
 
 		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
+
+		<PhotoSwipeGallery 
+			images={photoImages} 
+			galleryId="day37-photos" 
+			title="Day 37 Photos" 
+		/>
 	</div>
 
     <!-- Day navigation -->

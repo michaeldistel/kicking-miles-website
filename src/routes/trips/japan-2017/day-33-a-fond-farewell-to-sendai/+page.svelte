@@ -1,79 +1,81 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const stats = [
 		{ value: '1491km', label: 'Distance' },
 		{ value: '1800km', label: 'Journey Total' },
 		{ value: '8 hours', label: 'Estimated scooting time' },
-		{ value: 'Genki', label: 'Energy' }
+		{ value: 'Genki', label: 'Energy' },
+		{ value: '23°C', label: 'Weather' }
 	];
 
 	const routeMapImages = [
 		{
-			src: '/images/japan-2017/day-33/day33-route-map.webp',
+			src: '/images/japan-2017/day-33/route-map-3x4.webp',
 			alt: 'Route map from Sendai to Osaki - fond farewell and perspective shift'
 		}
 	];
 
 	const farewellImages = [
 		{
-			src: '/images/japan-2017/day-33/day33-photo-01.webp',
-			alt: 'Genki hearty breakfast prepared by Yuki\'s momma at 6:30am'
-		},
-		{
-			src: '/images/japan-2017/day-33/day33-photo-02.webp',
+			src: '/images/japan-2017/day-33/photo-02-4x3.webp',
 			alt: 'Fond farewell to momma and papa before leaving Sendai'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-03.webp',
+			src: '/images/japan-2017/day-33/photo-03-4x3.webp',
 			alt: 'Leaving Sendai in happy spirits, well rested and ready'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-04.webp',
+			src: '/images/japan-2017/day-33/photo-04-3x4.webp',
 			alt: 'Perfect weather for kicking merrily and chatting jovially'
 		}
 	];
 
 	const journeyImages = [
 		{
-			src: '/images/japan-2017/day-33/day33-photo-05.webp',
+			src: '/images/japan-2017/day-33/photo-05-3x4.webp',
 			alt: 'Deep conversations about life and what this trip means'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-06.webp',
+			src: '/images/japan-2017/day-33/photo-06-3x4.webp',
 			alt: 'Distant shouts of "ganbatte!" cheering us on'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-07.webp',
+			src: '/images/japan-2017/day-33/photo-07-4x3.webp',
 			alt: 'Junior high school girl giving us her last pack of Pocky sticks'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-08.webp',
+			src: '/images/japan-2017/day-33/photo-08-3x4.webp',
 			alt: 'Beautiful sunset on bridge - sun dropping into snow-capped mountains'
 		}
 	];
 
 	const hotelImages = [
 		{
-			src: '/images/japan-2017/day-33/day33-photo-09.webp',
+			src: '/images/japan-2017/day-33/photo-09-4x3.webp',
 			alt: 'Hotel that initially seemed abandoned - apocalyptic scene'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-10.webp',
+			src: '/images/japan-2017/day-33/photo-10-3x4.webp',
 			alt: 'Wide open areas and abandoned bowling center'
 		},
 		{
-			src: '/images/japan-2017/day-33/day33-photo-11.webp',
+			src: '/images/japan-2017/day-33/photo-11-3x4.webp',
 			alt: 'Hotel built for tsunami reconstruction workers - beacon of hope'
+		},
+		{
+			src: '/images/japan-2017/day-33/updates-1x1.webp',
+			alt: 'Day 33 updates - perspective shift from apocalyptic to meaningful'
 		}
 	];
 
-	const photos = [...farewellImages, ...journeyImages, ...hotelImages];
+	const allImages = [...routeMapImages, ...farewellImages, ...journeyImages, ...hotelImages];
+	const preparedImages = prepareImagesForPhotoSwipe(allImages);
 </script>
 
 <svelte:head>
@@ -108,41 +110,13 @@
 		/>
 
 		<!-- Stats -->
-		<StatsBox {stats} />
-
-		<!-- Weather -->
-		<WeatherBox 
-			weather={{
-				title: "Weather Report",
-				description: "23 degrees c, warm and sunny! Genki, well rested and ready for more!"
-			}}
-		/>
+		<StatsBox {stats} fullWidth={true} />
 
 		<!-- Content sections -->
 		<div class="km-prose-content space-y-8">
 			
 			<!-- Main Content -->
 			<section>
-				<p class="km-body-text">
-					DAY 33 of our scooting adventures!
-				</p>
-
-				<p class="km-body-text">
-					Sendai to Osaki - 1491km / 1800km
-				</p>
-
-				<p class="km-body-text">
-					Estimated scooting time: 8 hours
-				</p>
-
-				<p class="km-body-text">
-					Weather: 23 degrees c, warm and sunny!
-				</p>
-
-				<p class="km-body-text">
-					Mood: Genki, well rested and ready for more!
-				</p>
-
 				<p class="km-body-text">
 					We woke up at 6.30am this morning to a genki, hearty breakfast prepared by Yuki's momma. Both momma and papa had to go to leave for work early. After a fond farewell to both of them, we left Sendai in happy spirits!
 				</p>
@@ -178,7 +152,7 @@
 
 		<!-- Photo Gallery -->
 		<div>
-			<ImageGallery photoImages={photos} galleryType="mixed" />
+			<PhotoSwipeGallery images={preparedImages} title="Day 33: A fond farewell to Sendai" galleryId="day-33-farewell-sendai" />
 		</div>
 	</div>
 

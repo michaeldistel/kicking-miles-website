@@ -1,10 +1,10 @@
 <script lang="ts">
 	import TripHeader from '$lib/components/TripHeader.svelte';
 	import StatsBox from '$lib/components/StatsBox.svelte';
-	import WeatherBox from '$lib/components/WeatherBox.svelte';
 	import ContentBox from '$lib/components/ContentBox.svelte';
-	import ImageGallery from '$lib/components/ImageGallery.svelte';
+	import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
 	import DayNavigation from '$lib/components/DayNavigation.svelte';
+	import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
 	const day = 35;
 	const title = 'When life throws you yet another curve ball...';
@@ -12,22 +12,25 @@
 	const description = 'Facing unexpected construction obstacles and reflecting on the power of leaning into discomfort to find creative solutions.';
 
 	const stats = [
-		{ value: 'DAY 35', label: 'Journey Day' },
-		{ value: 'Ichinoseki to Hanamaki', label: 'Route' },
-		{ value: '1592km / 1800km', label: 'Progress' },
-		{ value: '10 hours', label: 'Scooting Time' }
+		{ value: '1592km', label: 'Distance' },
+		{ value: '1800km', label: 'Journey Total' },
+		{ value: '10 hours', label: 'Scooting Time' },
+		{ value: 'Obstacles', label: 'Challenge' },
+		{ value: '20°C', label: 'Weather' }
 	];
 
 	const photoImages = [
-		{ src: '/images/japan-2017/day-35/day35-photo-01.webp', alt: 'Mr and Mrs Terui from the 7-11 at Kitakami showing their love and support' },
-		{ src: '/images/japan-2017/day-35/day35-photo-02.webp', alt: 'Beautiful scenery along our journey to Hanamaki' },
-		{ src: '/images/japan-2017/day-35/day35-photo-03.webp', alt: 'Countryside landscapes during our scooting adventure' },
-		{ src: '/images/japan-2017/day-35/day35-photo-04.webp', alt: 'Rural road through Japanese countryside' },
-		{ src: '/images/japan-2017/day-35/day35-photo-05.webp', alt: 'Mountain views and natural scenery' },
-		{ src: '/images/japan-2017/day-35/day35-photo-06.webp', alt: 'Peaceful valley landscape along our route' },
-		{ src: '/images/japan-2017/day-35/day35-photo-07.webp', alt: 'Traditional Japanese architecture and countryside' },
-		{ src: '/images/japan-2017/day-35/day35-photo-08.webp', alt: 'The love and support shown by people along our way' }
+		{ src: '/images/japan-2017/day-35/photo-01-4x5.webp', alt: 'Mr and Mrs Terui from the 7-11 at Kitakami showing their love and support' },
+		{ src: '/images/japan-2017/day-35/photo-02-4x3.webp', alt: 'Beautiful scenery along our journey to Hanamaki' },
+		{ src: '/images/japan-2017/day-35/photo-03-3x4.webp', alt: 'Countryside landscapes during our scooting adventure' },
+		{ src: '/images/japan-2017/day-35/photo-04-3x4.webp', alt: 'Rural road through Japanese countryside' },
+		{ src: '/images/japan-2017/day-35/photo-05-3x4.webp', alt: 'Mountain views and natural scenery' },
+		{ src: '/images/japan-2017/day-35/photo-06-3x4.webp', alt: 'Peaceful valley landscape along our route' },
+		{ src: '/images/japan-2017/day-35/photo-07-3x4.webp', alt: 'Traditional Japanese architecture and countryside' },
+		{ src: '/images/japan-2017/day-35/photo-08-3x4.webp', alt: 'The love and support shown by people along our way' }
 	];
+
+	const preparedImages = prepareImagesForPhotoSwipe(photoImages);
 </script>
 
 <svelte:head>
@@ -61,22 +64,13 @@
     />
 
     <!-- Section: Trip Stats -->
-    <StatsBox {stats} />
-
-    <!-- Section: Weather -->
-    <WeatherBox 
-      weather={{
-        title: "Weather",
-        description: "20 degrees c"
-      }}
-	/>
+    <StatsBox {stats} fullWidth={true} />
 
 	<!-- Section: Content -->
 	<div class="km-prose-content space-y-8">
 		<section>
-			<img src="/images/japan-2017/day-35/day35-photo-01.webp" alt="Mr and Mrs Terui from the 7-11 at Kitakami showing their love and support" class="w-full mb-4" />
 			<p class="km-body-text">
-				Look at the love people have shown us along the way Mr and Mrs Terui, who both work in the 7-11 at Kitakami, showered us with their "ganbattes" and more! I returned their love with an invitation to take them sight-seeing by scooters when they come by Singapore, haha!
+				Look at the love people have shown us along the way! Mr and Mrs Terui, who both work in the 7-11 at Kitakami, showered us with their "ganbattes" and more! I returned their love with an invitation to take them sight-seeing by scooters when they come by Singapore, haha!
 			</p>
 		</section>
 
@@ -129,7 +123,7 @@
 		<p class="text-sm text-km-subtle italic mt-8">Michelle Yang</p>
 
 		<!-- Section: Image Gallery -->
-		<ImageGallery photoImages={photoImages} title="Journey Photos" galleryType="mixed" />
+		<PhotoSwipeGallery images={preparedImages} title="Day 35: When life throws you curve balls" galleryId="day-35-curve-balls" />
 	</div>
 
     <!-- Day navigation -->
