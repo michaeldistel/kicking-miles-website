@@ -1,11 +1,11 @@
 <script lang="ts">
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
   import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import InstagramEmbed from '$lib/components/InstagramEmbed.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
     { value: '6h 30m', label: 'Time' },
@@ -17,21 +17,18 @@
   ];
 
   const photos = [
-    { src: '/images/japan-2023/day-01/day01-photo-01.webp', alt: 'Evening setup and preparation for the journey', orientation: 'landscape' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-02.webp', alt: 'Early morning departure from Tokyo', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-03.webp', alt: 'Morning light on Tokyo outskirts', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-04.webp', alt: 'Urban landscape giving way to suburbs', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-05.webp', alt: 'Kickboards ready for the day ahead' },
-    { src: '/images/japan-2023/day-01/day01-photo-06.webp', alt: 'Midday progress through changing landscape', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-07.webp', alt: 'Rural roads and first autumn colours', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-08.webp', alt: 'Approaching the Nasu region', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-01/day01-photo-10.webp', alt: 'Daily fitness tracking data', orientation: 'portrait' as const }
+    { src: '/images/japan-2023/day-01/day01-photo-01-4x3.webp', alt: 'Evening setup and preparation for the journey' },
+    { src: '/images/japan-2023/day-01/day01-photo-02-3x4.webp', alt: 'Early morning departure from Tokyo' },
+    { src: '/images/japan-2023/day-01/day01-photo-03-3x4.webp', alt: 'Morning light on Tokyo outskirts' },
+    { src: '/images/japan-2023/day-01/day01-photo-04-3x4.webp', alt: 'Urban landscape giving way to suburbs' },
+    { src: '/images/japan-2023/day-01/day01-photo-05-4x3.webp', alt: 'Kickboards ready for the day ahead' },
+    { src: '/images/japan-2023/day-01/day01-photo-06-3x4.webp', alt: 'Midday progress through changing landscape' },
+    { src: '/images/japan-2023/day-01/day01-photo-07-3x4.webp', alt: 'Rural roads and first autumn colours' },
+    { src: '/images/japan-2023/day-01/day01-photo-08-3x4.webp', alt: 'Approaching the Nasu region' },
+    { src: '/images/japan-2023/day-01/day01-photo-10-3x4.webp', alt: 'Daily fitness tracking data' }
   ];
 
-  const weather = {
-    title: 'Weather Report',
-    description: '18°C, clear skies, perfect autumn day'
-  };
+  $: photosForPhotoSwipe = prepareImagesForPhotoSwipe(photos);
 
   const title = 'Tokyo to Oyama';
   const date = '16 October';
@@ -68,9 +65,8 @@
       {description}
     />
 
-    <div class="grid md:grid-cols-2 gap-8 mb-8 mt-12">
-      <StatsBox {stats} />
-      <WeatherBox {weather} />
+    <div class="mb-8 mt-12">
+      <StatsBox {stats} fullWidth={true} />
     </div>
 
     <!-- Content sections -->
@@ -131,7 +127,11 @@
         <p class="text-sm text-km-subtle italic">— Michael Distel</p>
       </div>
 
-      <ImageGallery photoImages={photos} galleryType="mixed" />
+      <PhotoSwipeGallery 
+        images={photosForPhotoSwipe} 
+        title="Day 01 - Tokyo to Oyama"
+        galleryId="day-01-photos"
+      />
 
     </div>
 

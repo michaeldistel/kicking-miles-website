@@ -1,11 +1,11 @@
 <script lang="ts">
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
   import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import InstagramEmbed from '$lib/components/InstagramEmbed.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
     { value: '4h 30m', label: 'Time' },
@@ -17,18 +17,15 @@
   ];
 
   const photos = [
-    { src: '/images/japan-2023/day-03/day03-photo-01.webp', alt: 'Final morning in the Nasu region', orientation: 'landscape' as const },
-    { src: '/images/japan-2023/day-03/day03-photo-03.webp', alt: 'Afternoon return journey moments', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-03/day03-photo-04.webp', alt: 'Late afternoon return to Tokyo area', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-03/day03-photo-05.webp', alt: 'Final day activity summary', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-03/day03-photo-06.webp', alt: 'Afternoon reflections on the journey', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-03/day03-photo-07.webp', alt: 'Final moments of the three-day adventure', orientation: 'landscape' as const }
+    { src: '/images/japan-2023/day-03/day03-photo-01-4x3.webp', alt: 'Final morning in the Nasu region' },
+    { src: '/images/japan-2023/day-03/day03-photo-03-3x4.webp', alt: 'Afternoon return journey moments' },
+    { src: '/images/japan-2023/day-03/day03-photo-04-3x4.webp', alt: 'Late afternoon return to Tokyo area' },
+    { src: '/images/japan-2023/day-03/day03-photo-05-3x4.webp', alt: 'Final day activity summary' },
+    { src: '/images/japan-2023/day-03/day03-photo-06-3x4.webp', alt: 'Afternoon reflections on the journey' },
+    { src: '/images/japan-2023/day-03/day03-photo-07-4x3.webp', alt: 'Final moments of the three-day adventure' }
   ];
 
-  const weather = {
-    title: 'Weather Report',
-    description: '19°C, clear and bright'
-  };
+  $: photosForPhotoSwipe = prepareImagesForPhotoSwipe(photos);
 
   const title = 'Yaita to Nasu';
   const date = '18 October';
@@ -65,9 +62,8 @@
       {description}
     />
 
-    <div class="grid md:grid-cols-2 gap-8 mb-8 mt-12">
-      <StatsBox {stats} />
-      <WeatherBox {weather} />
+    <div class="mb-8 mt-12">
+      <StatsBox {stats} fullWidth={true} />
     </div>
 
     <!-- Content sections -->
@@ -110,7 +106,11 @@
     </div>
 
     <!-- Images at the bottom -->
-    <ImageGallery photoImages={photos} galleryType="mixed" />
+    <PhotoSwipeGallery 
+      images={photosForPhotoSwipe} 
+      title="Day 03 - Nasu Reflections"
+      galleryId="day-03-photos"
+    />
 
     <!-- Day navigation -->
     <DayNavigation 

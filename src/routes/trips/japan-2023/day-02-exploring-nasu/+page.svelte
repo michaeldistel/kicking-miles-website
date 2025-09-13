@@ -1,11 +1,11 @@
 <script lang="ts">
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import WeatherBox from '$lib/components/WeatherBox.svelte';
   import ContentBox from '$lib/components/ContentBox.svelte';
-  import ImageGallery from '$lib/components/ImageGallery.svelte';
+  import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import InstagramEmbed from '$lib/components/InstagramEmbed.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
+  import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
     { value: '8h 32m', label: 'Time' },
@@ -17,17 +17,14 @@
   ];
 
   const photos = [
-    { src: '/images/japan-2023/day-02/day02-photo-01.webp', alt: 'Morning exploration of Nasu region', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-02/day02-photo-02.webp', alt: 'Midday mountain scenery', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-02/day02-photo-03.webp', alt: 'Afternoon discoveries', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-02/day02-photo-04.webp', alt: 'Late afternoon mountain light', orientation: 'portrait' as const },
-    { src: '/images/japan-2023/day-02/day02-photo-05.webp', alt: 'Day 2 activity tracking', orientation: 'portrait' as const }
+    { src: '/images/japan-2023/day-02/day02-photo-01-3x4.webp', alt: 'Morning exploration of Nasu region' },
+    { src: '/images/japan-2023/day-02/day02-photo-02-3x4.webp', alt: 'Midday mountain scenery' },
+    { src: '/images/japan-2023/day-02/day02-photo-03-4x3.webp', alt: 'Afternoon discoveries' },
+    { src: '/images/japan-2023/day-02/day02-photo-04-3x4.webp', alt: 'Late afternoon mountain light' },
+    { src: '/images/japan-2023/day-02/day02-photo-05-3x4.webp', alt: 'Day 2 activity tracking' }
   ];
 
-  const weather = {
-    title: 'Weather Report',
-    description: '16°C, morning mist clearing to sunshine'
-  };
+  $: photosForPhotoSwipe = prepareImagesForPhotoSwipe(photos);
 
   const title = 'Oyama to Yaita';
   const date = '17 October';
@@ -64,9 +61,8 @@
       {description}
     />
 
-    <div class="grid md:grid-cols-2 gap-8 mb-8 mt-12">
-      <StatsBox {stats} />
-      <WeatherBox {weather} />
+    <div class="mb-8 mt-12">
+      <StatsBox {stats} fullWidth={true} />
     </div>
 
     <!-- Content sections -->
@@ -112,7 +108,11 @@
         <p class="text-sm text-km-subtle italic">— Michael Distel</p>
       </div>
 
-      <ImageGallery photoImages={photos} galleryType="mixed" />
+      <PhotoSwipeGallery 
+        images={photosForPhotoSwipe} 
+        title="Day 02 - Exploring Nasu"
+        galleryId="day-02-photos"
+      />
 
     </div>
 
