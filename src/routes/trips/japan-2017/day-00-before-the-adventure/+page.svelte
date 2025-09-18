@@ -25,7 +25,7 @@
 
 <svelte:head>
   <title>Day 00 - Before the Main Event | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 00 of our Japan kickboard adventure: The night before departure with nervous energy, butterflies, and memories of yesterday's sukiyaki meal." />
+  <meta name="description" content="Day 00 of our Japan kick scooter adventure: The night before departure with nervous energy, butterflies, and memories of yesterday's sukiyaki meal." />
 </svelte:head>
 
 <!-- Day 00: Before the Adventure -->

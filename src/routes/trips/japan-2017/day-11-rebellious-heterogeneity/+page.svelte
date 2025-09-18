@@ -27,7 +27,7 @@
 
 <svelte:head>
   <title>Day 11 - Rebellious Heterogeneity | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 11 of our Japan kickboard adventure: Discovering pockets of rebellious heterogeneity within Japan's famously homogeneous society." />
+  <meta name="description" content="Day 11 of our Japan kick scooter adventure: Discovering pockets of rebellious heterogeneity within Japan's famously homogeneous society." />
 </svelte:head>
 
 <!-- Day 11: Kobe to Osaka -->

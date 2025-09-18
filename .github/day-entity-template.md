@@ -218,7 +218,7 @@ This approach ensures that 100+ day entities across multiple trips can be restyl
 
       <!-- Author attribution -->
       <div class="text-right mt-8 mb-8">
-        <p class="text-sm text-km-subtle italic">— Michael Distel</p>
+        <p class="text-sm text-km-subtle italic">Michael Distel</p>
       </div>
 
     </div>
@@ -279,7 +279,7 @@ This approach ensures that 100+ day entities across multiple trips can be restyl
 - **Headings**: Optional h2 headings when they add clarity (`text-xl font-light mb-4 text-km-primary`)
 - **Paragraph flow**: Primary focus on `<p class="km-body-text">` for natural storytelling
 - **ContentBox usage**: Sparingly for highlights, quotes, or emphasis
-- **Author attribution**: Always include `— Michael Distel` signature block
+- **Author attribution**: Always include `Michael Distel` signature block
 
 ### Image Requirements
 
@@ -376,7 +376,7 @@ static/images/{adventure}/day-{XX}/photo-{YY}-[ratio].webp
 
 - Include location, activity, and context
 - Examples:
-  - "Kickboard parked outside Tokyo Station on a sunny morning"
+  - "Kick scooter parked outside Tokyo Station on a sunny morning"
   - "Winding mountain road through Japanese countryside"
   - "Traditional ryokan accommodation in rural Japan"
 

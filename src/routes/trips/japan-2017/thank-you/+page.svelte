@@ -5,7 +5,7 @@
 
 	const title = 'Thank you :)';
 	const date = '7 June';
-	const description = 'A heartfelt video tribute to all the beautiful souls we met on our 41-day Japan kickboard journey - thank you for making our adventure so meaningful.';
+	const description = 'A heartfelt video tribute to all the beautiful souls we met on our 41-day Japan kick scooter journey - thank you for making our adventure so meaningful.';
 </script>
 
 <svelte:head>

@@ -37,7 +37,7 @@
 
 <svelte:head>
 	<title>Day 19 - 7-eleven is not just for refuelling! | Japan 2017 | Kicking Miles</title>
-	<meta name="description" content="Day 19 of our Japan kickboard adventure: A magical encounter with Yoneko-san at 7-Eleven leads to stories, coffee, and connections across generations." />
+	<meta name="description" content="Day 19 of our Japan kick scooter adventure: A magical encounter with Yoneko-san at 7-Eleven leads to stories, coffee, and connections across generations." />
 </svelte:head>
 
 <!-- Day 19: Gamagori to Hamamatsu -->

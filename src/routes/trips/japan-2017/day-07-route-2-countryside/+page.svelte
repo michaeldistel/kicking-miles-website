@@ -30,7 +30,7 @@
 
 <svelte:head>
   <title>Day 07 - Route 2 Countryside | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 07 of our Japan kickboard adventure: Following Japan's famous Route 2 through countryside and coastal areas, discovering the quieter side of Japan." />
+  <meta name="description" content="Day 07 of our Japan kick scooter adventure: Following Japan's famous Route 2 through countryside and coastal areas, discovering the quieter side of Japan." />
 </svelte:head>
 
 <!-- Day 07: Fukuyama to Okayama -->

@@ -41,7 +41,7 @@
 
 <svelte:head>
   <title>Day 03 - Shimonoseki to Hofu | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 03 of our Japan kickboard adventure: Our first long stretch with coastal scenery and treacherous mountain passes." />
+  <meta name="description" content="Day 03 of our Japan kick scooter adventure: Our first long stretch with coastal scenery and treacherous mountain passes." />
 </svelte:head>
 
 <!-- Day 03: Shimonoseki to Hofu -->

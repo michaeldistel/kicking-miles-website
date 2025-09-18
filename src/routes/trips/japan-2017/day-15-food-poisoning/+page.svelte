@@ -48,7 +48,7 @@
 
 <svelte:head>
   <title>Day 15 - Food Poisoning | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 15 of our Japan kickboard adventure: When adventure meets adversity through food poisoning, learning about team support and resilience." />
+  <meta name="description" content="Day 15 of our Japan kick scooter adventure: When adventure meets adversity through food poisoning, learning about team support and resilience." />
 </svelte:head>
 
 <!-- Day 15: Iga to Yokkaichi -->

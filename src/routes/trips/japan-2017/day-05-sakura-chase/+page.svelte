@@ -36,7 +36,7 @@
 
 <svelte:head>
   <title>Day 05 - The Sakura Chase Begins | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 05 of our Japan kickboard adventure: A rest day in Hiroshima brings our first glimpse of cherry blossoms and visits to the Peace Memorial Park." />
+  <meta name="description" content="Day 05 of our Japan kick scooter adventure: A rest day in Hiroshima brings our first glimpse of cherry blossoms and visits to the Peace Memorial Park." />
 </svelte:head>
 
 <!-- Day 05: Hiroshima Rest Day -->

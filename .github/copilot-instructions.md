@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-SvelteKit-based personal travel website documenting kickboard adventures across countries. Features static site generation, Docker containerization, and remote deployment pipeline. Built for simplicity and production-ready infrastructure.
+SvelteKit-based personal travel website documenting kick scooter adventures across countries. Features static site generation, Docker containerization, and remote deployment pipeline. Built for simplicity and production-ready infrastructure.
 
 ## Architecture & Stack
 
@@ -108,18 +108,21 @@ pnpm prod:deploy     # Full deployment pipeline:
 ### Image Management System
 
 #### PhotoSwipe Integration (`src/lib/components/PhotoSwipeGallery.svelte`)
+
 - **Professional gallery solution**: Touch-optimized image viewing with zoom, pan, fullscreen
 - **Aspect ratio awareness**: CSS rules for 3x4 (portrait), 4x3 (landscape), 16x9 (widescreen), 1x1 (square)
 - **Mobile-first design**: Optimized for travel photography viewing on mobile devices
 - **Combined galleries**: Route maps and photos can be displayed in single PhotoSwipe instance
 
 #### Image Utilities (`src/lib/utils/imageUtils.ts`)
+
 - `getImageDimensions()`: Extracts dimensions and aspect ratio from filename patterns
 - `prepareImagesForPhotoSwipe()`: Converts image arrays to include PhotoSwipe-required data
 - **Filename detection**: Automatically detects -3x4, -4x3, -16x9, -1x1 patterns in WebP files
 - **Legacy support**: Handles older naming patterns (route-map, updates) with appropriate defaults
 
 #### Image Organization Standards
+
 - **Directory structure**: `/static/images/[adventure]/day-XX/` hierarchy maintained
 - **Filename convention**: `image-XX-[ratio].webp` format (e.g., `photo-02-4x3.webp`)
 - **Aspect ratio integration**: Filenames include aspect ratio data for automatic CSS handling

@@ -24,7 +24,7 @@
 
 <svelte:head>
   <title>Day 09 - No Right or Wrong | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 09 of our Japan kickboard adventure: Learning that sometimes there is no right or wrong path - only different experiences." />
+  <meta name="description" content="Day 09 of our Japan kick scooter adventure: Learning that sometimes there is no right or wrong path - only different experiences." />
 </svelte:head>
 
 <!-- Day 09: Philosophical Journey -->

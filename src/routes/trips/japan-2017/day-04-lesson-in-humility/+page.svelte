@@ -33,7 +33,7 @@
 
 <svelte:head>
   <title>Day 04 - A Lesson in Humility | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 04 of our Japan kickboard adventure: When Michelle's brakes fail, we learn that humility and confidence go hand in hand." />
+  <meta name="description" content="Day 04 of our Japan kick scooter adventure: When Michelle's brakes fail, we learn that humility and confidence go hand in hand." />
 </svelte:head>
 
 <!-- Day 04: Hofu to Hiroshima -->

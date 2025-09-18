@@ -33,7 +33,7 @@
 
 <svelte:head>
   <title>Day 16 - Simple Appreciation | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 16 of our Japan kickboard adventure: Finding simple appreciation and simple joys on the road to Nagoya, discovering profound moments in small observations." />
+  <meta name="description" content="Day 16 of our Japan kick scooter adventure: Finding simple appreciation and simple joys on the road to Nagoya, discovering profound moments in small observations." />
 </svelte:head>
 
 <!-- Day 16: Yokkaichi to Nagoya -->

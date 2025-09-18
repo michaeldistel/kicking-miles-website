@@ -40,7 +40,7 @@
 
 <svelte:head>
   <title>Day 02 - From Kyushu to Honshu | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 02 of our Japan kickboard adventure: From Kyushu to Honshu - crossing islands and beginning the main leg of our journey through this curious and fabulous country." />
+  <meta name="description" content="Day 02 of our Japan kick scooter adventure: From Kyushu to Honshu - crossing islands and beginning the main leg of our journey through this curious and fabulous country." />
 </svelte:head>
 
 <!-- Day 02: Kyushu to Honshu -->

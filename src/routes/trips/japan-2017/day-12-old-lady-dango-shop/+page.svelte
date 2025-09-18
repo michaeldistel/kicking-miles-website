@@ -34,7 +34,7 @@
 
 <svelte:head>
   <title>Day 12 - An Old Lady in a Dango Shop | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 12 of our Japan kickboard adventure: Rest day in Osaka featuring a memorable encounter with an elderly lady in a traditional dango shop." />
+  <meta name="description" content="Day 12 of our Japan kick scooter adventure: Rest day in Osaka featuring a memorable encounter with an elderly lady in a traditional dango shop." />
 </svelte:head>
 
 <!-- Day 12: Osaka Rest Day -->

@@ -39,7 +39,7 @@
 
 <svelte:head>
 	<title>Day 18 - Dental floss makes good repair tape | Japan 2017 | Kicking Miles</title>
-	<meta name="description" content="Day 18 of our Japan kickboard adventure: Nagoya to Gamagori with creative roadside repairs using dental floss as emergency plumbing tape." />
+	<meta name="description" content="Day 18 of our Japan kick scooter adventure: Nagoya to Gamagori with creative roadside repairs using dental floss as emergency plumbing tape." />
 </svelte:head>
 
 <!-- Day 18: Nagoya to Gamagori -->

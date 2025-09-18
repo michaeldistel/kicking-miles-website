@@ -19,7 +19,7 @@
         title: 'Day 01: Back on the Road',
         date: '16 October 2023',
         meta: ['Urban escape', 'Autumn colours', 'Two friends'],
-        description: 'My first kickboard adventure with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a> as we find our rhythm through Tokyo suburbs to Oyama. Six years since my last Japanese adventure, muscle memory slowly returns. The urban sprawl gives way to quieter roads as autumn colours begin to show. A gentle reintroduction to the meditative pace of kickboard travel, now shared with a friend.'
+        description: 'My first kick scooter adventure with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a> as we find our rhythm through Tokyo suburbs to Oyama. Six years since my last Japanese adventure, muscle memory slowly returns. The urban sprawl gives way to quieter roads as autumn colours begin to show. A gentle reintroduction to the meditative pace of kick scooter travel, now shared with a friend.'
       },
       {
         url: '/trips/japan-2023/day-02-exploring-nasu',
@@ -41,9 +41,9 @@
 
 <svelte:head>
   <title>Japan 2023 - Tokyo to Nasu Adventure | Kicking Miles</title>
-  <meta name="description" content="A 3-day solo kickboard journey from Tokyo to Nasu Tochigi in autumn 2023. Exploring Japan's natural beauty and seasonal colours." />
+  <meta name="description" content="A 3-day kick scooter journey from Tokyo to Nasu Tochigi in autumn 2023. Exploring Japan's natural beauty and seasonal colours." />
   <meta property="og:title" content="Japan 2023 - Tokyo to Nasu Adventure | Kicking Miles" />
-  <meta property="og:description" content="A 3-day solo kickboard journey from Tokyo to Nasu Tochigi in autumn 2023. Exploring Japan's natural beauty and seasonal colours." />
+  <meta property="og:description" content="A 3-day kick scooter journey from Tokyo to Nasu Tochigi in autumn 2023. Exploring Japan's natural beauty and seasonal colours." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kickingmiles.com/trips/japan-2023/" />
   <meta property="og:image" content="https://kickingmiles.com/images/japan-2023/overview/japan-2023-hero.webp" />
@@ -51,7 +51,7 @@
   <meta property="article:author" content="Michael Distel" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Japan 2023 - Tokyo to Nasu Adventure | Kicking Miles" />
-  <meta name="twitter:description" content="A 3-day solo kickboard journey from Tokyo to Nasu Tochigi in autumn 2023. Exploring Japan's natural beauty and seasonal colours." />
+  <meta name="twitter:description" content="A 3-day kick scooter journey from Tokyo to Nasu Tochigi in autumn 2023. Exploring Japan's natural beauty and seasonal colours." />
   <meta name="twitter:image" content="https://kickingmiles.com/images/japan-2023/overview/japan-2023-hero.webp" />
   <link rel="canonical" href="https://kickingmiles.com/trips/japan-2023/" />
 </svelte:head>

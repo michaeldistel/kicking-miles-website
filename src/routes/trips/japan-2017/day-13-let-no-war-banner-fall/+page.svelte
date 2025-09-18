@@ -29,7 +29,7 @@
 
 <svelte:head>
   <title>Day 13 - Let No War Banner Fall | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 13 of our Japan kickboard adventure: From Osaka to Nara carrying messages of peace and reflecting on history and remembrance." />
+  <meta name="description" content="Day 13 of our Japan kick scooter adventure: From Osaka to Nara carrying messages of peace and reflecting on history and remembrance." />
 </svelte:head>
 
 <!-- Day 13: Osaka to Nara -->

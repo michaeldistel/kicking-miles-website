@@ -32,7 +32,7 @@
 
 <svelte:head>
   <title>Day 17 - Nagoya Update | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 17 of our Japan kickboard adventure: A rest day in Nagoya for updates and reflection, taking stock of progress and preparing for challenges ahead." />
+  <meta name="description" content="Day 17 of our Japan kick scooter adventure: A rest day in Nagoya for updates and reflection, taking stock of progress and preparing for challenges ahead." />
 </svelte:head>
 
 <!-- Day 17: Nagoya Rest Day -->

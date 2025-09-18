@@ -38,7 +38,7 @@
 
 <svelte:head>
 	<title>Day 20 - Our first serious casualty! | Japan 2017 | Kicking Miles</title>
-	<meta name="description" content="Day 20 of our Japan kickboard adventure: Hamamatsu to Shizuoka with our first serious accident and reflections on adventure, risk, and courage." />
+	<meta name="description" content="Day 20 of our Japan kick scooter adventure: Hamamatsu to Shizuoka with our first serious accident and reflections on adventure, risk, and courage." />
 </svelte:head>
 
 <!-- Day 20: Hamamatsu to Shizuoka -->

@@ -8,7 +8,7 @@
 
 	const title = 'Mission complete! We made it!!!';
 	const date = '8 May';
-	const description = 'The triumphant finale! After 41 days and 1,842 kilometres, we have reached the summit and completed our epic Japan kickboard adventure!';
+	const description = 'The triumphant finale! After 41 days and 1,842 kilometres, we have reached the summit and completed our epic Japan kick scooter adventure!';
 
 	const stats = [
 		{ value: 'MISSION COMPLETE!', label: 'STATUS' },
@@ -21,7 +21,7 @@
 	const photoImagesData = [
 		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-02-4x3.webp', alt: 'Standing at the top after 41 days of adventure' },
 		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-03-4x3.webp', alt: 'The moment of triumph at Mount Hakodate observatory' },
-		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-04-1x1.webp', alt: 'Celebrating with our kickboards at the summit' },
+		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-04-1x1.webp', alt: 'Celebrating with our kick scooters at the summit' },
 		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-05-4x3.webp', alt: 'The view from the top - we actually made it!' },
 		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-06-4x3.webp', alt: 'Sharing the moment with the lovely elderly couple' },
 		{ src: '/images/japan-2017/mission-complete/mission-complete-photo-07-3x4.webp', alt: 'Heart-to-heart connections at the summit' },

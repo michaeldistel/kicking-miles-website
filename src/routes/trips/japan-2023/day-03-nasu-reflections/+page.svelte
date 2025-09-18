@@ -100,7 +100,7 @@
       </section>
 
       <div class="text-right mt-8 mb-8">
-        <p class="text-sm text-km-subtle italic">— Michael Distel</p>
+        <p class="text-sm text-km-subtle italic">Michael Distel</p>
       </div>
 
     </div>

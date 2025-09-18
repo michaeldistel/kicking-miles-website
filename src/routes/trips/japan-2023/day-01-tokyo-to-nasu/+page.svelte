@@ -21,7 +21,7 @@
     { src: '/images/japan-2023/day-01/day01-photo-02-3x4.webp', alt: 'Early morning departure from Tokyo' },
     { src: '/images/japan-2023/day-01/day01-photo-03-3x4.webp', alt: 'Morning light on Tokyo outskirts' },
     { src: '/images/japan-2023/day-01/day01-photo-04-3x4.webp', alt: 'Urban landscape giving way to suburbs' },
-    { src: '/images/japan-2023/day-01/day01-photo-05-4x3.webp', alt: 'Kickboards ready for the day ahead' },
+    { src: '/images/japan-2023/day-01/day01-photo-05-4x3.webp', alt: 'Kick scooters ready for the day ahead' },
     { src: '/images/japan-2023/day-01/day01-photo-06-3x4.webp', alt: 'Midday progress through changing landscape' },
     { src: '/images/japan-2023/day-01/day01-photo-07-3x4.webp', alt: 'Rural roads and first autumn colours' },
     { src: '/images/japan-2023/day-01/day01-photo-08-3x4.webp', alt: 'Approaching the Nasu region' },
@@ -113,7 +113,7 @@
       <!-- Example Instagram embed - replace with actual Instagram post URL -->
       <!-- <InstagramEmbed 
         postUrl="https://www.instagram.com/p/YOUR_POST_ID/"
-        caption="Kickboarding through Tokyo's outskirts"
+        caption="Kick scootering through Tokyo's outskirts"
         maxWidth="400px"
       /> -->
 
@@ -124,7 +124,7 @@
       </section>
 
       <div class="text-right mt-8 mb-8">
-        <p class="text-sm text-km-subtle italic">— Michael Distel</p>
+        <p class="text-sm text-km-subtle italic">Michael Distel</p>
       </div>
 
       <PhotoSwipeGallery 

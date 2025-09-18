@@ -25,10 +25,9 @@
       <a href="/" class="text-white font-medium px-8 py-3 rounded-full transition-all duration-300 bg-km-magenta">
         Back to base camp
       </a>
-      <div class="mt-12 text-sm font-light text-km-secondary">
-        <div class="w-full h-px mx-auto mb-4 bg-km-gray"></div>
-        Kicking Miles — 1,800 kilometres, 35 cities, 40 days
-      </div>
+            <p class="text-sm text-km-secondary mb-4">
+        Kicking Miles: 1,800 kilometres, 35 cities, 40 days
+      </p>
     </div>
   </div>
 </div>

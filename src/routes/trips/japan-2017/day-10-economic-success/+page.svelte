@@ -22,7 +22,7 @@
 
 <svelte:head>
   <title>Day 10 - Economic Success | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 10 of our Japan kickboard adventure: Riding through areas showcasing Japan's economic success and observing the contrast between tradition and modernity." />
+  <meta name="description" content="Day 10 of our Japan kick scooter adventure: Riding through areas showcasing Japan's economic success and observing the contrast between tradition and modernity." />
 </svelte:head>
 
 <!-- Day 10: Modern Japan -->

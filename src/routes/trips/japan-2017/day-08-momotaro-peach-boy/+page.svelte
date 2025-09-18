@@ -22,7 +22,7 @@
 
 <svelte:head>
   <title>Day 08 - Momotaro the Peach Boy | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 08 of our Japan kickboard adventure: Rest day in Okayama exploring the legend of Momotaro the Peach Boy and immersing in local folklore." />
+  <meta name="description" content="Day 08 of our Japan kick scooter adventure: Rest day in Okayama exploring the legend of Momotaro the Peach Boy and immersing in local folklore." />
 </svelte:head>
 
 <!-- Day 08: Okayama Rest Day -->

@@ -39,7 +39,7 @@
 
 <svelte:head>
   <title>Day 01 - A beautiful start to our trip! | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 01 of our Japan kickboard adventure: A beautiful start with 70km from Fukuoka to Kitakyushu, complete with rain, hail, and our first taste of the journey ahead." />
+  <meta name="description" content="Day 01 of our Japan kick scooter adventure: A beautiful start with 70km from Fukuoka to Kitakyushu, complete with rain, hail, and our first taste of the journey ahead." />
 </svelte:head>
 
 <!-- Day 01: Fukuoka to Kitakyushu -->

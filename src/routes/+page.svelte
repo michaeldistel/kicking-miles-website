@@ -22,7 +22,7 @@
       url: '/trips/japan-2017',
       dateRange: 'March - May 2017',
       subtitle: 'The original adventure that started it all',
-      description: 'Four friends, kickboards, and the length of Japan. Rain, hail, convenience store meals, and the kindness of strangers. The journey that proved long-distance kickboarding was possible.',
+      description: 'Four friends, kick scooters, and the length of Japan. Rain, hail, convenience store meals, and the kindness of strangers. The journey that proved long-distance kick scooter travel was possible.',
       stats: {
         distance: '1,800km',
         duration: '40 days',
@@ -31,14 +31,14 @@
       status: 'complete'
     },
     {
-      title: 'South Korea: Seoul to Busan',
-      dateRange: 'June 2025',
+      title: 'South Korea: Busan to Seoul',
+      dateRange: 'October 2025',
       subtitle: 'Exploring the Korean Peninsula on wheels',
-      description: 'Following ancient trading routes and modern highways through the heart of South Korea. Mountains, cities, and the warmth of Korean hospitality await.',
+      description: 'Following ancient trading routes and modern highways through the heart of South Korea with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a>. Mountains, cities, and the warmth of Korean hospitality await.',
       stats: {
-        distance: '900km',
-        duration: '20 days',
-        cities: '15 cities'
+        distance: '560km',
+        duration: '11 days',
+        cities: '8 cities'
       },
       status: 'planning'
     }
@@ -46,47 +46,53 @@
 </script>
 
 <svelte:head>
-  <title>Kicking Miles - Kickboard Adventures Across Countries</title>
-  <meta name="description" content="Follow our kickboard journeys across different countries and cultures. Each adventure documents slow travel, mindful exploration, and authentic cultural connections." />
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Kicking Miles - Kickboard Adventures Across Countries" />
-  <meta property="og:description" content="Follow our kickboard journeys across different countries and cultures. Each adventure documents slow travel, mindful exploration, and authentic cultural connections." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kickingmiles.com/" />
-  <meta property="og:image" content="https://kickingmiles.com/kickingmiles-logo-200.webp" />
-  <meta property="og:site_name" content="Kicking Miles" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kicking Miles - Kickboard Adventures Across Countries" />
-  <meta name="twitter:description" content="Follow our kickboard journeys across different countries and cultures. Each adventure documents slow travel, mindful exploration, and authentic cultural connections." />
-  <meta name="twitter:image" content="https://kickingmiles.com/kickingmiles-logo-200.webp" />
-  
-  <!-- Additional SEO -->
-  <meta name="keywords" content="kickboard, travel, adventure, Japan, Korea, slow travel, exploration, cultural travel, scooter journey" />
-  <meta name="author" content="Michael Distel" />
-  <meta name="robots" content="index, follow" />
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Kicking Miles",
-    "description": "Kickboard adventures across countries and cultures documenting slow travel and mindful exploration",
-    "url": "https://kickingmiles.com",
-    "author": {
-      "@type": "Person",
-      "name": "Michael Distel"
-    },
-    "mainEntity": {
+	<title>Kick Scooter Adventures | Kicking Miles</title>
+	<meta name="description" content="Join kick scooter adventures across Japan and beyond. Travel stories, route maps, and daily journals from unique transportation experiences." />
+	<meta name="keywords" content="kick scooter, travel, Japan, adventure, route maps, travel journal, transportation, scooter travel" />
+	<link rel="canonical" href="https://kickingmiles.com" />
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://kickingmiles.com" />
+	<meta property="og:title" content="Kick Scooter Adventures | Kicking Miles" />
+	<meta property="og:description" content="Join kick scooter adventures across Japan and beyond. Travel stories, route maps, and daily journals from unique transportation experiences." />
+	<meta property="og:image" content="https://kickingmiles.com/images/homepage-hero-team-kick-scooters-16x9.webp" />
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://kickingmiles.com" />
+	<meta property="twitter:title" content="Kick Scooter Adventures | Kicking Miles" />
+	<meta property="twitter:description" content="Join kick scooter adventures across Japan and beyond. Travel stories, route maps, and daily journals from unique transportation experiences." />
+	<meta property="twitter:image" content="https://kickingmiles.com/images/homepage-hero-team-kick-scooters-16x9.webp" />
+
+	<!-- Structured Data -->
+	{@html `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kicking Miles",
+  "alternateName": "Kick Scooter Adventures",
+  "url": "https://kickingmiles.com",
+  "description": "A personal travel website documenting kick scooter adventures across different countries, featuring daily journals, route maps, and travel insights.",
+  "author": {
+    "@type": "Person",
+    "name": "Michael Distel",
+    "url": "https://kickingmiles.com"
+  },
+  "@graph": [
+    {
       "@type": "TravelBlog",
-      "name": "Kicking Miles Adventures",
-      "description": "Travel blog documenting kickboard journeys across different countries"
+      "name": "Kicking Miles",
+      "description": "Personal travel blog featuring kick scooter adventures across Japan and Asia with detailed route maps and daily travel journals.",
+      "url": "https://kickingmiles.com",
+      "author": {
+        "@type": "Person",
+        "name": "Michael Distel"
+      }
     }
-  }
-  </script>
+  ]
+}
+</script>`}
 </svelte:head>
 
 <!-- Section: Home -->
@@ -107,6 +113,15 @@
       <div class="divider-km km-divider-centered"></div>
     </div>
 
+    <!-- Hero Image -->
+    <div class="mb-12">
+      <img 
+        src="/images/homepage-hero-team-kick-scooters-16x9.webp" 
+        alt="Team of four kick scooter adventurers posing with their loaded kick scooters at a traditional Japanese gate structure, ready for their cross-country journey"
+        class="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
+      />
+    </div>
+
     <!-- Adventures section -->
     <div id="adventures" class="km-section-spacing">
       <!-- Adventures list -->
@@ -125,12 +140,35 @@
       
       <div class="km-content-left km-content-narrow km-body-text">
         <p class="km-lead-text">
-          This website tracks the adventures of a group of friends exploring different parts of the world on kickboards. Mainly to document where we have been and what we learned along the way.
+          This website tracks the adventures of a group of friends exploring different parts of the world on kick scooters. Mainly to document where we have been and what we learned along the way.
         </p>
         
         <p class="km-lead-text">
-          It started in 2017 with Japan. Four friends, kickboards, and 1,800 kilometres from Fukuoka to Tokyo. Each journey since follows the same approach: move slowly, notice everything, document what actually happens.
+          It started in 2017 with Japan. Four friends, kick scooters, and 1,800 kilometres from Fukuoka to Tokyo. Each journey since follows the same approach: move slowly, notice everything, document what actually happens.
         </p>
+
+        <!-- What is a Kick Scooter -->
+        <div class="p-6 rounded-lg border border-km bg-km-subtle mt-8">
+          <h3 class="text-lg font-medium mb-3 text-km-primary">What's a Kick Scooter?</h3>
+          
+          <!-- Kick Scooters Image -->
+          <div class="mb-4 text-center">
+            <img 
+              src="/images/kick-scooters-explanation.jpg" 
+              alt="Four kick scooters with travel gear including panniers, dry bags, and camping equipment, demonstrating how kick scooters are used for multi-day travel adventures"
+              class="w-full max-w-md mx-auto rounded-lg"
+            />
+          </div>
+          
+          <p class="text-km-secondary text-sm leading-relaxed mb-4">
+            A kick scooter (also known as a kickboard) is a human-powered vehicle with a handlebar, deck, and wheels. You propel it by pushing off the ground with one foot while the other stays on the deck. Think of it as a cross between a skateboard and a bicycle. Perfect for covering long distances at a walking pace while carrying gear for multi-day journeys.
+          </p>
+          
+          <div class="text-xs text-km-light space-y-1">
+            <p><strong>In Japanese:</strong> キックボード (kikkubōdo)</p>
+            <p><strong>In Korean:</strong> 킥보드 (kikbodeu)</p>
+          </div>
+        </div>
       </div>
     </div>
 

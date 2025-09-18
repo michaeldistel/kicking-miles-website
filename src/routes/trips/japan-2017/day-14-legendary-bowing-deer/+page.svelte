@@ -37,7 +37,7 @@
 
 <svelte:head>
   <title>Day 14 - The Legendary Bowing Deer | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 14 of our Japan kickboard adventure: Encountering Nara's famous bowing deer and exploring ancient temples where legend meets reality." />
+  <meta name="description" content="Day 14 of our Japan kick scooter adventure: Encountering Nara's famous bowing deer and exploring ancient temples where legend meets reality." />
 </svelte:head>
 
 <!-- Day 14: Nara to Iga -->

@@ -29,7 +29,7 @@
 
 <svelte:head>
   <title>Day 06 - Adventurer vs Nature | Japan 2017 | Kicking Miles</title>
-  <meta name="description" content="Day 06 of our Japan kickboard adventure: The classic battle between adventurer and nature unfolds with rain, snow, and challenging terrain." />
+  <meta name="description" content="Day 06 of our Japan kick scooter adventure: The classic battle between adventurer and nature unfolds with rain, snow, and challenging terrain." />
 </svelte:head>
 
 <!-- Day 06: Hiroshima to Takehara -->

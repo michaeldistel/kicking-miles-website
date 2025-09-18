@@ -9,9 +9,9 @@
       { value: '1,842km', label: 'Total Distance' },
       { value: '41', label: 'Days' },
       { value: '35', label: 'Cities' },
-      { value: '4', label: 'Kickboarders' }
+      { value: '4', label: 'Kick Scooters' }
     ],
-    leadText: 'The adventure that started it all. Four friends, four kickboards, and a dream to travel the length of Japan under human power alone.',
+    leadText: 'The adventure that started it all. Four friends, four kick scooters, and a dream to travel the length of Japan under human power alone.',
     bodyText: 'From the southern tip of Kyushu to the northern island of Hokkaido, this 40-day adventure proved that slow travel reveals hidden corners of a country that speed cannot touch.',
     days: [
       {
@@ -299,20 +299,19 @@
 </script>
 
 <svelte:head>
-  <title>Japan 2017 - 1,842km Kickboard Adventure | Kicking Miles</title>
-  <meta name="description" content="Follow our epic 41-day kickboard journey from Fukuoka to Hakodate. Four friends, four kickboards, and 1,842km of adventure across Japan." />
-  <meta property="og:title" content="Japan 2017 - 1,842km Kickboard Adventure | Kicking Miles" />
-  <meta property="og:description" content="Follow our epic 41-day kickboard journey from Fukuoka to Hakodate. Four friends, four kickboards, and 1,842km of adventure across Japan." />
+    <title>Japan 2017 - 1,842km Kick Scooter Adventure | Kicking Miles</title>
+  <meta name="description" content="Follow our epic 41-day kick scooter journey from Fukuoka to Hakodate. Four friends, four kick scooters, and 1,842km of adventure across Japan." />
+  <meta property="og:title" content="Japan 2017 - 1,842km Kick Scooter Adventure | Kicking Miles" />
+  <meta property="og:description" content="Follow our epic 41-day kick scooter journey from Fukuoka to Hakodate. Four friends, four kick scooters, and 1,842km of adventure across Japan." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kickingmiles.com/trips/japan-2017/" />
-  <meta property="og:image" content="https://kickingmiles.com/images/japan-2017/day-00/day00-photo-01.webp" />
-  <meta property="article:published_time" content="2017-03-26" />
-  <meta property="article:author" content="Michael Distel" />
+  <meta property="og:image" content="https://kickingmiles.com/images/japan-2017/overview/hero.webp" />
+  <meta property="article:published_time" content="2017-05-14" />
+  <meta property="article:modified_time" content="2024-03-15" />
+  <meta property="article:author" content="Michelle Yang" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Japan 2017 - 1,842km Kickboard Adventure | Kicking Miles" />
-  <meta name="twitter:description" content="Follow our epic 41-day kickboard journey from Fukuoka to Hakodate. Four friends, four kickboards, and 1,842km of adventure across Japan." />
-  <meta name="twitter:image" content="https://kickingmiles.com/images/japan-2017/day-00/day00-photo-01.webp" />
-  <link rel="canonical" href="https://kickingmiles.com/trips/japan-2017/" />
+  <meta name="twitter:title" content="Japan 2017 - 1,842km Kick Scooter Adventure | Kicking Miles" />
+  <meta name="twitter:description" content="Follow our epic 41-day kick scooter journey from Fukuoka to Hakodate. Four friends, four kick scooters, and 1,842km of adventure across Japan." />
 </svelte:head>
 
 <!-- Japan 2017 Trip Overview -->

@@ -10,7 +10,7 @@
       { value: 'Distance', label: 'Total Distance' },
       { value: 'Number', label: 'Days' },
       { value: 'Number', label: 'Cities' },
-      { value: 'Number', label: 'Kickboarders' }
+      { value: 'Number', label: 'Kick Scooters' }
     ],
     leadText: 'A compelling opening paragraph that captures the essence of this adventure.',
     bodyText: 'A second paragraph that provides more context about what makes this trip unique or meaningful.',

@@ -5,6 +5,19 @@
 
   const adventures: AdventureData[] = [
     {
+      title: 'Korea: Seoul to Busan',
+      url: '/trips/korea-2025',
+      dateRange: 'Planned 2025',
+      subtitle: 'The next adventure awaits',
+      description: 'An ambitious journey planned from the bustling streets of Seoul to the coastal beauty of Busan, exploring South Korea\'s diverse landscapes and rich culture.',
+      stats: {
+        distance: '~500km',
+        duration: '7-10 days',
+        cities: 'Multiple cities'
+      },
+      status: 'planning'
+    },
+    {
       title: 'Japan: Tokyo to Nasu',
       url: '/trips/japan-2023',
       dateRange: 'October 2023',
@@ -22,7 +35,7 @@
       url: '/trips/japan-2017',
       dateRange: 'March - May 2017',
       subtitle: 'The original adventure that started it all',
-      description: 'Two friends, kickboards, and the length of Japan. 40 days of rain, hail, convenience store meals, and the kindness of strangers.',
+      description: 'Two friends, kick scooters, and the length of Japan. 40 days of rain, hail, convenience store meals, and the kindness of strangers.',
       stats: {
         distance: '1,800km',
         duration: '40 days',
@@ -35,7 +48,7 @@
 
 <svelte:head>
   <title>Adventures - Kicking Miles</title>
-  <meta name="description" content="Kickboard adventures across countries and cultures. Documenting slow travel from Japan to future expeditions." />
+  <meta name="description" content="Kick scooter adventures across countries and cultures. Documenting slow travel from Japan to future expeditions." />
 </svelte:head>
 
 <!-- Adventures Overview -->
@@ -44,7 +57,7 @@
     
     <PageHeader 
       title="Adventures"
-      description="Kickboard journeys across countries and cultures. Each adventure documents the journey of slow travel, revealing hidden corners that speed cannot touch."
+      description="Kick scooter journeys across countries and cultures. Each adventure documents the journey of slow travel, revealing hidden corners that speed cannot touch."
     />
 
     <!-- Adventures list -->
@@ -57,9 +70,9 @@
     <!-- Future adventures teaser -->
     <div class="mt-16 text-center">
       <div class="p-8 rounded-lg border border-km bg-km-subtle">
-        <h3 class="text-xl font-light mb-4 text-km-primary">More Adventures Coming</h3>
+        <h3 class="text-xl font-light mb-4 text-km-primary">Beyond Korea 2025</h3>
         <p class="text-km-secondary max-w-2xl mx-auto">
-          Korea 2025, Taiwan expeditions, and European routes are being planned. 
+          Taiwan expeditions, European routes, and other adventures are being considered for future years. 
           Each journey follows the same principle: move slowly, notice everything, document what actually happens.
         </p>
       </div>
