@@ -11,6 +11,8 @@
     stats: Array<{ value: string; label: string }>;
     leadText: string;
     bodyText: string;
+    routeImage?: string;
+    routeImageAlt?: string;
     days: Array<{
       url: string;
       title: string;
@@ -37,7 +39,7 @@
       description={trip.description}
     />
 
-    <div class="mb-12">
+    <div class="mb-12 mt-12">
       <StatsBox stats={trip.stats} columns={2} size="large" />
     </div>
 
@@ -50,6 +52,20 @@
         {@html trip.bodyText}
       </p>
     </div>
+
+    <!-- Route Map -->
+    {#if trip.routeImage}
+      <div class="mb-12">
+        <h2 class="km-subsection-title mb-6">Planned Route</h2>
+        <div class="km-image-container">
+          <img 
+            src={trip.routeImage} 
+            alt={trip.routeImageAlt || "Route map"} 
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    {/if}
 
     <!-- Daily posts list -->
     <div class="space-y-6">

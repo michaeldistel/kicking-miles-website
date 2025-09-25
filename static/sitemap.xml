@@ -288,16 +288,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://kickingmiles.com/404</loc>
-    <lastmod>2025-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  <url>
-    <loc>https://kickingmiles.com/50x</loc>
-    <lastmod>2025-09-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.1</priority>
-  </url>
 </urlset>

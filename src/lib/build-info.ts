@@ -1,2 +1,2 @@
 // This file is auto-generated at build time
-export const BUILD_COMMIT = '0d3b4c8';
+export const BUILD_COMMIT = '63df808';

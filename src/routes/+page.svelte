@@ -5,6 +5,19 @@
 
   const adventures: AdventureData[] = [
     {
+      title: 'South Korea: Busan to Seoul',
+      url: '/trips/korea-2025',
+      dateRange: 'October 2025',
+      subtitle: 'Exploring the Korean Peninsula on wheels',
+      description: 'Following ancient trading routes and modern highways through the heart of South Korea with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a>. Mountains, cities, and the warmth of Korean hospitality await.',
+      stats: {
+        distance: '~560km',
+        duration: '~11 days',
+        cities: '8+ cities'
+      },
+      status: 'planning'
+    },
+    {
       title: 'Japan: Tokyo to Nasu',
       url: '/trips/japan-2023',
       dateRange: 'October 2023',
@@ -29,18 +42,6 @@
         cities: '35 cities'
       },
       status: 'complete'
-    },
-    {
-      title: 'South Korea: Busan to Seoul',
-      dateRange: 'October 2025',
-      subtitle: 'Exploring the Korean Peninsula on wheels',
-      description: 'Following ancient trading routes and modern highways through the heart of South Korea with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a>. Mountains, cities, and the warmth of Korean hospitality await.',
-      stats: {
-        distance: '560km',
-        duration: '11 days',
-        cities: '8 cities'
-      },
-      status: 'planning'
     }
   ];
 </script>
