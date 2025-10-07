@@ -9,7 +9,7 @@
       url: '/trips/korea-2025',
       dateRange: 'October 2025',
       subtitle: 'Exploring the Korean Peninsula on wheels',
-      description: 'Following ancient trading routes and modern highways through the heart of South Korea with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a>. Mountains, cities, and the warmth of Korean hospitality await.',
+      description: 'Following ancient trading routes and modern highways through the heart of South Korea with Alex and Michael. Mountains, cities, and the warmth of Korean hospitality await.',
       stats: {
         distance: '~560km',
         duration: '~11 days',
@@ -22,7 +22,7 @@
       url: '/trips/japan-2023',
       dateRange: 'October 2023',
       subtitle: 'A contemplative return to Japan',
-      description: 'Autumn journey with <a href="https://www.instagram.com/alekseev_a_i/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Alex</a> exploring the serene mountain region of Nasu. Three days of mindful travel through changing seasons and shared discovery.',
+      description: 'Autumn journey with Alex exploring the serene mountain region of Nasu. Three days of mindful travel through changing seasons and shared discovery.',
       stats: {
         distance: '150km',
         duration: '3 days',
@@ -170,6 +170,18 @@
             <p><strong>In Korean:</strong> 킥보드 (kikbodeu)</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="mb-8">
+      <div class="text-center text-sm text-km-secondary space-y-2">
+        <p>Follow our adventures and get updates on social media:</p>
+        <p>
+          <a href="https://www.instagram.com/heykickingmiles/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Instagram</a>
+          •
+          <a href="https://www.facebook.com/HeyKickingMiles/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Facebook</a>
+        </p>
       </div>
     </div>
 
