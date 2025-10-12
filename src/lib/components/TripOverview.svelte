@@ -11,6 +11,7 @@
     stats: Array<{ value: string; label: string }>;
     leadText: string;
     bodyText: string;
+    bodyTextPart2?: string;
     routeImage?: string;
     routeImageAlt?: string;
     days: Array<{
@@ -53,6 +54,28 @@
       </p>
     </div>
 
+    <!-- Daily posts list -->
+    <div class="space-y-6 mb-12">
+      <div class="mb-8">
+        <h2 class="km-subsection-title">Daily Journal</h2>
+        <div class="divider-km-wide"></div>
+      </div>
+      
+      {#each trip.days as day}
+        <TripCard {day} />
+      {/each}
+
+    </div>
+
+    <!-- Adventure content part 2 -->
+    {#if trip.bodyTextPart2}
+      <div class="mb-12 km-prose-content">
+        <p class="km-body-text mb-6">
+          {@html trip.bodyTextPart2}
+        </p>
+      </div>
+    {/if}
+
     <!-- Route Map -->
     {#if trip.routeImage}
       <div class="mb-12">
@@ -66,19 +89,6 @@
         </div>
       </div>
     {/if}
-
-    <!-- Daily posts list -->
-    <div class="space-y-6">
-      <div class="mb-8">
-        <h2 class="km-subsection-title">Daily Journal</h2>
-        <div class="divider-km-wide"></div>
-      </div>
-      
-      {#each trip.days as day}
-        <TripCard {day} />
-      {/each}
-
-    </div>
 
   </div>
 </div>

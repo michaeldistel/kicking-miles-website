@@ -2,6 +2,7 @@
   import TripHeader from '$lib/components/TripHeader.svelte';
   import ContentBox from '$lib/components/ContentBox.svelte';
   import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
+  import DayNavigation from '$lib/components/DayNavigation.svelte';
 
   const images = [
     {
@@ -101,6 +102,17 @@
         {images} 
         title="Day -4 preparations" 
         galleryId="day-minus-4-gallery" 
+      />
+    </div>
+
+    <!-- Day Navigation -->
+    <div class="mt-12">
+      <DayNavigation 
+        previousDay={{
+          url: '/trips/korea-2025/day-minus-5-pre-departure',
+          label: 'Day -5'
+        }}
+        nextDay={null}
       />
     </div>
 
