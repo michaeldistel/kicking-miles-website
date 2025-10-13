@@ -26,13 +26,19 @@
   </url>
   <url>
     <loc>https://kickingmiles.com/trips/korea-2025</loc>
-    <lastmod>2025-10-11</lastmod>
+    <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kickingmiles.com/trips/korea-2025/day-minus-5-pre-departure</loc>
     <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kickingmiles.com/trips/korea-2025/day-minus-1-arrival-seoul-busan</loc>
+    <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
