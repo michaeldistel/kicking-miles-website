@@ -23,6 +23,13 @@
         description: 'Landing in Seoul, catching the KTX to Busan, first scoot in Korea covering 30km including a helpful encounter with locals and discovering a bare-feet walking park.'
       },
       {
+        url: '/trips/korea-2025/day-minus-2-final-hours',
+        title: 'Day -2: Final hours',
+        date: 'October 12, 2025',
+        meta: ['Flight departure day', 'Final preparations'],
+        description: 'A few hours before departure to Korea. Final packing complete, scooters wrapped and ready. The story behind Tresha\'s name on the scooter.'
+      },
+      {
         url: '/trips/korea-2025/day-minus-4-last-minute-prep',
         title: 'Day -4: Grateful for the support',
         date: 'October 10, 2025',

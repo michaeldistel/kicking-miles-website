@@ -113,8 +113,8 @@
           label: 'Day -5'
         }}
         nextDay={{
-          url: '/trips/korea-2025/day-minus-1-arrival-seoul-busan',
-          label: 'Day -1'
+          url: '/trips/korea-2025/day-minus-2-final-hours',
+          label: 'Day -2'
         }}
       />
     </div>

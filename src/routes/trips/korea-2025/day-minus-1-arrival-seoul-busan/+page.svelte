@@ -171,11 +171,11 @@
     <!-- Day Navigation -->
     <div class="mt-12">
       <DayNavigation 
-        previousDay={null}
-        nextDay={{
-          url: '/trips/korea-2025/day-minus-4-last-minute-prep',
-          label: 'Day -4'
+        previousDay={{
+          url: '/trips/korea-2025/day-minus-2-final-hours',
+          label: 'Day -2'
         }}
+        nextDay={null}
       />
     </div>
 
