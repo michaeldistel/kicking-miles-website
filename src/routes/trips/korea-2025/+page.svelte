@@ -16,6 +16,27 @@
     bodyTextPart2: '<strong>The Route</strong><br><br><div class="km-image-container mb-6"><img src="/images/korea-2025/overview/korea-route-map.webp" alt="Map showing the planned 560km kick scooter route from Busan to Seoul through South Korea, following the Nakdonggang, Saejae, Namhangang and Hangang bike path network" class="w-full h-auto rounded-lg shadow-lg" /></div>Starting from Busan\'s beaches, we expect to follow the <a href="https://en.wikipedia.org/wiki/Nakdong_River" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Nakdong River</a> inland for roughly 300 kilometres, watching the peninsula\'s geography shift from maritime to mountainous. The historic Saejae pass, an ancient trading route between regions, will likely challenge us physically while connecting us to centuries of Korean travellers who crossed these same mountains. The final stretch along the <a href="https://en.wikipedia.org/wiki/Namhan_River" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Nam Han</a> and <a href="https://en.wikipedia.org/wiki/Han_River_(Korea)" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Han Rivers</a> should lead directly into Seoul\'s heart, where modern Korea meets its traditional roots.<br><br>Unlike our Japanese adventures on public roads, these dedicated bike paths should offer safe passage through landscapes specifically designed for long-distance travel. Fifty kilometres per day should be manageable. Some days may stretch to 70, others compress to 35. Rest and weather will dictate reality over planning.<br><br><strong>Major Cities & Stops</strong><br><br>Over approximately 11 days, we expect to pass through these cities:<br><br>• <strong>Busan</strong> (Start) - Coastal energy and departure point<br>• <strong>Yangsan</strong> - First inland stop<br>• <strong>Daegu</strong> - Major metropolitan hub<br>• <strong>Gumi & Sangju</strong> - Traditional Korean countryside<br>• <strong>Mungyeong</strong> - Gateway to the mountain pass<br>• <strong>Chungju</strong> - Valley town and river confluence<br>• <strong>Yangpyeong</strong> - Final rural stop<br>• <strong>Seoul</strong> (Finish) - Urban arrival and destination<br><br><strong>Music for the Journey</strong><br><br>We have created a <a href="https://open.spotify.com/playlist/2vWLyfu8VVjaAsme0nkZKV?si=u7Gv6JgmSgq3gSSHbTW7Hw" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Korea 2025 Spotify playlist</a> to keep us motivated on the road. Music always makes the kilometres feel shorter and helps capture the rhythm of long-distance travel.<br><br><strong>Documentation</strong><br><br>We will document this journey here on the website, with daily journal entries capturing what actually happens versus what we expect. Photos, route details, and honest reflections on the reality of kick scooter travel in South Korea. Live updates and behind-the-scenes content will be shared on <a href="https://www.instagram.com/heykickingmiles/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Instagram</a> and <a href="https://www.facebook.com/HeyKickingMiles/" target="_blank" rel="noopener noreferrer" class="text-km-primary hover:text-km-dark underline">Facebook</a>.',
     days: [
       {
+        url: '/trips/korea-2025/day-03-life-death-recognition',
+        title: 'Day 3: Life, Death, and Recognition',
+        date: 'October 16, 2025',
+        meta: ['65km scooted', '8.5 hours', 'Highway shortcuts'],
+        description: 'Alex and Michael take highway shortcuts to beat rain delays, receive unexpected kindness from strangers, and get recognized by locals on their Korean adventure.'
+      },
+      {
+        url: '/trips/korea-2025/day-02-old-vs-young',
+        title: 'Day 2: Old vs Young',
+        date: 'October 15, 2025',
+        meta: ['67km scooted', '7.5 hours', 'Clear blue skies'],
+        description: 'Michael reflects on age catching up as they cover 67km to make up lost distance. Clear skies, aging equipment, and the contrast between youth and experience.'
+      },
+      {
+        url: '/trips/korea-2025/day-01-starting-off-with-rain',
+        title: 'Day 1: Starting Off with Rain',
+        date: 'October 14, 2025',
+        meta: ['~40km scooted', 'Nakdong River path', 'Heavy rain'],
+        description: 'Day 1 of the Korea journey begins at sunrise with grey skies and rain. Following the Nakdong River path, meeting kind locals, and finding shelter from the weather.'
+      },
+      {
         url: '/trips/korea-2025/day-minus-1-arrival-seoul-busan',
         title: 'Day -1: Arrival in Seoul and journey to Busan',
         date: 'October 13, 2025',

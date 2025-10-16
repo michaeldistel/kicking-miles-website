@@ -175,7 +175,10 @@
           url: '/trips/korea-2025/day-minus-2-final-hours',
           label: 'Day -2'
         }}
-        nextDay={null}
+        nextDay={{
+          url: '/trips/korea-2025/day-01-starting-off-with-rain',
+          label: 'Day 1'
+        }}
       />
     </div>
 
