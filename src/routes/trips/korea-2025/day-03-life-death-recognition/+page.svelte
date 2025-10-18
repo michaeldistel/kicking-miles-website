@@ -244,7 +244,10 @@
           url: '/trips/korea-2025/day-02-old-vs-young',
           label: 'Day 2'
         }}
-        nextDay={null}
+        nextDay={{
+          url: '/trips/korea-2025/day-04-rest-day-daegu',
+          label: 'Day 4'
+        }}
       />
     </div>
 

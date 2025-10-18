@@ -223,6 +223,49 @@
     </div>
     {/if}
 
+    <!-- YouTube Videos -->
+    <div class="mt-12">
+      <h2 class="km-subsection-title mb-6">Day 2 Videos</h2>
+      <div class="space-y-8">
+        <div class="km-video-container">
+          <div class="relative w-full" style="padding-bottom: 56.25%;">
+            <iframe 
+              class="absolute top-0 left-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/_ap7Kl8BPZg"
+              title="Korea 2025 Day 2 Video 1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="km-video-container">
+          <div class="relative w-full" style="padding-bottom: 56.25%;">
+            <iframe 
+              class="absolute top-0 left-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/F8uFL-IwckE"
+              title="Korea 2025 Day 2 Video 2"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="km-video-container">
+          <div class="relative w-full" style="padding-bottom: 56.25%;">
+            <iframe 
+              class="absolute top-0 left-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/DIntPihU2hQ"
+              title="Korea 2025 Day 2 Video 3"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Day Navigation -->
     <div class="mt-12">
       <DayNavigation 

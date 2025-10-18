@@ -7,14 +7,16 @@
     'complete': 'Complete',
     'planning': 'Planning',
     'upcoming': 'Upcoming',
-    'coming-soon': 'Coming Soon'
+    'coming-soon': 'Coming Soon',
+    'in-progress': 'In Progress'
   };
 
   const statusClasses: Record<AdventureStatus, string> = {
     'complete': 'km-badge-complete',
     'planning': 'km-badge-planning',
     'upcoming': 'km-badge-upcoming',
-    'coming-soon': 'km-badge-coming-soon'
+    'coming-soon': 'km-badge-coming-soon',
+    'in-progress': 'km-badge-in-progress'
   };
 
   $: badgeClass = statusClasses[adventure.status];

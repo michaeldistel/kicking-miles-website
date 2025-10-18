@@ -45,12 +45,20 @@ pnpm format          # Prettier formatting
 
 ### Production Deployment
 
+**⚠️ IMPORTANT**: Never deploy automatically without explicit permission from Michael. Always ask before running `pnpm prod:deploy`.
+
 ```bash
 pnpm prod:deploy     # Full deployment pipeline:
   # 1. pnpm prod:build    - Runs prebuild + build (generates build info + SvelteKit static build)
   # 2. pnpm prod:deploy:copy - rsync to homelab with --delete flag and prod.deploy.files.txt filter
   # 3. pnpm prod:deploy:run  - Docker Compose restart on remote server
 ```
+
+### Deployment Protocol
+
+- **Always ask first**: "Should I deploy these changes to production?"
+- **Wait for confirmation**: Only proceed with deployment after receiving explicit approval
+- **Exception**: Only deploy automatically if specifically requested with phrases like "deploy this" or "push to production"
 
 ### Build System
 
