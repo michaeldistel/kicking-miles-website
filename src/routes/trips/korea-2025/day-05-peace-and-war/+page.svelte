@@ -297,7 +297,10 @@
           url: '/trips/korea-2025/day-04-rest-day-daegu',
           label: 'Day 4'
         }}
-        nextDay={null}
+        nextDay={{
+          url: '/trips/korea-2025/day-06-halfway-longest-fastest',
+          label: 'Day 6'
+        }}
       />
     </div>
 

@@ -11,8 +11,8 @@
       subtitle: 'Currently in progress',
       description: 'Alex and Michael are kick scootering 560km from Busan to Seoul through South Korea, following the Nakdonggang, Saejae, Namhangang and Hangang bike path network.',
       stats: {
-        distance: '206/560km',
-        duration: '5/11 days',
+        distance: '295/560km',
+        duration: '6/11 days',
         cities: '8+ cities'
       },
       status: 'in-progress'
