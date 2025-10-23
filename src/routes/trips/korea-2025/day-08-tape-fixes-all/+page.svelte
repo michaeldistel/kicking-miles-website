@@ -116,7 +116,10 @@
           url: '/trips/korea-2025/day-07-over-mountains-amazing-apples',
           label: 'Day 7'
         }}
-        nextDay={null}
+        nextDay={{
+          url: '/trips/korea-2025/day-09-leader-alex',
+          label: 'Day 9'
+        }}
       />
     </div>
 
