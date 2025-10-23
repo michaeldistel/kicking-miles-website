@@ -131,7 +131,10 @@
           url: '/trips/korea-2025/day-08-tape-fixes-all',
           label: 'Day 8'
         }}
-        nextDay={null}
+        nextDay={{
+          url: '/trips/korea-2025/day-10-through-pain-misery-and-blood',
+          label: 'Day 10'
+        }}
       />
     </div>
 
