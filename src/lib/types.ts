@@ -20,7 +20,8 @@ export type AdventureStatus =
   | "complete"
   | "planning"
   | "upcoming"
-  | "coming-soon";
+  | "coming-soon"
+  | "in-progress";
 
 export interface StatItem {
   value: string;

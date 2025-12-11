@@ -70,6 +70,10 @@
         background-color: var(--km-light-gray);
     }
 
+    .bg-km-primary {
+        background-color: var(--km-primary);
+    }
+
     /* Border Utilities */
     .border-km {
         border-color: var(--km-border);
@@ -257,6 +261,10 @@
 
     .km-badge-planning {
         @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-gray;
+    }
+
+    .km-badge-in-progress {
+        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-primary;
     }
 
     .km-badge-upcoming {
