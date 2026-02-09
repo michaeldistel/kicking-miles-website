@@ -63,10 +63,6 @@
         <p class="km-body-text">
           No more endless farmlands; civilization is finally embracing us.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Downhill Glory</h3>
         
         <p class="km-body-text">
           After days of suffering, the reward has come: instead of kicking (or, let's be honest, walking) uphill, we're now gliding downhill, following the river's current and feeling the wind in my beard.
@@ -75,18 +71,10 @@
         <p class="km-body-text">
           We were flying, like rockets, like lightning in a storm, like travelers racing toward the end of a vacation.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">The Flag Incident</h3>
         
         <p class="km-body-text">
           So fast, in fact, that my flag couldn't handle the excitement… and snapped in half!
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Universal Truth</h3>
         
         <p class="km-body-text">
           But as every true adventurer knows: anything can be fixed with tape.
@@ -99,10 +87,9 @@
 
       <!-- Photo Gallery Section -->
       <section>
-        <h3 class="km-section-title">Photos from Day 8</h3>
         <PhotoSwipeGallery 
           {images} 
-          title="Day 8: Downhill Speed and Tape Solutions"
+          title="Downhill Speed and Tape Solutions"
           galleryId="day-08-gallery"
         />
       </section>

@@ -67,34 +67,22 @@
         <p class="km-body-text">
           It was tough. Hours of walking uphill, pain shooting up my legs, and Alex having to stop now and then to ease the pressure on his back. But when we finally reached the top, it felt amazing. First, because of the incredible view of the valley below, and second, because there was a small shop selling hot coffee. I think the moment we sat down, Alex's body and mind just shut down for a bit, he sat there quietly, staring at his phone in a daze.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">The Descent</h3>
         
         <p class="km-body-text">
           What goes up must come down. What took us hours to climb took only minutes to descend, flying down the mountain path at around 40 km/h. It was exhilarating, the cold air rushing past and the kilometres flying by without a single kick.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Amazing Local Apples</h3>
         
         <p class="km-body-text">
           At the bottom of the valley, we stopped at a small apple shop for some fresh local apples. It was fun watching Alex try to talk to the uncle running the place, who just kept handing us different slices to taste. The apples were amazing, crisp, juicy, and perfect after a long ride.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Thanks to Alf</h3>
         
         <p class="km-body-text">
-          You might have noticed I was wearing a very colourful singlet today. It was a gift from my friend Alf, who has his own line of sporting gear, jerseys, t-shirts, singlets, swimming trunks, all in bright, playful designs. Alf is also the reason we are taking this particular route through Korea. A few years ago, when he heard about my trip in Japan, he recommended it. Thanks Alf, Alex and I really appreciate it.
+          You might have noticed I was wearing a very colourful singlet today. It was a gift from my friend Alf, who has his own line of sporting gear, jerseys, t-shirts, singlets, swimming trunks, all in bright, playful designs.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">The Final Push</h3>
+        
+        <p class="km-body-text">
+          Alf is also the reason we are taking this particular route through Korea. A few years ago, when he heard about my trip in Japan, he recommended it. Thanks Alf, Alex and I really appreciate it.
+        </p>
         
         <p class="km-body-text">
           Tomorrow we start our direct run toward Seoul. If all goes well, we should be there in three or four days.
@@ -103,10 +91,9 @@
 
       <!-- Photo Gallery Section -->
       <section>
-        <h3 class="km-section-title">Photos from Day 7</h3>
         <PhotoSwipeGallery 
           {images} 
-          title="Day 7: Mountain Crossing and Local Hospitality"
+          title="Mountain Crossing and Local Hospitality"
           galleryId="day-07-gallery"
         />
       </section>

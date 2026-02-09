@@ -83,10 +83,6 @@
         <p class="km-body-text">
           We reached the end of the Nakdong River, right at the entrance to the Saejae Pass. From here on it is going to be uphill for the next two days.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">A Long Day on the Road</h3>
         
         <p class="km-body-text">
           Most of the day we had our heads down and legs working. We did not stop much along the way, but near the end something amazing happened.
@@ -95,10 +91,6 @@
         <p class="km-body-text">
           We came across a group of Koreans having a ramen, beer, and soju party by the river. They waved us over with big smiles and loud shouts. One of the ladies was standing over a huge pot on a gas stove, cooking ramen while shouting things in Korean and laughing.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Korean Hospitality</h3>
         
         <p class="km-body-text">
           Alex and I were pushed to one of the tables, and bowls of steaming ramen were placed in front of us. It was perfect, we were starving. Then came the beer, then the soju, which we politely declined as we were too tired to drink, and finally small apples. No one spoke English, but with a lot of hand waving and smiles it worked fine.
@@ -115,10 +107,9 @@
 
       <!-- Photo Gallery Section -->
       <section>
-        <h3 class="km-section-title">Photos from Day 6</h3>
         <PhotoSwipeGallery 
           {images} 
-          title="Day 6: Milestones and Korean Hospitality"
+          title="Milestones and Korean Hospitality"
           galleryId="day-06-gallery"
         />
       </section>

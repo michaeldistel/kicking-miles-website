@@ -76,10 +76,6 @@
         <p class="km-body-text">
           Well, maybe except a 7-Eleven and a forty-minute, multi-course coffee break.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Demonic Force</h3>
         
         <p class="km-body-text">
           Fueled by caffeine and stubborn pride, we pushed harder than ever. Some demonic force was driving us forward, maybe it was the smell of Seoul in the air… maybe the birthplace of BLACKPINK itself calling us to glory. Whatever it was, we rode like possessed men, unstoppable, unbreakable.
@@ -92,10 +88,6 @@
         <p class="km-body-text">
           Fifteen kilometres from Namsan Tower. The city skyline finally in sight.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">A Confession</h3>
         
         <p class="km-body-text">
           But before I end this post: a confession.
@@ -116,10 +108,6 @@
         <p class="km-body-text">
           Give a man a nearly broken scooter, the heaviest backpack in Korea, and a long downhill path… and fate will take its course. Michael's blood christened the bike trail, a sacrifice to the gods of perseverance.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">We Did It</h3>
         
         <p class="km-body-text">
           Now we sit here, barely able to move, bones and muscles screaming, but our spirits soaring.
@@ -136,10 +124,6 @@
         <p class="km-body-text">
           (And yes, I hope they'll leave some likes under this post, we earned them.)
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Tomorrow</h3>
         
         <p class="km-body-text">
           Seoul, well, we may crawl rather than ride tomorrow, but nothing will stop us from reaching that tower.
@@ -160,10 +144,9 @@
 
       <!-- Photo Gallery Section -->
       <section>
-        <h3 class="km-section-title">Photos from Day 10</h3>
         <PhotoSwipeGallery 
           {images} 
-          title="Day 10: The Final Push Through Pain"
+          title="The Final Push Through Pain"
           galleryId="day-10-gallery"
         />
       </section>
@@ -177,7 +160,10 @@
           url: '/trips/korea-2025/day-09-leader-alex',
           label: 'Day 9'
         }}
-        nextDay={null}
+        nextDay={{
+          url: '/trips/korea-2025/day-11-mission-completed',
+          label: 'Day 11'
+        }}
       />
     </div>
 

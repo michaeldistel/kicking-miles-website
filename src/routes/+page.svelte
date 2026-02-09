@@ -8,14 +8,14 @@
       title: 'South Korea: Busan to Seoul',
       url: '/trips/korea-2025',
       dateRange: 'October 2025',
-      subtitle: 'Currently in progress',
-      description: 'Alex and Michael are kick scootering 560km from Busan to Seoul through South Korea, following the Nakdonggang, Saejae, Namhangang and Hangang bike path network.',
+      subtitle: 'Epic 560km journey completed!',
+      description: 'Alex and Michael successfully completed their 560km kick scooter journey from Busan to Seoul through South Korea, following the Nakdonggang, Saejae, Namhangang and Hangang bike path network over 11 incredible days.',
       stats: {
-        distance: '348/560km',
-        duration: '7/11 days',
+        distance: '560km',
+        duration: '11 days',
         cities: '8+ cities'
       },
-      status: 'in-progress'
+      status: 'complete'
     },
     {
       title: 'Japan: Tokyo to Nasu',

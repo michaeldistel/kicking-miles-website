@@ -74,34 +74,18 @@
         <p class="km-body-text">
           Today it was Alex's turn to lead, find the route, and set the pace. In no time he was off into the fog, racing ahead like a happy puppy, free to push forward as fast as he could.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Endless Energy</h3>
         
         <p class="km-body-text">
           Alex has endless energy and fitness, and I was finding it hard to keep up. A few times he would stop and check on me to see if I was okay. I would give him an evil look, growl something rude, and scoot past. It was not anger, just determination. I knew I could not match his pace, but I was not going to let him get too far ahead without a fight.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Grateful Interruptions</h3>
         
         <p class="km-body-text">
           Thankfully a few people stopped us along the way to chat, ask what we were doing, and take photos. It gave me a chance to rest without needing to admit it.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">Seven Hours Later</h3>
         
         <p class="km-body-text">
           Seven hours and 70 kilometres later we made it to Yeoju, our next stop. I will not lie, my legs are still killing me. What is worse is that Alex is skipping around the small town with a big smile and buying apples again. I would kill him if I could move my legs fast enough to catch him.
         </p>
-      </section>
-
-      <section>
-        <h3 class="km-section-title">The Final Push</h3>
         
         <p class="km-body-text">
           We are now only about 100 kilometres from Seoul. Tomorrow will be our last big push, taking us to the edge of the city, and the morning after we will make our way to Namsan Tower, our final destination.
@@ -114,10 +98,9 @@
 
       <!-- Photo Gallery Section -->
       <section>
-        <h3 class="km-section-title">Photos from Day 9</h3>
         <PhotoSwipeGallery 
           {images} 
-          title="Day 9: Alex Takes the Lead to Yeoju"
+          title="Alex Takes the Lead to Yeoju"
           galleryId="day-09-gallery"
         />
       </section>
