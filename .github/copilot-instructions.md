@@ -124,10 +124,35 @@ pnpm prod:deploy     # Full deployment pipeline:
 
 #### Image Utilities (`src/lib/utils/imageUtils.ts`)
 
-- `getImageDimensions()`: Extracts dimensions and aspect ratio from filename patterns
-- `prepareImagesForPhotoSwipe()`: Converts image arrays to include PhotoSwipe-required data
-- **Filename detection**: Automatically detects -3x4, -4x3, -16x9, -1x1 patterns in WebP files
-- **Legacy support**: Handles older naming patterns (route-map, updates) with appropriate defaults
+**TWO GALLERY PATTERNS SUPPORTED:**
+
+1. **Utility Pattern (Japan 2017 - 78 files)**
+   - Uses `prepareImagesForPhotoSwipe()` helper function
+   - Auto-detects dimensions from filename patterns (-4x3, -3x4, -16x9, -1x1)
+   - Example:
+     ```svelte
+     const rawImages = [{ src: '/images/trip/day-01/photo-01-4x3.webp', alt: '...' }];
+     const images = prepareImagesForPhotoSwipe(rawImages);
+     ```
+   - **Pros**: DRY principle, less code duplication, faster to write
+   - **Use when**: Standard aspect ratios, many galleries, consistency with Japan 2017
+
+2. **Explicit Pattern (Korea 2025 - 28 files)**
+   - Manually specify width, height, ratio for each image
+   - Example:
+     ```svelte
+     const images = [{
+       src: '/images/trip/day-01/photo-01-4x3.webp',
+       alt: '...',
+       width: 1200,
+       height: 900,
+       ratio: '4x3'
+     }];
+     ```
+   - **Pros**: No magic, explicit dimensions, easier for non-standard sizes
+   - **Use when**: Custom dimensions needed, prefer clarity over brevity
+
+**Both patterns are valid.** Choose based on trip consistency and personal preference. See `imageUtils.ts` for implementation details.
 
 #### Image Organization Standards
 

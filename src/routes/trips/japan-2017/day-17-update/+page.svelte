@@ -1,7 +1,6 @@
 <script lang="ts">
   import TripHeader from '$lib/components/TripHeader.svelte';
   import StatsBox from '$lib/components/StatsBox.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
   import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
   import { onMount } from 'svelte';

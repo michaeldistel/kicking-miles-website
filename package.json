@@ -14,15 +14,13 @@
     "prod:build": "pnpm prebuild && pnpm build",
     "prod:deploy:copy": "rsync -avz --delete -e 'ssh' ./* homelab:~/ssd-2tb/apps/michael/kickingmiles-website --include-from='prod.deploy.files.txt' --exclude '*'",
     "prod:deploy:run": "ssh homelab 'cd ~/ssd-2tb/apps/michael/kickingmiles-website && docker compose -f prod.compose.yml down && docker compose -f prod.compose.yml up -d'",
-    "prebuild": "node scripts/generate-build-info.cjs",
-    "postinstall": "node scripts/generate-build-info.cjs"
+    "prebuild": "node scripts/generate-build-info.cjs"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.1.1",
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.31.1",
     "@sveltejs/vite-plugin-svelte": "^6.1.2",
-    "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.36",
     "prettier": "^3.2.5",

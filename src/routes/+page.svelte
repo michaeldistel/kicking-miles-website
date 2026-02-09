@@ -155,7 +155,7 @@
           <!-- Kick Scooters Image -->
           <div class="mb-4 text-center">
             <img 
-              src="/images/kick-scooters-explanation.jpg" 
+              src="/images/kick-scooters-explanation.webp" 
               alt="Four kick scooters with travel gear including panniers, dry bags, and camping equipment, demonstrating how kick scooters are used for multi-day travel adventures"
               class="w-full max-w-md mx-auto rounded-lg"
             />

@@ -3,7 +3,6 @@
   import StatsBox from '$lib/components/StatsBox.svelte';
   import PhotoSwipeGallery from '$lib/components/PhotoSwipeGallery.svelte';
   import DayNavigation from '$lib/components/DayNavigation.svelte';
-  import ContentBox from '$lib/components/ContentBox.svelte';
   import { prepareImagesForPhotoSwipe } from '$lib/utils/imageUtils';
 
   const stats = [
