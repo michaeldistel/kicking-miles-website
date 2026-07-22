@@ -1,6 +1,6 @@
 # Kicking Miles Website
 
-SvelteKit-based personal travel website documenting kick scooter adventures across countries. Static site with Docker deployment.
+SvelteKit-based personal travel website documenting kick scooter adventures across countries. Static site deployed to Cloudflare Pages.
 
 ## Quick Start
 
@@ -23,7 +23,7 @@ pnpm preview
 - **Framework**: SvelteKit with static adapter
 - **Styling**: Tailwind CSS
 - **Build**: Vite, TypeScript
-- **Deployment**: Docker + nginx on homelab
+- **Deployment**: Cloudflare Pages
 - **Package Manager**: pnpm
 
 ## Project Structure
@@ -54,8 +54,8 @@ pnpm check            # Type checking + svelte-check
 pnpm format           # Prettier formatting
 pnpm lint             # Prettier check
 
-# Production deployment (requires homelab SSH access)
-pnpm prod:deploy      # Full deploy: build + rsync + docker restart
+# Production deployment (requires the `cf` Cloudflare wrapper)
+pnpm cf:deploy        # Full deploy: build + upload to Cloudflare Pages
 ```
 
 ## Adding New Trip Days
@@ -99,13 +99,21 @@ const images = [{
 
 ## Deployment
 
-Deployment uses rsync to sync build artifacts to server, then restarts Docker container.
+The site is a static build hosted on Cloudflare Pages (project
+`kickingmiles-website`, custom domain `kickingmiles.com`).
 
 ```bash
-pnpm prod:deploy
+pnpm cf:deploy
 ```
 
-See `package.json` scripts for details.
+This builds to `build/` and uploads it with `cf pages deploy`. Edge behaviour
+lives in two files that Vite copies to the build root:
+
+- `static/_headers` - security headers and static-asset caching
+- `static/_redirects` - QR-code short URLs
+
+`www` → apex and trailing-slash redirects are handled by Cloudflare, not by
+these files.
 
 ## Color Palette
 

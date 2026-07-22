@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects - ports the old nginx QR-code short URLs.
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# www -> apex is handled by a zone-level Cloudflare redirect rule, not here:
+# _redirects sources must be paths, so they cannot match on hostname.
+# Trailing-slash stripping is Pages default behaviour (/foo/ -> /foo).
+
+/qr-japan-2017  /trips/japan-2017  301
+/qr-japan-2023  /trips/japan-2023  301
+/qr-korea-2025  /trips/korea-2025  301

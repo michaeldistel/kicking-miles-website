@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-SvelteKit-based personal travel website documenting kick scooter adventures across countries. Features static site generation, Docker containerization, and remote deployment pipeline. Built for simplicity and production-ready infrastructure.
+SvelteKit-based personal travel website documenting kick scooter adventures across countries. Features static site generation and deployment to Cloudflare Pages. Built for simplicity and production-ready infrastructure.
 
 ## Architecture & Stack
 
@@ -10,7 +10,7 @@ SvelteKit-based personal travel website documenting kick scooter adventures acro
 - **Styling**: Tailwind CSS with custom light theme and flat design aesthetic
 - **Colors**: Custom palette - #7EB300 (green), #C5007C (magenta), #636363 (dark gray), #7E797C (light gray)
 - **Build**: Vite, TypeScript, pnpm package manager
-- **Deployment**: Docker + nginx, deployed to homelab via rsync + Docker Compose
+- **Deployment**: Cloudflare Pages (static hosting), deployed via the `cf` wrangler wrapper
 
 ## Key Development Patterns
 
@@ -45,14 +45,17 @@ pnpm format          # Prettier formatting
 
 ### Production Deployment
 
-**⚠️ IMPORTANT**: Never deploy automatically without explicit permission from Michael. Always ask before running `pnpm prod:deploy`.
+**⚠️ IMPORTANT**: Never deploy automatically without explicit permission from Michael. Always ask before running `pnpm cf:deploy`.
 
 ```bash
-pnpm prod:deploy     # Full deployment pipeline:
-  # 1. pnpm prod:build    - Runs prebuild + build (generates build info + SvelteKit static build)
-  # 2. pnpm prod:deploy:copy - rsync to homelab with --delete flag and prod.deploy.files.txt filter
-  # 3. pnpm prod:deploy:run  - Docker Compose restart on remote server
+pnpm cf:deploy       # Full deployment pipeline:
+  # 1. pnpm prod:build - Runs prebuild + build (generates build info + SvelteKit static build)
+  # 2. cf pages deploy build --project-name=kickingmiles-website --branch=main
 ```
+
+Deploys the `build/` folder to the `kickingmiles-website` Cloudflare Pages
+project (production alias `kickingmiles-website.pages.dev`, custom domain
+`kickingmiles.com`).
 
 ### Deployment Protocol
 
@@ -64,25 +67,24 @@ pnpm prod:deploy     # Full deployment pipeline:
 
 - `scripts/generate-build-info.cjs` creates `src/lib/build-info.ts` with git commit hash
 - Build info displayed in Footer component for deployment tracking
-- Uses `prod.compose.yml` for containerized nginx serving from `/usr/share/nginx/html`
+- The deployed artefact is the static `build/` folder, uploaded wholesale to Pages
 
 ## Infrastructure Details
 
-### nginx Configuration (`nginx/default.conf`)
+### Cloudflare Pages configuration
 
-- **WWW redirect**: Dedicated server block redirects `www.kickingmiles.com` → `kickingmiles.com`
-- **Trailing slash redirect**: `location ~ ^(.+)/$ { return 301 $1; }` removes trailing slashes
-- Cloudflare IP trust configuration for real IP detection
-- Static asset caching with `expires 1y` for immutable assets
-- Comprehensive security headers including CSP, HSTS, permissions policy
-- Health check endpoint at `/nginx-health` returns configuration version
-
-### Docker Setup
-
-- nginx:alpine base with build folder mounted as read-only
-- Resource limits: 0.10 CPU, 100M memory
-- External proxy network for reverse proxy integration
-- Health checks via curl to nginx-health endpoint
+- **`static/_headers`**: security headers (CSP, HSTS, X-Frame-Options, permissions
+  policy) plus one-year immutable caching for static assets. Pages *appends*
+  headers from every matching rule, so `Cache-Control` lives only on the
+  non-overlapping extension rules, never on `/*`.
+- **`static/_redirects`**: QR-code short URLs (`/qr-japan-2017` →
+  `/trips/japan-2017`, etc). Sources must be paths, so hostname-based rules
+  cannot live here.
+- **WWW redirect**: zone-level Cloudflare redirect rule sends
+  `www.kickingmiles.com` → `kickingmiles.com` (was an nginx server block).
+- **Trailing slashes**: stripped by Pages default behaviour (`/foo/` → `/foo`).
+- **404s**: Pages serves `build/404.html` automatically.
+- Both files live in `static/` so Vite copies them to the root of `build/`.
 
 ## Component Patterns
 
@@ -194,7 +196,7 @@ pnpm prod:deploy     # Full deployment pipeline:
 - **Primary domain**: `kickingmiles.com` (no www)
 - **Canonical URLs**: All pages include canonical meta tags
 - **Sitemap**: `static/sitemap.xml` with weekly changefreq for all pages
-- **Trailing slashes**: Consistently removed via nginx redirects and SvelteKit config
+- **Trailing slashes**: Consistently removed via Pages default behaviour and SvelteKit config
 
 ### Meta Tag Pattern
 
@@ -215,8 +217,8 @@ pnpm prod:deploy     # Full deployment pipeline:
 - `package.json`: Scripts show deployment pipeline and build process
 - `src/routes/+layout.svelte`: Global layout patterns and canonical URL handling
 - `src/routes/+layout.ts`: Prerendering and trailing slash configuration
-- `nginx/default.conf`: Production server configuration and security setup
-- `prod.compose.yml`: Containerization and deployment configuration
+- `static/_headers`: Production security headers and asset caching
+- `static/_redirects`: QR-code short-URL redirects
 - `src/lib/components/PhotoSwipeGallery.svelte`: Professional image gallery component with PhotoSwipe integration
 - `src/lib/utils/imageUtils.ts`: Image dimension and aspect ratio utilities for filename-based detection
 - `TRIP-TEMPLATE.svelte`: Template for creating new trip overview pages

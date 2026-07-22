@@ -10,10 +10,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "prod:deploy": "pnpm prod:build && pnpm prod:deploy:copy && pnpm prod:deploy:run",
+    "cf:deploy": "pnpm prod:build && cf pages deploy build --project-name=kickingmiles-website --branch=main --commit-dirty=true",
     "prod:build": "pnpm prebuild && pnpm build",
-    "prod:deploy:copy": "rsync -avz --delete -e 'ssh' ./* homelab:~/ssd-2tb/apps/michael/kickingmiles-website --include-from='prod.deploy.files.txt' --exclude '*'",
-    "prod:deploy:run": "ssh homelab 'cd ~/ssd-2tb/apps/michael/kickingmiles-website && docker compose -f prod.compose.yml down && docker compose -f prod.compose.yml up -d'",
     "prebuild": "node scripts/generate-build-info.cjs"
   },
   "devDependencies": {
