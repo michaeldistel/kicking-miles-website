@@ -57,7 +57,7 @@
 					class="absolute top-0 left-0 w-full h-full"
 				></iframe>
 			</div>
-			<p class="text-sm text-center mt-2" style="color: #7E797C;">
+			<p class="text-sm text-center mt-2 text-km-secondary">
 				<a href="https://www.youtube.com/watch?v=JzzxerzVCpQ" target="_blank" rel="noopener noreferrer" class="hover:underline">
 					Watch on YouTube →
 				</a>
@@ -83,7 +83,7 @@
 		<!-- Section: Japanese Translation -->
 		<section>
 			<hr class="border-km-subtle my-8" />
-			<h3 class="text-xl font-light text-km-primary mb-6">日本語 (Japanese)</h3>
+			<h2 class="font-display text-xl font-bold text-km-primary mb-6">日本語 (Japanese)</h2>
 			
 			<p class="km-body-text leading-relaxed">
 				今回の旅に際し期待以上に嬉しかった事は旅の先々で出会った皆さんの暖かい友情でした。この思い出を忘れない為にもこのビデオを作りました。私達が出会った美しい方々へのわずかばかりの贈り物です。

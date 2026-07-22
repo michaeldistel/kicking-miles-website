@@ -153,7 +153,7 @@
 			<p class="km-body-text font-medium">
 				<strong>Post from this evening:</strong> So much happiness, satisfaction and joy to share with everyone! We are having dinner now and then going for the night view! So hang in there for our final drone shots of the mountain later tonight. Meanwhile enjoy the photo we took when we ascended!
 			</p>
-			<p class="km-body-text text-sm mt-2" style="color: #7E797C;">
+			<p class="km-body-text text-sm mt-2 text-km-secondary">
 				- Michelle Yang
 			</p>
 		</section>
