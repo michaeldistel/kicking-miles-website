@@ -1,7 +1,12 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import Footer from '$lib/components/Footer.svelte';
+  import SiteNav from '$lib/components/SiteNav.svelte';
   import '../app.css';
   export let data;
+
+  // The homepage hero sits behind the fixed nav; every other page clears it.
+  $: isHome = $page.url.pathname === '/';
 </script>
 
 <svelte:head>
@@ -21,7 +26,9 @@
 height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<main class="km-main">
+<SiteNav />
+
+<main class="km-main {isHome ? '' : 'pt-[72px]'}">
   <slot />
   <Footer />
 </main>

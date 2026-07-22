@@ -5,25 +5,51 @@
 /* Kicking Miles Design System */
 :root {
     /* Brand Colors */
-    --km-green: #7eb300;
-    --km-magenta: #c5007c;
-    --km-dark-gray: #636363;
-    --km-light-gray: #7e797c;
+    --km-ink: #0f1b2d;
+    --km-page: #eef3f8;
+    --km-blue: #1f6bff;
+    /* Text-weight blue: the vivid #1f6bff clears AA on white but not on --km-page */
+    --km-blue-text: #0f52d9;
+    --km-blue-dark: #0a4fd6;
+    --km-mint: #2fe6b0;
 
     /* Semantic Color Mapping */
-    --km-primary: var(--km-dark-gray);
-    --km-secondary: var(--km-light-gray);
-    --km-accent: var(--km-magenta);
-    --km-highlight: var(--km-green);
+    --km-primary: var(--km-ink);
+    --km-secondary: #5a6b7e;
+    /* Darkened from the prototype's #8695a6 to clear WCAG AA */
+    --km-tertiary: #5e6e80;
+    --km-accent: var(--km-blue-text);
+    --km-highlight: var(--km-mint);
+    --km-body: #41505f;
 
     /* Background Colors */
-    --km-bg-subtle: #f8f9fa;
-    --km-bg-highlight: #f0f9ff;
-    --km-bg-accent: #fdf2f8;
+    --km-bg-subtle: #ffffff;
+    --km-bg-highlight: #f0f6ff;
+    --km-bg-accent: #eaf1ff;
 
     /* Border Colors */
-    --km-border: var(--km-light-gray);
-    --km-border-accent: var(--km-magenta);
+    --km-border: rgba(15, 27, 45, 0.1);
+    --km-border-strong: rgba(15, 27, 45, 0.18);
+    --km-border-accent: var(--km-blue);
+
+    /* Elevation */
+    --km-shadow-card: 0 1px 0 rgba(15, 27, 45, 0.06);
+    --km-shadow-card-hover: 0 30px 60px -20px rgba(15, 27, 45, 0.28);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--km-page);
+    color: var(--km-ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--km-blue);
+    color: #fff;
 }
 
 @layer components {
@@ -45,6 +71,22 @@
         color: var(--km-highlight);
     }
 
+    /* Ink-strong body copy, used widely across day pages */
+    .text-km-dark {
+        color: var(--km-body);
+    }
+
+    /* Quiet captions and metadata */
+    .text-km-subtle,
+    .text-km-light {
+        color: var(--km-tertiary);
+    }
+
+    /* Legacy alias - the old magenta accent maps onto the new blue */
+    .text-km-magenta {
+        color: var(--km-accent);
+    }
+
     /* Background Utilities */
     .bg-km-subtle {
         background-color: var(--km-bg-subtle);
@@ -59,15 +101,15 @@
     }
 
     .bg-km-green {
-        background-color: var(--km-green);
+        background-color: var(--km-mint);
     }
 
     .bg-km-magenta {
-        background-color: var(--km-magenta);
+        background-color: var(--km-blue);
     }
 
     .bg-km-gray {
-        background-color: var(--km-light-gray);
+        background-color: var(--km-secondary);
     }
 
     .bg-km-primary {
@@ -79,6 +121,10 @@
         border-color: var(--km-border);
     }
 
+    .border-km-subtle {
+        border-color: var(--km-border);
+    }
+
     .border-km-accent {
         border-color: var(--km-border-accent);
     }
@@ -86,14 +132,14 @@
     /* Divider Utilities */
     .divider-km {
         width: 1.5rem;
-        height: 1px;
-        background-color: var(--km-secondary);
+        height: 2px;
+        background-color: var(--km-ink);
     }
 
     .divider-km-wide {
         width: 6rem;
-        height: 1px;
-        background-color: var(--km-secondary);
+        height: 2px;
+        background-color: var(--km-ink);
     }
 
     .divider-km-thick {
@@ -104,7 +150,7 @@
 
     /* Common Layout Patterns */
     .km-main {
-        @apply min-h-screen bg-white text-gray-800;
+        @apply min-h-screen bg-km-page text-km-ink;
     }
 
     .km-container {
@@ -160,11 +206,13 @@
     }
 
     .km-stats-box {
-        @apply p-6 rounded-lg border border-km bg-km-subtle;
+        @apply p-6 rounded-3xl border border-km bg-km-subtle;
+        box-shadow: var(--km-shadow-card);
     }
 
     .km-stats-box-full-width {
-        @apply py-6 px-0 rounded-lg border border-km bg-km-subtle;
+        @apply py-6 px-0 rounded-3xl border border-km bg-km-subtle;
+        box-shadow: var(--km-shadow-card);
     }
 
     .km-stats-grid {
@@ -181,23 +229,37 @@
 
     /* Typography Patterns */
     .km-page-title {
-        @apply text-4xl md:text-5xl font-light mb-4 tracking-wide text-km-primary;
+        @apply font-display font-bold mb-4 text-km-primary;
+        font-size: clamp(38px, 6vw, 76px);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
     }
 
     .km-section-title {
-        @apply text-lg font-medium mb-6 text-km-primary;
+        @apply font-display text-[13px] font-semibold uppercase mb-6 text-km-accent;
+        letter-spacing: 0.16em;
     }
 
     .km-subsection-title {
-        @apply text-2xl font-light mb-4 text-km-primary;
+        @apply font-display font-bold mb-4 text-km-primary;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
     }
 
     .km-breadcrumb {
-        @apply text-sm font-medium tracking-wide uppercase hover:underline text-km-secondary;
+        @apply font-display text-[13px] font-semibold uppercase text-km-accent transition-colors;
+        letter-spacing: 0.12em;
+    }
+
+    .km-breadcrumb:hover {
+        color: var(--km-blue-dark);
     }
 
     .km-date-label {
-        @apply text-sm font-medium tracking-wide uppercase text-km-secondary;
+        @apply font-display text-[13px] font-semibold uppercase text-km-secondary;
+        letter-spacing: 0.12em;
     }
 
     .km-subtitle {
@@ -205,21 +267,28 @@
     }
 
     .km-lead-text {
-        @apply text-lg md:text-xl leading-relaxed text-km-primary;
+        @apply text-lg md:text-xl text-km-primary;
+        line-height: 1.6;
     }
 
     .km-body-text {
-        @apply leading-relaxed text-km-primary;
+        @apply text-km-dark;
+        font-size: 17px;
+        line-height: 1.7;
     }
 
     /* Interactive Elements */
     /* Links */
     .km-link {
-        @apply text-km-accent hover:underline transition-colors duration-200;
+        @apply font-display font-semibold text-km-accent inline-flex items-center gap-2 transition-colors duration-200;
+    }
+
+    .km-link:hover {
+        color: var(--km-blue-dark);
     }
 
     .km-link-disabled {
-        @apply text-km-secondary cursor-not-allowed;
+        @apply font-display font-semibold text-km-secondary cursor-not-allowed;
     }
 
     /* Author Attribution */
@@ -229,17 +298,26 @@
 
     /* Buttons */
     .km-button-primary {
-        @apply text-km-primary font-medium px-8 py-3 rounded-full transition-all duration-300 bg-km-green;
+        @apply inline-flex items-center gap-2.5 font-display font-semibold text-white px-7 py-3.5 rounded-full transition-colors duration-200 bg-km-blue;
+    }
+
+    .km-button-primary:hover {
+        background-color: var(--km-blue-dark);
     }
 
     /* Clickable Elements */
     .km-nav-link {
-        @apply font-medium transition-colors duration-200 text-km-accent;
+        @apply font-display font-semibold transition-colors duration-200 text-km-accent;
+    }
+
+    .km-nav-link:hover {
+        color: var(--km-blue-dark);
     }
 
     /* Stats Components */
     .km-stat-value {
-        @apply text-2xl font-semibold text-km-highlight;
+        @apply font-display text-2xl font-bold text-km-primary;
+        letter-spacing: -0.02em;
     }
 
     .km-stat-label {
@@ -247,7 +325,8 @@
     }
 
     .km-stat-value-large {
-        @apply text-3xl md:text-4xl font-light mb-2 text-km-highlight;
+        @apply font-display text-3xl md:text-4xl font-bold mb-2 text-km-primary;
+        letter-spacing: -0.03em;
     }
 
     .km-stat-label-large {
@@ -256,45 +335,55 @@
 
     /* Status Badge Patterns */
     .km-badge-complete {
-        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-green;
+        @apply font-display px-3.5 py-1.5 rounded-full text-xs font-semibold text-km-ink bg-km-mint;
     }
 
     .km-badge-planning {
-        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-gray;
+        @apply font-display px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-km-gray;
     }
 
     .km-badge-in-progress {
-        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-primary;
+        @apply font-display px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-km-blue;
     }
 
     .km-badge-upcoming {
-        @apply px-3 py-1 rounded-full text-xs font-medium text-white bg-km-magenta;
+        @apply font-display px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-km-primary;
     }
 
     .km-badge-coming-soon {
-        @apply text-sm px-3 py-1 rounded-full bg-km-highlight text-km-primary;
+        @apply font-display text-xs px-3.5 py-1.5 rounded-full bg-km-page text-km-secondary border border-km;
     }
 
     /* Article/Card Patterns */
     .km-article-card {
-        @apply border rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 border-km;
+        @apply bg-km-subtle border border-km rounded-3xl p-8 transition-all duration-500 ease-km;
+        box-shadow: var(--km-shadow-card);
+    }
+
+    .km-article-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--km-shadow-card-hover);
     }
 
     .km-article-card-disabled {
-        @apply border rounded-lg p-8 opacity-60 border-km;
+        @apply bg-km-subtle border border-km rounded-3xl p-8 opacity-60;
     }
 
     /* Content Boxes */
     .km-quote-box {
-        @apply p-4 border-l-4 my-8 border-km-accent bg-km-accent;
+        @apply p-6 border-l-4 my-8 rounded-r-2xl border-km-accent bg-km-accent;
+    }
+
+    .km-highlight-box {
+        @apply p-6 my-8 rounded-3xl border border-km bg-km-highlight;
     }
 
     .km-weather-box {
-        @apply p-4 rounded-lg border border-km bg-km-highlight;
+        @apply p-6 rounded-3xl border border-km bg-km-highlight;
     }
 
     .km-mood-box {
-        @apply mb-12 p-6 rounded-lg border border-km bg-km-subtle text-center;
+        @apply mb-12 p-6 rounded-3xl border border-km bg-km-subtle text-center;
     }
 
     /* Image Gallery Patterns */
@@ -343,11 +432,11 @@
     }
 
     .km-image-mixed-landscape {
-        @apply w-full aspect-[16/9] object-cover rounded-lg hover:opacity-90 transition-opacity col-span-2;
+        @apply w-full aspect-[16/9] object-cover rounded-2xl hover:opacity-90 transition-opacity col-span-2;
     }
 
     .km-image-mixed-portrait {
-        @apply w-full aspect-[3/4] object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-[3/4] object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     @media (min-width: 768px) {
@@ -363,41 +452,42 @@
     }
 
     .km-image {
-        @apply w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-square object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     .km-image-portrait {
-        @apply w-full aspect-[3/4] object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-[3/4] object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     .km-image-square {
-        @apply w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-square object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     .km-image-landscape {
-        @apply w-full aspect-[4/3] object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-[4/3] object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     /* Specific aspect ratio classes for precise control */
     .km-image-1x1 {
-        @apply w-full aspect-square object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-square object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     .km-image-3x4 {
-        @apply w-full aspect-[3/4] object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-[3/4] object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     .km-image-4x3 {
-        @apply w-full aspect-[4/3] object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-[4/3] object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     .km-image-16x9 {
-        @apply w-full aspect-[16/9] object-cover rounded-lg hover:opacity-90 transition-opacity;
+        @apply w-full aspect-[16/9] object-cover rounded-2xl hover:opacity-90 transition-opacity;
     }
 
     /* Trip Card Components */
     .km-trip-overview-stats {
-        @apply mb-12 p-8 rounded-lg border border-km bg-km-subtle text-center;
+        @apply mb-12 p-8 rounded-3xl border border-km bg-km-subtle text-center;
+        box-shadow: var(--km-shadow-card);
     }
 
     .km-trip-overview-grid {
@@ -405,7 +495,13 @@
     }
 
     .km-day-card {
-        @apply border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 border-km;
+        @apply bg-km-subtle border border-km rounded-3xl p-6 transition-all duration-500 ease-km;
+        box-shadow: var(--km-shadow-card);
+    }
+
+    .km-day-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--km-shadow-card-hover);
     }
 
     .km-day-card-header {
@@ -422,11 +518,14 @@
     }
 
     .km-content-box-title {
-        @apply text-sm font-medium text-km-primary;
+        @apply font-display text-[13px] font-semibold uppercase text-km-accent;
+        letter-spacing: 0.12em;
     }
 
     .km-content-quote {
-        @apply italic leading-relaxed text-km-primary;
+        @apply italic text-km-primary;
+        font-size: 17px;
+        line-height: 1.7;
     }
 
     .km-content-mood {
@@ -434,7 +533,9 @@
     }
 
     .km-content-highlight {
-        @apply leading-relaxed text-km-primary;
+        @apply text-km-dark;
+        font-size: 17px;
+        line-height: 1.7;
     }
 
     /* Weather Box Styles */
@@ -443,7 +544,8 @@
     }
 
     .km-weather-title {
-        @apply text-sm font-medium text-km-primary;
+        @apply font-display text-[13px] font-semibold uppercase text-km-accent;
+        letter-spacing: 0.12em;
     }
 
     .km-weather-description {
@@ -452,14 +554,14 @@
 
     /* Footer Styles */
     .km-footer {
-        @apply container mx-auto px-4 py-4 max-w-4xl text-center;
+        @apply bg-km-ink text-white;
     }
 
     .km-footer-content {
-        @apply text-center;
+        @apply container mx-auto max-w-6xl px-4 py-12 text-center;
     }
 
     .km-build-info {
-        @apply text-sm text-km-secondary;
+        @apply text-xs text-white/60;
     }
 }

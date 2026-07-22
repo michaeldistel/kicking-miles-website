@@ -32,7 +32,7 @@
       <div class="km-date-label mb-2">
         {adventure.dateRange}
       </div>
-      <h3 class="text-3xl font-light mb-3 text-km-primary">
+      <h2 class="font-display text-3xl font-bold tracking-[-0.02em] mb-3 text-km-primary">
         {#if isClickable}
           <a href={adventure.url} class="hover:underline">
             {adventure.title}
@@ -40,7 +40,7 @@
         {:else}
           {adventure.title}
         {/if}
-      </h3>
+      </h2>
       <div class="km-subtitle">
         {adventure.subtitle}
       </div>

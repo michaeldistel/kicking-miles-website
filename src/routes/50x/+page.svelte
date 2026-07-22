@@ -26,7 +26,7 @@
         Back to base camp
       </a>
             <p class="text-sm text-km-secondary mb-4">
-        Kicking Miles: 1,800 kilometres, 35 cities, 40 days
+        Kicking Miles: 1,842 kilometres, 35 cities, 41 days
       </p>
     </div>
   </div>

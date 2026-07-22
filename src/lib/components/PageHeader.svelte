@@ -5,7 +5,10 @@
   export let alignment: 'center' | 'left' = 'center';
   export let size: 'normal' | 'large' = 'normal';
   
-  $: titleClass = size === 'large' ? 'km-page-title' : 'text-3xl md:text-4xl font-light mb-4 text-km-primary';
+  $: titleClass =
+    size === 'large'
+      ? 'km-page-title'
+      : 'font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] mb-4 text-km-primary';
   $: containerClass = `mb-12 ${alignment === 'center' ? 'text-center' : 'text-left'}`;
   $: dividerClass = alignment === 'center' ? 'divider-km-wide mx-auto mb-6' : 'divider-km-wide mb-6';
   $: descriptionClass = alignment === 'center' 

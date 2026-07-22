@@ -31,14 +31,14 @@
       status: 'complete'
     },
     {
-      title: 'Japan: Fukuoka to Tokyo',
+      title: 'Japan: Fukuoka to Hakodate',
       url: '/trips/japan-2017',
       dateRange: 'March - May 2017',
       subtitle: 'The original adventure that started it all',
-      description: 'Two friends, kick scooters, and the length of Japan. 40 days of rain, hail, convenience store meals, and the kindness of strangers.',
+      description: 'Four friends, kick scooters, and the length of Japan. 41 days of rain, hail, convenience store meals, and the kindness of strangers.',
       stats: {
-        distance: '1,800km',
-        duration: '40 days',
+        distance: '1,842km',
+        duration: '41 days',
         cities: '35 cities'
       },
       status: 'complete'
