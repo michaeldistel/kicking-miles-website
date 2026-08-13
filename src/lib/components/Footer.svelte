@@ -35,7 +35,16 @@
         <img src="/kickingmiles-logo-200.webp" alt="" class="w-7 h-7 object-contain" />
         <span class="font-display font-semibold text-white">Kicking Miles</span>
       </a>
-      <div>&copy; {new Date().getFullYear()} Kicking Miles - Japan / Korea / beyond.</div>
+      <div>
+        &copy; {new Date().getFullYear()} Kicking Miles - Japan / Korea / beyond. A journey by
+        <a
+          href="https://michaeldistel.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white/70 underline underline-offset-2 hover:text-white transition-colors"
+          >Michael Distel</a
+        >.
+      </div>
       <div class="km-build-info">Build: {BUILD_COMMIT}</div>
     </div>
   </div>
